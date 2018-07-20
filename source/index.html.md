@@ -1,15 +1,14 @@
 ---
-title: API Reference
+title: Accellion API Guide
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
-  - javascript
+  - c#
+  - java
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://info.accellion.com/demo-request'>GET A DEMO</a>
 
 includes:
   - errors
@@ -20,7 +19,7 @@ search: true
 
 # Introduction
 
-Welcome to the Accellion API! You can use our API to access Puppy API endpoints, which can get information on various cats, puppies, and breeds in our database.
+Welcome to Accellion's API Guide.
 
 We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 

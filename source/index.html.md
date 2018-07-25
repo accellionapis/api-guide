@@ -8,7 +8,12 @@ toc_footers:
   - <a href='https://info.accellion.com/demo-request'>GET A DEMO</a>
 
 includes:
+  - introduction
+  - setup
+  - authentication
+  - commonactions
   - versions
+  - changelog
 
 search: true
 ---

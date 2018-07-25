@@ -8,7 +8,6 @@ toc_footers:
   - <a href='https://info.accellion.com/demo-request'>GET A DEMO</a>
 
 includes:
-  - errors
   - versions
 
 search: true

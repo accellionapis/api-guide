@@ -11,5 +11,3 @@ API Version | Server Version | Released
 8.1 | kw2017.02.10 | January 2018
 8.0 | kw2017.02.00 | October 2017
 7.1 | kw2017.01.12 | July 2017
-
-# Changelog

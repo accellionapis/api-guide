@@ -1,2 +1,7 @@
 # Setup
-This section will describe how to get a demo system, how to enable playground and how to start using it
+This section describes how to get a demo system, how to enable the playground and how to start using the APIs.
+## Prerequisites
+The audience of this guide should be experienced developers on their particular platform and it is assumed that:
+  - They understand the basics of OAuth
+  - They understand the format, structure, and common paradigm of JSON
+  - They can formulate web requests for common methods, e.g., GET, POST, PUT, and DELETE They have a working knowledge of multipart MIME requests

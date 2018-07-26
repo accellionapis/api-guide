@@ -1,5 +1,5 @@
 # Setup
-This section describes how to get a demo system, how to enable the playground and how to start using the APIs.
+This section lists the prerequisites, describes how to get a demo system, how to enable the playground and how to start using the APIs.
 ## Prerequisites
 The audience of this guide should be experienced developers on their particular platform and it is assumed that:
   - They understand the basics of OAuth

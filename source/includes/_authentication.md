@@ -4,6 +4,7 @@ This section describes how to authenticate and get tokens to start making API ca
 1. Sign in to kiteworks.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Once you have your instance of kiteworks up and running, sign in to the kiteworks admin interface with your user credentials. The admin interface can be accessed from the hostname of your kiteworks server /admin.
+
 2. Create your custom application to obtain the identifying information: the Client ID and Secret Key.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On the kiteworks Administrator’s Dashboard, go to **Application** > **Client Management** > **Custom Applications** and add your custom application.
@@ -21,5 +22,3 @@ The kiteworks APIs are used by the custom applications to access user resources 
 **The API URI** – All APIs can be called using the following URI scheme: https://<hostname>/rest/<resources>
 
 **API Output** – The API result is returned in JSON format.
-
-

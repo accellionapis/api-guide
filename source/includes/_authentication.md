@@ -9,10 +9,6 @@ Step 2. Create your custom application to obtain the identifying information: th
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On the kiteworks Administrator’s Dashboard, go to **Application** > **Client Management** > **Custom Applications** and add your custom application.
 
-![alt text][image]
-
-[image]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/custom_application.png
-
 Step 3. Add your Custom Application. You will be given the Client Application ID and Client Secret Key for your application.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **IMPORTANT:** You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.
@@ -24,5 +20,5 @@ The kiteworks APIs are used by the custom applications to access user resources 
 **API Usage** – The APIs follow the REST architectural style and use the scheme of addressing a resource and invoking a method on that resource.
 
 **The API URI** – All APIs can be called using the following URI scheme: https://<hostname>/rest/<resources>
-
+  
 **API Output** – The API result is returned in JSON format.

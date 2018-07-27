@@ -12,7 +12,15 @@ Step 2. Create your custom application to obtain the identifying information: th
 
 
 
-![](https://github.com/accellionapis/api-guide/blob/acctest/source/images/custom_application.png) 
+
+
+
+
+
+
+
+
+![](https://github.com/accellionapis/api-guide/blob/acctest/source/images/customapp.png)
 
 
 

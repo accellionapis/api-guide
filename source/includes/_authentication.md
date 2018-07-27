@@ -9,27 +9,7 @@ Step 2. Create your custom application to obtain the identifying information: th
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On the kiteworks Administrator’s Dashboard, go to **Application** > **Client Management** > **Custom Applications** and add your custom application.
 
-
-
-
-
-
-
-
-
-
-
-
-![][image]
-
-[image]: https://github.com/accellionapis/api-guide/blob/acctest/source/images/customapp.png
-
-
-
-
-
-
-
+![](../images/customapp.png)
 
 Step 3. Add your Custom Application. You will be given the Client Application ID and Client Secret Key for your application.
 

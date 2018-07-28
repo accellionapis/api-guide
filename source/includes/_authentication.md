@@ -308,7 +308,9 @@ Here is a sample method in Java to calculate the signature:
 
 <br><br>
 
+<br><br>
 
+<br><br>
 
 Finally, the authorization code can be constructed as follows:
 
@@ -323,23 +325,57 @@ Here is a sample method in Java for calculating the authorization code:
 Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Base 64 encoder
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BASE64Encoder encoder = new BASE64Encoder();
 
+<br><br>
+
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the client id and takes off the last character, as the encoder adds a new line character at the end
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);
 
+<br><br>
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the user id
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String encodeUserId = encoder.encodrBuffer(userId.getBytes());
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
 
+<br><br>
+
+<br><br>
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Construct auth code
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
 
 > return authcode;
+
 > }
 
  
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
 <br><br>
 
 <br><br>

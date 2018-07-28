@@ -80,11 +80,8 @@ This document provides a step-by-step guide for application developers to build 
 For obtaining an access token using the kiteworks Authorization Code Flow, you need the client registration information recorded in the previous steps:
 
 *	**client_id** – This is a unique system generated id of your client.
-
 *	**client_secret** – This secret serves as a password for your client to authenticate itself to the kiteworks server.
-
 *	**redirect URI** – This is the URI on which your client must listen for the authorization result. For mobile clients or for clients that cannot be redirected to another service, the landing page https://<kiteworks_server>/oauth_callback.php can be used.
-
 *	 **scope** – This is the set of API services that your client wants to access. Consult with your administrator regarding which scopes are available for your client.
 
 ### Sequence Overview
@@ -105,8 +102,7 @@ Step 5.	The server validates the client credentials and the authorization code a
 
 The request-response of this flow follows the specification of OAuth 2.0 protocol (http://tools.ietf.org/html/rfc6749#section-4.1). All requests for authorization and for calling service must be done through HTTPS. The URI end-points of this flow are as follows:
 
-*	Authorization end-point: https://<hostname>/oauth/authorize
-  
+*	Authorization end-point: https://<hostname>/oauth/authorize  
 *	Token end-point: https://<hostname>/oauth/token
   
 All request parameters, unless otherwise specified, must be passed through HTTP POST parameters. The response body will be in JSON format. The following information describes this in more detail.
@@ -116,15 +112,10 @@ All request parameters, unless otherwise specified, must be passed through HTTP 
 The first step is to call the Authorization end-point with the request parameters passed via HTTP GET. Depending on the case, the user may be prompted with a dialog to authenticate and then to authorize the request for access permission by the client application. The following parameters must be passed in the request to the Authorize URI (this follows the OAuth 2 specification).
 
 *	**client_id** – is the identifier of the client-application as registered in the server. For example ‘playground’.
-
 *	**redirect_uri** – is the URI to which the result of the authorization will be passed. This redirect URI must start with the URI specified at the time of the creation/registration of the client application. For example, if the client application had registered with the redirect URI of https://mydomain.com/oauth then the client application may provide https://mydomain.com/oauth/callback as redirect_uri parameter in this request. Note, that this parameter must be properly URL-encoded.
-
 *	**response_type** – the value of this parameter must be set to “code”.
-
 *	**scope** – is the scope of the API services that the client wants to access. This is a space-separated string consisting of the name of the method and API services that the application requires. For example: “GET/users/  /files/”. The requested scope must be a sub-set of the client application's registered scope in the server. If a blank scope is provided, the registered scope will be assumed.
-
 *	**m** (optional parameter) – set to 1 to display mobile friendly authorization page.
-
 *	**state** (optional parameter) – is an optional parameter that the client application may pass in order to maintain the state of its process. The server will pass back this parameter as-is in the response. 
 
 Code Example on the right:
@@ -161,13 +152,9 @@ If an error occurs (such as invalid consumer id, or invalid redirect URI), an er
 •	error – is the error code. The following are the possible values of the error code:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**access_denied:** The user denied the permission request.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_scope:** The requested scope is invalid.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request:** The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client:** The client-application is not authorized to use this flow.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**state** – is set to the exact
 
 Code Example on the right:
@@ -186,17 +173,11 @@ Code Example on the right:
 The authorization code obtained in the first step can be exchanged for the final access token by making a request to the access token end-point. The following parameters must be passed to the token end-point as POST parameters:
 
 *	**client_id** – is the ID of the client as registered in the server. E.g. ‘playground’.
-
 *	**client_secret** – is the client’s secret phrase as registered in the server.
-
 *	**grant_type** – its value must be set to authorization_code.
-
 *	**redirect_uri** – is exactly the same redirect URI as used in the first step.
-
 *	**code** – is the authorization code obtained in the first step.
-
 *	**install_tag_id** (optional parameter) – is a string to uniquely identify the device from which the API call has initiated.
-
 *	**install_name** (optional parameter) – is the friendly name of the device from which the API call has initiated.
 
 
@@ -224,13 +205,9 @@ Code Example on the right: (Note that line breaks on the message content are use
 If the credentials of the client and the authorization code are valid and there is no other error, the server will return a HTTP response 200 OK. The body of the response is in JSON format with the following information:
 
 *	**access_token** – is the token that can be used to request an API service.
-
 *	**expires_in** – is the number in seconds after which the access token would expire.
-
 *	**token_type** – is set to “bearer”.
-
 *	**scope** – is the scope for which this token is valid, normally it will be the same as the requested scope.
-
 *	**refresh_token** – is the refresh token that can be used to get a new access token without going through Step 1 Authorization Request. This refresh token will be provided only if the client is allowed to use refresh tokens as specified during client registration.
 
 Code Example on the right:
@@ -261,11 +238,8 @@ If the credentials of the client or the authorization code is invalid or there i
 *	**error** – is the error code. The following are the possible values:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_client** – Client authentication failed. The client ID and/or secret key provided is invalid.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_grant** – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request** – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client** – The client is not authorized to use this flow. 
 
 
@@ -278,13 +252,9 @@ Using the OAuth signature flow, an application that is deemed trusted by the kit
 The following parameters are required to calculate the authorization code:
 
 *	**client_id:** This is the client application’s ID, which is registered in the server and was given when the client application was created in the admin UI.
-
 *	**client_signature_key:** This is the client application’s signature key. This is also registered in the server and was given when the client application was created.
-
 *	**user_id:** This is the user’s id (either the email address or the integer id associated with the user). This is required for the client application to access the appropriate resources.
-
 *	**timestamp:** This is the timestamp at the time (in UTC) that this signature is generated. The signature code will only remain valid within an hour of creation.
-
 *	**nonce:** A random integer between 1 and 999999.
 
 Using these parameters, the authorization flow can be calculated. First, a base string should be calculated using the following format:
@@ -292,10 +262,6 @@ Using these parameters, the authorization flow can be calculated. First, a base 
 `
 base_string = client_id|@@|user_id|@@|timestamp|@@|nonce
 `
-
-<br><br>
-
-<br><br>
 
 Here is a sample snippet of Java code to calculate the base string:
 
@@ -306,13 +272,11 @@ Here is a sample snippet of Java code to calculate the base string:
 
 <br><br>
 
-<br><br>
-
 From there, the signature of the base string can be calculated, using the HMAC SHA1 method, and using the client application’s signature key as the HMAC’s key:
 
-```
+`
 signature = HMAC_SHA1(base_string, client_signature_key)
-```
+`
  
 <br><br><br><br><br>
 
@@ -329,15 +293,22 @@ return signature;
 ]
 
  
-<br><br><br><br><br>
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
 
 
 Finally, the authorization code can be constructed as follows:
 
-```
+`
 auth_code =
 base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature
-```
+`
 
 Here is a sample method in Java for calculating the authorization code:
 
@@ -345,41 +316,50 @@ Here is a sample method in Java for calculating the authorization code:
 Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Base 64 encoder
-BASE64Encoder encoder = new BASE64Encoder();
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BASE64Encoder encoder = new BASE64Encoder();
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the client id and takes off the last character, as the encoder adds a new line character at the end
-String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
-encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the user id
-String encodeUserId = encoder.encodrBuffer(userId.getBytes());
-encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String encodeUserId = encoder.encodrBuffer(userId.getBytes());
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Construct auth code
-String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
 
 > return authcode;
-}
+> }
 
+ 
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
 
 ### Access Token Request
 
 Make a POST request to the token endpoint with the following parameters:
 
 *	**client_id:** This is the client application’s ID, which is registered in the server and was given when the client application was created in the admin UI.
-
 *	**client_secret:** This is the client application’s secret phrase, which is registered in the server and was given when the client application was created in the admin UI.
-
 *	**grant_type:** This should be set the string “authorization code” for the token request to work.
-
 *	**scope:** This is the scope of the API services that the client application wants to access. This should be a space­separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
-
 *	**redirect_url:** This is exactly the same redirect URI as registered with the server.
-
 *	**code:** This is the authorization code calculated in step one.
-
 *	**install_tag_id** (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
-
 *	**install_name** (optional parameter): This is the friendly name of the device from which the API call has initiated.
 
 Here is an example of the POST request:
@@ -412,11 +392,12 @@ Here is an example of the POST request:
 <br><br>
 
 <br><br>
-Here is a sample method in Java to construct the string of parameters to be sent in the request:
-> //Assembles all of the elements necessary to be passed through the web requested
 
-> //to be authenticated successfully
-private String getParams(String clientId, String clientSecret, String scope, String redirectUri, StringauthCode) {
+
+Here is a sample method in Java to construct the string of parameters to be sent in the request:
+> //Assembles all of the elements necessary to be passed through the web requested to be authenticated successfully
+
+> private String getParams(String clientId, String clientSecret, String scope, String redirectUri, StringauthCode) {
 
 > String params = "client_id=" + clientId + "&";
 
@@ -431,8 +412,25 @@ private String getParams(String clientId, String clientSecret, String scope, Str
 > params = params + "code=" + URLEncoder.encode(authCode);
 
 > return params;
-}
+
+> }
  
+ 
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+
 Once these two steps are complete, if there are no errors for the POST request, the server will return a HTTP response 200 OK. The body for the response will be in JSON format and will include the following:
 
 *	**access_token:** This is the token that will be used for all requests to the API.

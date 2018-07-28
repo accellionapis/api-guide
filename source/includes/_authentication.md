@@ -126,3 +126,10 @@ The first step is to call the Authorization end-point with the request parameter
 *	**m** (optional parameter) – set to 1 to display mobile friendly authorization page.
 
 *	**state** (optional parameter) – is an optional parameter that the client application may pass in order to maintain the state of its process. The server will pass back this parameter as-is in the response. 
+
+Example:
+(Note that line break is used only for clarity)
+
+> GET https://kiteworks_server/oauth/authorize?
+
+> client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1 

@@ -3,7 +3,7 @@ This section describes how to authenticate and get tokens to start making API ca
 
 Step 1. Sign in to kiteworks.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Once you have your instance of kiteworks up and running, sign in to the kiteworks admin interface with your user credentials. The admin interface can be accessed from the hostname of your kiteworks server /admin.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Once you have your instance of kiteworks up and running, sign in to the kiteworks admin interface with your user credentials. The admin interface can be accessed from the hostname of your kiteworks server/admin.
 
 Step 2. Create your custom application to obtain the identifying information: the Client ID and Secret Key.
 
@@ -12,6 +12,16 @@ Step 2. Create your custom application to obtain the identifying information: th
 ![](../images/customapp.png)
 
 ![](../images/addcustomapp.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Specify a Custom Application Name. This name will be used by the Administrator for the Client Application Management and Reporting and in the Consent Form to authorize new users.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select the authentication flow that your application will use to obtain an access token. Authorization Code- Standard OAuth 2.0 authorization-code consists of authorization, consent and the code redemption process.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Under Flows select **Authorization Code**.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Specify the **Redirect URI** using this format https://%%HOST%%/rest/callback.html
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Choose your **Access Token Lifetime**.
 
 Step 3. Add your Custom Application. You will be given the Client Application ID and Client Secret Key for your application.
 

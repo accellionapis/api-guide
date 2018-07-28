@@ -203,14 +203,17 @@ The authorization code obtained in the first step can be exchanged for the final
 Code Example on the right: (Note that line breaks on the message content are used only for clarity)
 
 > POST /oauth/token HTTP/1.1
-
 > Host: kiteworks_server
-
 > Content-type: application/x-www-form-urlencoded
+
+> client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad 
 
 <br><br>
 
-> client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad 
+<br><br>
+
+<br><br>
+
 
 **Successful Response**
 
@@ -229,12 +232,19 @@ If the credentials of the client and the authorization code are valid and there 
 Code Example on the right:
 
 > HTTP/1.1 200 OK
-
 > Cache-Control: no-store
-
 > Content-Type: application/json
 
 > {"access_token":"d932e1d32d89140163345d47fa97bfa60eeba1a5","expires_in":"360000","token_type":"bearer", "scope":"GET\/users\/* *\/files\/*","refresh_token":"d7ce54d721e8das60943f3fc7cb159e4b11d0ee5"}
+
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
 
 This access token can then be used to access user's resources through API services. 
 

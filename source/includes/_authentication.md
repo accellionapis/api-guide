@@ -203,9 +203,9 @@ The authorization code obtained in the first step can be exchanged for the final
 Code Example on the right: (Note that line breaks on the message content are used only for clarity)
 
 > POST /oauth/token HTTP/1.1
-
+<nobr>
 > Host: kiteworks_server
-
+<nobr>
 > Content-type: application/x-www-form-urlencoded
 
 > client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad 

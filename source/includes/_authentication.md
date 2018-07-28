@@ -111,7 +111,7 @@ The request-response of this flow follows the specification of OAuth 2.0 protoco
   
 All request parameters, unless otherwise specified, must be passed through HTTP POST parameters. The response body will be in JSON format. The following information describes this in more detail.
 
-#### Step 1 Authorization Request
+### Step 1 Authorization Request
 
 The first step is to call the Authorization end-point with the request parameters passed via HTTP GET. Depending on the case, the user may be prompted with a dialog to authenticate and then to authorize the request for access permission by the client application. The following parameters must be passed in the request to the Authorize URI (this follows the OAuth 2 specification).
 
@@ -176,3 +176,78 @@ Code Example on the right:
 
 > Location: https:// kiteworks_server/oauth_callback.php?error=access_denied 
 
+<br><br>
+
+<br><br>
+
+
+### Step 2 - Access Token Request
+
+The authorization code obtained in the first step can be exchanged for the final access token by making a request to the access token end-point. The following parameters must be passed to the token end-point as POST parameters:
+
+*	**client_id** – is the ID of the client as registered in the server. E.g. ‘playground’.
+
+*	**client_secret** – is the client’s secret phrase as registered in the server.
+
+*	**grant_type** – its value must be set to authorization_code.
+
+*	**redirect_uri** – is exactly the same redirect URI as used in the first step.
+
+*	**code** – is the authorization code obtained in the first step.
+
+*	**install_tag_id** (optional parameter) – is a string to uniquely identify the device from which the API call has initiated.
+
+*	**install_name** (optional parameter) – is the friendly name of the device from which the API call has initiated.
+
+
+Code Example on the right: (Note that line breaks on the message content are used only for clarity)
+
+> POST /oauth/token HTTP/1.1
+
+> Host: kiteworks_server
+
+> Content-type: application/x-www-form-urlencoded
+
+<br><br>
+
+> client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad 
+
+**Successful Response**
+
+If the credentials of the client and the authorization code are valid and there is no other error, the server will return a HTTP response 200 OK. The body of the response is in JSON format with the following information:
+
+*	**access_token** – is the token that can be used to request an API service.
+
+*	**expires_in** – is the number in seconds after which the access token would expire.
+
+*	**token_type** – is set to “bearer”.
+
+*	**scope** – is the scope for which this token is valid, normally it will be the same as the requested scope.
+
+*	**refresh_token** – is the refresh token that can be used to get a new access token without going through Step 1 Authorization Request. This refresh token will be provided only if the client is allowed to use refresh tokens as specified during client registration.
+
+Code Example on the right:
+
+> HTTP/1.1 200 OK
+
+> Cache-Control: no-store
+
+> Content-Type: application/json
+
+> {"access_token":"d932e1d32d89140163345d47fa97bfa60eeba1a5","expires_in":"360000","token_type":"bearer", "scope":"GET\/users\/* *\/files\/*","refresh_token":"d7ce54d721e8das60943f3fc7cb159e4b11d0ee5"}
+
+This access token can then be used to access user's resources through API services. 
+
+**Error Response**
+
+If the credentials of the client or the authorization code is invalid or there is some other error, the server will respond with HTTP 400 Bad Request. The body of the response will contain the following error information in JSON format:
+
+*	**error** – is the error code. The following are the possible values:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_client** – Client authentication failed. The client ID and/or secret key provided is invalid.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_grant** – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request** – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client** – The client is not authorized to use this flow. 

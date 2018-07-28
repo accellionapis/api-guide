@@ -134,6 +134,10 @@ Code Example on the right:
 
 > client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1 
 
+<br><br>
+
+<br><br>
+
 
 **Successful Response**
 
@@ -144,6 +148,11 @@ Code Example on the right:
 > HTTP/1.1 302 Found 
 
 > Location: https://kiteworks_server/oauth_callback.php?code=60cc146c8dced75e26e 
+
+<br><br>
+
+<br><br>
+
 
 **Error Response**
 

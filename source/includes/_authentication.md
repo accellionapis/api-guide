@@ -292,14 +292,31 @@ Here is a sample method in Java to calculate the signature:
 > Private String getSignature(String clientSignatureKey, StringbaseString) throws Exception{
 
 > Mac hmacsha1 = Mac.getinstance(“HmacSHA1”);
+
 > SecretKeySpec signinKey = new SecretKeySpec(clientSignatureKey.getBytes(), “HmacSHA1”);
+
 > Hmacsha1.init(signingKey);
+
 > Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
+
 > String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
+
 > return signature;
+
 > ]
 
  
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
 <br><br>
 
 <br><br>
@@ -322,7 +339,14 @@ base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|sign
 Here is a sample method in Java for calculating the authorization code:
 
 > //Used by the authentication method. Gets an auth code based on parameters.
-Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
+
+> Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
+
+<br><br>
+
+<br><br>
+
+<br><br>
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Base 64 encoder
 
@@ -330,6 +354,9 @@ Private String getAuthCode (String clientId, String userId, String timestamp, St
 
 <br><br>
 
+<br><br>
+
+<br><br>
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the client id and takes off the last character, as the encoder adds a new line character at the end
 
@@ -339,11 +366,18 @@ Private String getAuthCode (String clientId, String userId, String timestamp, St
 
 <br><br>
 
+<br><br>
+
+<br><br>
+
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the user id
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String encodeUserId = encoder.encodrBuffer(userId.getBytes());
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
+
+<br><br>
 
 <br><br>
 
@@ -459,6 +493,12 @@ Here is a sample method in Java to construct the string of parameters to be sent
 > }
  
  
+<br><br>
+
+<br><br>
+
+<br><br>
+
 <br><br>
 
 <br><br>

@@ -317,11 +317,6 @@ Here is a sample method in Java to calculate the signature:
 <br><br>
 
 <br><br>
-<br><br>
-
-<br><br>
-
-<br><br>
 
 <br><br>
 
@@ -370,6 +365,8 @@ Here is a sample method in Java for calculating the authorization code:
 
 <br><br>
 
+<br><br>
+
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //encodes the user id
 
@@ -383,6 +380,10 @@ Here is a sample method in Java for calculating the authorization code:
 
 <br><br>
 
+<br><br>
+
+
+
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //Construct auth code
 
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
@@ -392,14 +393,6 @@ Here is a sample method in Java for calculating the authorization code:
 > }
 
  
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
 <br><br>
 
 <br><br>

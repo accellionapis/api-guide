@@ -11,6 +11,11 @@ includes:
   - introduction
   - setup
   - authentication
+  3. [Third Example](#third-example)
+  4. [Fourth Example](#fourth-example)
+  
+  ## Third Example
+  ## Fourth Example
   - commonactions
   - versions
   - changelog

@@ -127,9 +127,43 @@ The first step is to call the Authorization end-point with the request parameter
 
 *	**state** (optional parameter) – is an optional parameter that the client application may pass in order to maintain the state of its process. The server will pass back this parameter as-is in the response. 
 
-Example:
+Code Example on the right:
 (Note that line break is used only for clarity)
 
 > GET https://kiteworks_server/oauth/authorize?
 
 > client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1 
+
+
+**Successful Response**
+
+After the server finishes the authorization and authentication procedure with the user, the server will redirect the user (via HTTP 302) to the redirect_uri provided in the Authorize call. Two parameters will be passed through this redirection URI: code and state. The code parameter is the authorization code that can be used to obtain the access token in the second step.
+
+Code Example on the right:
+
+> HTTP/1.1 302 Found 
+
+> Location: https://kiteworks_server/oauth_callback.php?code=60cc146c8dced75e26e 
+
+**Error Response**
+
+If an error occurs (such as invalid consumer id, or invalid redirect URI), an error message will be displayed immediately within the user’s browser. For other errors (such as invalid scope or denied access by the user) the server will redirect the user (via HTTP302) to the redirect_URI. The parameters are:
+
+•	error – is the error code. The following are the possible values of the error code:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**access_denied:** The user denied the permission request.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_scope:** The requested scope is invalid.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request:** The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client:** The client-application is not authorized to use this flow.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**state** – is set to the exact
+
+Code Example on the right:
+
+> HTTP/1.1 302 Found 
+
+> Location: https:// kiteworks_server/oauth_callback.php?error=access_denied 
+

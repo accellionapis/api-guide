@@ -401,10 +401,6 @@ Here is a sample method in Java for calculating the authorization code:
 
 <br><br>
 
-<br><br>
-
-<br><br>
-
 ### Access Token Request
 
 Make a POST request to the token endpoint with the following parameters:

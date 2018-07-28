@@ -52,12 +52,19 @@ Step 2: Select the **Get a Token** button in the upper right corner of developer
 ![](../images/gettoken.png)
 
 You can request a token from the following grant types:
+
 *	Authorization Code
+
 *	Signature-based Authorization Code
+
 *	Signature-based Access
+
 *	User Credential 
+
 *	User Credential (using HTTP Basic Authorization)
+
 *	SAML 2.0 Assertion
+
 *	JWT Assertion
 
 

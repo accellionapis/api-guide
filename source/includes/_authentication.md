@@ -36,3 +36,28 @@ The kiteworks APIs are used by the custom applications to access user resources 
 **The API URI** – All APIs can be called using the following URI scheme: https://<hostname>/rest/<resources>
   
 **API Output** – The API result is returned in JSON format.
+
+## Getting a Token
+
+Perform the following steps to get a token:
+
+Step 1: Click on the Help **?** icon and select **Developer Documentation** from the dropdown menu.
+
+![](../images/devdoc.png)
+
+Step 2: Select the **Get a Token** button in the upper right corner of developer documentation page. An example of the token is shown in the upper right field on the Developer Documentation page below. This token is used for all requests sent out from this documentation page.
+
+**NOTE:** Several of the “grant types” shown in the screenshot below are only usable in the API playground and will not display. Only Authorization Code, Signature-Based Authorization Code, and SAML 2.0 Assertion will display.
+
+![](../images/gettoken.png)
+
+You can request a token from the following grant types:
+*	Authorization Code
+*	Signature-based Authorization Code
+*	Signature-based Access
+*	User Credential 
+*	User Credential (using HTTP Basic Authorization)
+*	SAML 2.0 Assertion
+*	JWT Assertion
+
+

@@ -293,10 +293,20 @@ Using these parameters, the authorization flow can be calculated. First, a base 
 base_string = client_id|@@|user_id|@@|timestamp|@@|nonce
 ```
 
+<br><br>
+
+<br><br>
+
 Here is a sample snippet of Java code to calculate the base string:
 
 > //Constructs the base string using elements outlined in the documentation
 > String baseString + clientId + “|@@}” + userId + “|@@|” + Long.toString(timestamp) + “|@@|” + Integer.toString(nonce);
+
+<br><br>
+
+<br><br>
+
+<br><br>
 
 From there, the signature of the base string can be calculated, using the HMAC SHA1 method, and using the client application’s signature key as the HMAC’s key:
 
@@ -304,6 +314,8 @@ From there, the signature of the base string can be calculated, using the HMAC S
 signature = HMAC_SHA1(base_string, client_signature_key)
 ```
  
+<br><br><br><br><br>
+
 Here is a sample method in Java to calculate the signature:
 
 > //Used by the authentication method. Gets a signature based on a key and a base string 
@@ -315,6 +327,9 @@ Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
 String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
 return signature;
 ]
+
+ 
+<br><br><br><br><br>
 
 
 Finally, the authorization code can be constructed as follows:

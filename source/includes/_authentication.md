@@ -152,9 +152,13 @@ If an error occurs (such as invalid consumer id, or invalid redirect URI), an er
 •	error – is the error code. The following are the possible values of the error code:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**access_denied:** The user denied the permission request.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_scope:** The requested scope is invalid.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request:** The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client:** The client-application is not authorized to use this flow.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**state** – is set to the exact
 
 Code Example on the right:
@@ -238,8 +242,11 @@ If the credentials of the client or the authorization code is invalid or there i
 *	**error** – is the error code. The following are the possible values:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_client** – Client authentication failed. The client ID and/or secret key provided is invalid.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_grant** – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**invalid_request** – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o	**unauthorized_client** – The client is not authorized to use this flow. 
 
 
@@ -277,20 +284,20 @@ From there, the signature of the base string can be calculated, using the HMAC S
 `
 signature = HMAC_SHA1(base_string, client_signature_key)
 `
- 
-<br><br><br><br><br>
 
 Here is a sample method in Java to calculate the signature:
 
-> //Used by the authentication method. Gets a signature based on a key and a base string 
+> //Used by the authentication method. Gets a signature based on a key and a base string
+
 > Private String getSignature(String clientSignatureKey, StringbaseString) throws Exception{
-Mac hmacsha1 = Mac.getinstance(“HmacSHA1”);
-SecretKeySpec signinKey = new SecretKeySpec(clientSignatureKey.getBytes(), “HmacSHA1”);
-Hmacsha1.init(signingKey);
-Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
-String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
-return signature;
-]
+
+> Mac hmacsha1 = Mac.getinstance(“HmacSHA1”);
+> SecretKeySpec signinKey = new SecretKeySpec(clientSignatureKey.getBytes(), “HmacSHA1”);
+> Hmacsha1.init(signingKey);
+> Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
+> String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
+> return signature;
+> ]
 
  
 <br><br>
@@ -454,13 +461,9 @@ Here is an example of a successful response:
 If there are problems with the request, the server will return a HTTP 400 bad request. The body of the response will contain error information in JSON format. Here are the possible values for the error code:
 
 *	**invalid_client:** This indicates that the client application authentication failed. This is likely because either the client ID and/or the secret key provided are incorrect.
-
 *	**invalid_grant:** This indicates that the user’s credentials are not valid.
-
 *	**invalid_scope:** This indicates that the requested scope in invalid or exceeds the previously granted scope.
-
 *	**invalid_request:** This indicates that the request is malformed, which usually means that there is a missing parameter that is required.
-
 *	**unauthorized_client:** This indicates that the client application is not authorized to use this flow.
 
 Attached is also a Java file called **Requests.java** that contains a class with a method to perform this flow, using the sample methods that appear in the text. The method itself is called **authenticate** and returns a string, which is the token. Other sample methods are in the file too, for your viewing/altering purposes.

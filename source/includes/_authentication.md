@@ -289,9 +289,9 @@ The following parameters are required to calculate the authorization code:
 
 Using these parameters, the authorization flow can be calculated. First, a base string should be calculated using the following format:
 
-```
+`
 base_string = client_id|@@|user_id|@@|timestamp|@@|nonce
-```
+`
 
 <br><br>
 

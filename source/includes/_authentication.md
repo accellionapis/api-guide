@@ -26,3 +26,4 @@ The kiteworks APIs are used by the custom applications to access user resources 
 **The API URI** – All APIs can be called using the following URI scheme: https://<hostname>/rest/<resources>
   
 **API Output** – The API result is returned in JSON format.
+

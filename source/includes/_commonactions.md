@@ -1,5 +1,5 @@
 # Common Actions
-Describe common actions and provide sample code.
+This section dscribes common actions and provides sample code.
 
 ## Create a new user
 ## Create a new folder
@@ -16,7 +16,7 @@ Here, the ID required in the web request is the ID of the folder that the file s
 
 ![](../images/rfrostpoem.png)
 
-Again, the ID of the new uploaded file can be found in the **X-Accellion-Location** field of the response header of this request. Note this ID, because we are going to use it to download this file in the next section.
+Again, the **ID** of the new uploaded file can be found in the **X-Accellion-Location** field of the response header of this request. Note this **ID**, because we are going to use it to download this file in the next section.
 
 ![](../images/requestheaders2.png)
 
@@ -29,11 +29,11 @@ Chunk Upload is aimed to let users upload large files by parts. This section bri
 
 ### Chunk Upload Process Steps
 
-#### Upload session initialization 
+**Upload session initialization**
 The user can upload a new file to a folder or upload a new version of an existing file. To initiate a new file upload call:
-<pre>
+`
 <b>POST /folders/{id}/actions/initiateUpload</b>
-</pre>
+`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where **{id}** - Destination folder ID.
 

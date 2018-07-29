@@ -13,7 +13,7 @@ includes:
   - authentication
   - commonactions
   - executeapicalls
-  - creatingrequests
+  - creatingapirequests
   - versions
   - changelog
 

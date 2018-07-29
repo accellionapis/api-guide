@@ -317,6 +317,9 @@ print_r($fileData);
 
 <br><br>
 
+<br><br>
+
+<br><br>
 
 To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
 

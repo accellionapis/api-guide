@@ -12,6 +12,7 @@ includes:
   - setup
   - authentication
   - commonactions
+  - execute api calls
   - versions
   - changelog
 

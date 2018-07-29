@@ -71,6 +71,7 @@ If upload initialization was successful, response headers will contain **X-Accel
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **1** is an upload session ID. Use this ID to perform all further operations.
 
 **Retrieve Upload Session Data**
+
 After initialization each upload session will have assigned an **URI** parameter. This parameter contains **URI** where all chunks for this upload session should be uploaded. To retrieve this parameter call:
 
 `
@@ -116,6 +117,7 @@ The host name parameter from the URI field is determined by the server according
 
 **Upload Chunks**
 After retrieving correct endpoint for the chunks upload (uri field), you can upload all file chunks starting from the first one. To do so, call:
+
 `
 POST {host_name}/rest/uploads/{id}
 `
@@ -123,9 +125,12 @@ POST {host_name}/rest/uploads/{id}
 **Request Body Parameters Description**
 
 **compressionMode** (required, optional if lastChunk = 1) - Compression mode for the chunk content. Available and valid modes:
-NORMAL - file chunk content is uploaded without compression (as is).
-GZIP - file chunk content is compressed using https://en.wikipedia.org/wiki/Gzip format.
-ZLIB - file chunk content is compressed using https://en.wikipedia.org/wiki/Zlib format.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NORMAL - file chunk content is uploaded without compression (as is).
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GZIP - file chunk content is compressed using https://en.wikipedia.org/wiki/Gzip format.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZLIB - file chunk content is compressed using https://en.wikipedia.org/wiki/Zlib format.
 
 **compressionSize** (required, optional if **lastChunk** = 1)  - File chunk content size in bytes after compression. If **compressionMode** is set to NORMAL, then **compressionSize** should match with **originalSize**.
 
@@ -153,6 +158,7 @@ Depending on what workflow you chose at the upload initialization, the chunk upl
 
 **Terminating Upload Session**
 The user can terminate the upload session by calling:
+
 `
 DELETE /uploads/{id}
 `
@@ -264,7 +270,11 @@ print_r($fileData);
 `
 
 To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
-`“php generate_chunks_data.php”`
+
+`
+php generate_chunks_data.php
+`
+
 The script will display all the data in your terminal window.
 
 

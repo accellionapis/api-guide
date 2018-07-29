@@ -332,3 +332,15 @@ The script will display all the data in your terminal window.
 
 
 ## Downloading Files
+
+To download a file use the **GET /rest/files/{id}/content** endpoint under the **files** entity.
+
+![](../images/getfiles.png)
+
+**Note:**  Files that are not text files will have a garbled response when downloaded using the developer documentation page. Files are not downloaded directly to the file system, as this is for testing the endpoints in this self-contained area.
+
+The first id needed for this web request is the id of the file to be downloaded, which we noted at the end of the last section. Once the web request returns, your response should be the Robert Frost poem we added.
+
+![](../images/rfrostpoem.png)
+
+

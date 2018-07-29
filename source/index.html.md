@@ -14,6 +14,7 @@ includes:
   - commonactions
   - executeapicalls
   - creatingapirequests
+  - usingapirequests
   - versions
   - changelog
 

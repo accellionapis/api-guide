@@ -142,9 +142,9 @@ POST {host_name}/rest/uploads/{id}
 
 Upload all chunks starting from the first one. After successful uploading the first chunk the user should receive the 200 response code. After uploading the last chunk the user should receive the 201 response code and the created file ID in a response header field "X-Accellion-Location". For example:
 
-'
+`
 { ..., "X-Accellion-Location": "http://homeurl.com/rest/files/1", ... }
-'
+`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **1** - is a file ID.
 

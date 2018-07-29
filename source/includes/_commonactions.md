@@ -273,8 +273,6 @@ print_r($fileData);
 </pre>
 
 
-To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
-
 <br><br>
 
 <br><br>
@@ -333,51 +331,6 @@ To launch this script, launch terminal, navigate to a folder where this script i
 
 <br><br>
 
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-
-<br><br>
 
 To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
 

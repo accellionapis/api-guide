@@ -15,6 +15,7 @@ includes:
   - executeapicalls
   - creatingapirequests
   - usingapirequests
+  - usingid
   - versions
   - changelog
 

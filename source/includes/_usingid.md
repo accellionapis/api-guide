@@ -10,7 +10,7 @@ There are a number of ways to get the id of the **My Folder** folder for the cur
 
 One is simply to make the **GET /users/me** request. In the response of that request, there is a **links** array, in which there is an element identified as **syncdir**. The **ID** associated with that element is the **ID** of the **My Folder** folder for this user.
 
-![](../image/id.png)
+![](../images/id.png)
 
 This method of obtaining the **ID** is specific to the **My Folder** folder of the user, and it cannot be used to get the **ID** of any folder. A more general way to obtain the id of a folder is to navigate to that folder in the kiteworks UI. Once there, observe the URL.
 

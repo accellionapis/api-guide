@@ -167,6 +167,7 @@ DELETE /uploads/{id}
 Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount.
 
 **Generate_chunks_data.php – Download**
+Example code on the right:
 
 <pre>
 <?php
@@ -272,9 +273,110 @@ print_r($fileData);
 
 To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
 
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+<br><br>
+
+
 `
 php generate_chunks_data.php
-
 `
 
 The script will display all the data in your terminal window.

@@ -32,16 +32,16 @@ Chunk Upload is aimed to let users upload large files by parts. This section bri
 **Upload session initialization**
 The user can upload a new file to a folder or upload a new version of an existing file. To initiate a new file upload call:
 `
-<b>POST /folders/{id}/actions/initiateUpload</b>
+POST /folders/{id}/actions/initiateUpload
 `
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where **{id}** - Destination folder ID.
 
 To initiate a new file version upload call:
 
-<pre>
-<b>POST /files/{file_id}/actions/initiateUpload</b>
-</pre>
+`
+POST /files/{file_id}/actions/initiateUpload
+`
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **{file_id}** - ID of the file for the file version.
 

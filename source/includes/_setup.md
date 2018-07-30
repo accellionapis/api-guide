@@ -11,7 +11,7 @@ You should be an experienced developer and have an understanding of the followin
 ## Get access to the API
 You will need an Accellion instance to get access to the API. Click on the link below to get a demo instance:
 
-[Get a Demo](https://info.accellion.com/demo-request?ref=api-guide-setup)
+[![](../images/get-a-demo.png)](https://info.accellion.com/demo-request?ref=api-guide-setup)
 
 If you already have an Accellion instance:
 
@@ -23,4 +23,4 @@ If you already have an Accellion instance:
 
 ![](../images/navigation-custom-apps.png)
 
-If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email support@accellion.com to request API access for your instance.
+If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email <support@accellion.com> to request API access for your instance.

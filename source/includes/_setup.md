@@ -1,13 +1,23 @@
 # Setup
-This section lists the prerequisites, describes how to get a demo system, how to enable the playground and how to start using the APIs.
+
 ## Prerequisites
-The audience of this guide should be experienced developers on their particular platform and it is assumed that:
+You should be an experienced developer and have an understanding of the following concepts and technologies:
 
-* They understand the basics of OAuth
-* They understand the format, structure, and common paradigm of JSON
-* They can formulate web requests for common methods, e.g., GET, POST, PUT, and DELETE They have a working knowledge of multipart MIME requests
+* OAuth 2.0
+* JSON data format
+* HTTP methods and status codes
+* REST APIs
 
-## Request a Customized Enterprise Demo
-To get started you can request and view a demo. To get a customized Accellion Enterprise package demo, visit the Accellion website at:
-https://www.accellion.com/pricing and click on the **GET A DEMO** button, fill the online form and click **REQUEST A DEMO**.
-View the demo.
+## Get access to the API
+
+You will need an Accellion instance to get access to the API. Click on the link below to get a demo instance:
+https://info.accellion.com/demo-request?ref=api-guide-setup
+
+If you already have an Accellion instance:
+1. Sign in to the Admin interface at https://<hostname>/admin
+2. Click on the Application tab icon using the top navigation bar
+  ![](../images/application-tab.png)
+3. Click on Client Management in the left navigation panel
+  ![](../images/custom-apps-menu-item.png)
+
+If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email support@accellion.com to request API access for your instance.

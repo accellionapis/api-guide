@@ -143,6 +143,6 @@ Complete details of the **scopes** API is available at *your installation URL/re
 ## kiteworks Maintenance APIs 
 
 ### licenses
-If your application is in charge of updating the **license** of your kiteworks installation it can use the /licenses endpoint to upload a new license.
+If your application is in charge of updating the license of your kiteworks installation it can use the **/licenses** endpoint to upload a new license.
 
 Complete details of the **licenses** API is available at *your installation URL/rest/index.html#!/licenses*.

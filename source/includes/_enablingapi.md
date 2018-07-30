@@ -34,7 +34,7 @@ Your new custom application is created as shown below.
 
 ![](../images/appcreated.png)
 
-## Customizing Settings, Scopes Security and Distribution
+## Customizing Settings, Scopes, Security and Distribution
 
 Select **My New Custom App**, the application you just created as shown in the screen capture above, to configure the **Settings, Scopes, Security and Distribution**.
 

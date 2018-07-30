@@ -2,13 +2,13 @@
 
 The following steps help you get started with the kiteworks API Playground. Exploring using kiteworks APIs requires development experience.
 
-1.	On the Application page, click on **Custom Applications** under **Client Management**.
+Step 1.	On the Application page, click on **Custom Applications** under **Client Management**.
 
-2.	The **Enable kiteworks API Playground UI** switch should be **ON**. If the switch is turned off, click on the switch to turn it ON.
+Step 2.	The **Enable kiteworks API Playground UI** switch should be **ON**. If the switch is turned off, click on the switch to turn it ON.
 
 ![](../images/enableon.png)
 
-3.	To view the complete list of APIs, click **Developer Documentation** located under the **Help (?)** icon of the kiteworks Admin console as shown below.
+Step 3.	To view the complete list of APIs, click **Developer Documentation** located under the **Help (?)** icon of the kiteworks Admin console as shown below.
 
 ![](../images/devdoc.png)
 

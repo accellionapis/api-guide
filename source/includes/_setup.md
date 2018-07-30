@@ -15,7 +15,7 @@ You will need an Accellion instance to get access to the API. Click on the link 
 
 If you already have an Accellion instance:
 
-1. Sign in to the Admin interface at [https://[hostname]/admin]()
+1. Sign in to the Admin interface at [https://[hostname]/admin](https://[hostname]/admin)
 2. Click on the Application tab icon using the top navigation bar
 3. Click on Client Management in the left navigation panel
 

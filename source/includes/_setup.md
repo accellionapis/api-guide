@@ -7,9 +7,7 @@ You should be an experienced developer and have an understanding of the followin
 * JSON data format
 * HTTP methods and status codes
 * REST APIs
-
 ## Get access to the API
-
 You will need an Accellion instance to get access to the API. Click on the link below to get a demo instance:
 
 [Get a Demo](https://info.accellion.com/demo-request?ref=api-guide-setup)

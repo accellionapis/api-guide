@@ -19,6 +19,8 @@ If you already have an Accellion instance:
 1. Sign in to the Admin interface at https://[hostname]/admin. Replace [hostname] with your Accellion instance hostname.
 2. Click on the Application tab icon using the top navigation bar
 3. Click on Client Management in the left navigation panel
+4. Turn the API Playground ON
+5. Click on the + button to add your custom app. Further steps below the screenshot.
 
 ![](../images/navigation-custom-apps.png)
 

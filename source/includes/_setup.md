@@ -22,9 +22,6 @@ If you already have an Accellion instance:
 4. Click on Custom Applications under Client Management.
 5. Turn the API Playground ON.
 6. Click on the + button to add your custom app. Further steps below the screenshot.
-
 ![](../images/navigation-custom-apps.png)
-
 7. Depending on your needs, fill up the Add Custom Application form. Our example app will use standard OAuth 2.0 flow with refresh token.
-
 ![](../images/custom-app-form.png)

@@ -28,7 +28,7 @@ If you already have an Accellion instance:
 8. Click on the Add Application button. Copy and save the Client Application ID and Client Secret Key in a secure location.
 9. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
 
-## Getting a token in the API Playground
+## Get a token in the API Playground
 1. Access the API Playground at https://[hostname]/rest/index.html in your web browser. Replace [hostname] with your Accellion instance hostname.
 2. Once the playground has loaded, click on "Get a token" button near the top right.
 3. In the popup form, Authorization Code grant type is selected by default. Enter the ID, Secret Key and Redirect URI of the custom app you just created. Click "Authorize and Get Token".

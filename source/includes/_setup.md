@@ -11,7 +11,8 @@ You should be an experienced developer and have an understanding of the followin
 ## Get access to the API
 You will need an Accellion instance to get access to the API. Click on the link below to get a demo instance:
 
-[![](../images/get-a-demo.png)](https://info.accellion.com/demo-request?ref=api-guide-setup)
+<a href="https://info.accellion.com/demo-request?ref=api-guide-setup" target="_blank"><img src="../images/get-a-demo.png" alt="drawing" width="110px"/></a>
+
 
 If you already have an Accellion instance:
 

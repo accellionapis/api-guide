@@ -17,11 +17,11 @@ You will need an Accellion instance to get access to the API. Click on the link 
 If you already have an Accellion instance:
 
 1. Sign in to the Admin interface at https://[hostname]/admin. Replace [hostname] with your Accellion instance hostname.
-2. Click on the Application tab icon using the top navigation bar
-3. Click on Client Management in the left navigation panel
-4. Turn the API Playground ON
-5. Click on the + button to add your custom app. Further steps below the screenshot.
+2. Click on the Application tab icon using the top navigation bar.
+3. Click on Client Management in the left navigation panel. If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email <support@accellion.com> to request API access for your instance.
+4. Click on Custom Applications under Client Management.
+5. Turn the API Playground ON.
+6. Click on the + button to add your custom app. Further steps below the screenshot.
 
 ![](../images/navigation-custom-apps.png)
 
-If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email <support@accellion.com> to request API access for your instance.

@@ -20,7 +20,7 @@ If you already have an Accellion instance:
 2. Click on the Application tab icon using the top navigation bar.
 3. Click on Client Management in the left navigation panel. If you see the Custom Applications section under Client Management, you have everything you need to get started. Otherwise, please email <support@accellion.com> to request API access for your instance.
 4. Click on Custom Applications under Client Management.
-5. Turn the API Playground ON.
+5. Turn the API playground ON.
 6. Click on the + button to add your custom app. Further steps below the screenshot.
 ![](../images/navigation-custom-apps.png)
 7. Fill up the Add Custom Application form as per your needs. Our example app will use standard OAuth 2.0 Authorization Code flow with refresh token.
@@ -28,9 +28,9 @@ If you already have an Accellion instance:
 8. Click on the Add Application button. Copy and save the Client Application ID and Client Secret Key in a secure location.
 9. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
 
-## Get a token in the Playground
-1. Access the API Playground at https://[hostname]/rest/index.html in your web browser. Replace [hostname] with your Accellion instance hostname.
+## Get a token in the playground
+1. Access the API playground at https://[hostname]/rest/index.html in your web browser. Replace [hostname] with your Accellion instance hostname.
 2. Once the playground has loaded, click on "Get a token" button near the top right.
 3. In the popup form, Authorization Code grant type is selected by default. Enter the ID, Secret Key and Redirect URI of the custom app you just created. Click "Authorize and Get Token".
 ![](../images/playground-get-token.png)
-4. Click "Grant Access" in the new End-User Authorization popup. Playground will receive a token from the Accellion server and display it in the top right. You are now ready to make your first API call from the playground.
+4. Click "Grant Access" in the new End-User Authorization popup. The playground will receive a token from the Accellion server and display it in the top right. You are now ready to make your first API call from the playground.

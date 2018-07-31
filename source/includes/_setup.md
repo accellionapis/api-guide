@@ -25,3 +25,6 @@ If you already have an Accellion instance:
 
 ![](../images/navigation-custom-apps.png)
 
+7. Depending on your needs, fill up the Add Custom Application form. Our example app will use standard OAuth 2.0 flow with refresh token.
+
+![](../images/custom-app-form.png)

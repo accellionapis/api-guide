@@ -28,13 +28,8 @@ If you already have an Accellion instance:
 8. Copy and save the Client Application ID and Client Secret Key from the popup to a secure location. **NOTE**: This is your only chance to copy the secret key.
 9. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
 
-## Using the playground
+## Setup the playground
 1. On the Custom Applications page in Admin interface, turn the API playground ON. Click OK in the confirmation popup.
 2. Click the "?" icon near the top right.
 3. Click "Developer Documentation". This should open the playground in a new tab.
 ![](../images/playground-setup.png)
-4. Once the playground has loaded (resource list has been fetched), click the "Get a token" button near the top right.
-5. In the popup form, Authorization Code grant type is selected by default. Enter the Client App ID and Client App Secret Key of the custom app you created in the previous section.
-6. Click "Authorize and Get Token".
-![](../images/playground-get-token.png)
-6. Click "Grant Access" in the new End-User Authorization popup. The playground will receive a token from the Accellion server and display it in the top right. You are now ready to make your first API call from the playground.

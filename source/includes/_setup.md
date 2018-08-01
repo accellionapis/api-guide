@@ -24,8 +24,9 @@ If you already have an Accellion instance:
 ![](../images/navigation-custom-apps.png)
 6. Fill up the Add Custom Application form as per your needs. Our example app will use standard OAuth 2.0 Authorization Code flow with refresh token. **NOTE**: If you want to test this app in the playground, set the Redirect URI to https://%%HOST%%/rest/callback.html. After testing, this should be changed to your app's own redirect URI.
 ![](../images/custom-app-form.png)
-7. Click on the Add Application button. Copy and save the Client Application ID and Client Secret Key in a secure location.
-8. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
+7. Click on the Add Application button.
+8. Copy and save the Client Application ID and Client Secret Key from the popup to a secure location. **NOTE**: This is your only chance to copy the secret key.
+9. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
 
 ## Using the playground
 1. On the Custom Applications page in Admin interface, turn the API playground ON. Click OK in the confirmation popup.

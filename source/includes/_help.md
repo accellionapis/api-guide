@@ -1,4 +1,4 @@
-# Feedback
+# Help
 
 Please tell us how we can improve this guide for you.
 

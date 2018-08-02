@@ -9,8 +9,7 @@ toc_footers:
 
 includes:
   - introduction
-  - setup
-  - playground
+  - quickstart
   - authentication
   - commonactions
   - executeapicalls

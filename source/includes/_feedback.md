@@ -13,5 +13,5 @@ Send us an email at <support@accellion.com>
 <br>
 <br>
 <br>
-
-© 2018 ACCELLION. All rights reserved.
+<br>
+<br>

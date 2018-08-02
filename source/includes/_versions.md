@@ -2,9 +2,10 @@
 
 New versions of the API are released roughly once every 3 months.
 
-<aside class="notice">
-You will notice in the table below that our Server Version format was simplified in April 2018
-</aside>
+**NOTE**
+
+* Our API version numbers are different from the server versions.
+* Server Version format was simplified in April 2018
 
 API Version | Server Version | Released
 -------------- | -------------- | --------------

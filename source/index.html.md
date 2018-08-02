@@ -13,6 +13,7 @@ includes:
   - authentication
   - commonactions
   - versions
+  - feedback
 
 search: true
 ---

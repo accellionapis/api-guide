@@ -8,9 +8,9 @@ Accellion offers Signature Authorization flow for **trusted** apps where user in
 Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
 </aside>
 
+### Steps in Signature flow
 ```php
 <?php
-
 // --- Configuration Section ---
 $kiteworks_hostname     = 'YOUR-SERVER.DOMAIN.ORG';
 $client_app_id          = 'YOUR-CLIENT-APP-ID';
@@ -19,7 +19,12 @@ $signature_key          = 'YOUR-SIGNATURE-KEY';
 $user_id                = 'YOUR-USER-EMAIL-TO-BE-USED-FOR-API-INTEGRATION';
 $api_scope              = 'YOUR-CLIENT-APP-SCOPES'; // e.g. 'folders/* files/* mail/*'
 $redirect_uri           = 'YOUR-REDIRECT-URI';
+?>
+```
+Step 1 - Configure Accellion server, custom app and user details
 
+```php
+<?php
 // --- Generate Signature Based Auth Code ---
 $timestamp              = time();
 $nonce                  = rand(1, 999999);
@@ -27,8 +32,16 @@ $nonce                  = rand(1, 999999);
 $base_string = "$client_app_id|@@|$user_id|@@|$timestamp|@@|$nonce";
 $signature = hash_hmac("sha1",$base_string, $signature_key);
 $auth_code = base64_encode($client_app_id)."|@@|".base64_encode($user_id)."|@@|$timestamp|@@|$nonce|@@|$signature";
+?>
+```
+Step 2 - Calculate authorization code using the following parameters:
+ * Signature Key and Client ID: These were displayed on the Admin interface when the custom app using Signature flow was created.
+ * Email address of the user for whom the app needs an access token.
+ * Current timestamp: The code will remain valid for an hour after creation.
+ * Nonce: A random integer between 1 and 999999.
 
-
+```php
+<?php
 // --- Initialize CURL Parameters Section ---
 $access_token_endpoint = "https://$kiteworks_hostname/oauth/token";
 
@@ -63,15 +76,7 @@ else {
 }
 ?>
 ```
-
-### Steps in Signature flow
-
-1. Calculate authorization code using the following parameters:
- * Signature Key and Client ID: These were displayed on the Admin interface when the custom app using Signature flow was created.
- * Email address of the user for whom the app needs an access token.
- * Current timestamp: The code will remain valid for an hour after creation.
- * Nonce: A random integer between 1 and 999999.
-2. Fetch access token from Accellion's token URI using the following parameters:
+Step 3 - Fetch access token from Accellion's token URI using the following parameters:
  * Client ID and secret: Displayed on Admin interface when app was created.
  * Grant Type: This should be the string “authorization_code” for the token request to work.
  * Scope: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
@@ -79,7 +84,7 @@ else {
  * Code: This is the authorization code calculated in step one.
 
 <aside class="notice">
-Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
+Note that the step 3 is the same as OAuth 2.0 Authorization Code flow. Step 2 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
 </aside>
 
 ### Responses from server

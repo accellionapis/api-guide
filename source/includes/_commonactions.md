@@ -69,8 +69,6 @@ In [Try the playground](#try-the-playground) section above, you called **GET /re
 
 One of the attributes returned was "syncdirId", which refers to your automatically created default "My Folder".
 
-In the code sample on the right, replace "YOUR-FOLDER-ID" with the value of "syncdirId". Also replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
+In the code sample on the right, replace "YOUR-FOLDER-ID" with the value of "syncdirId" (or the ID of any other folder you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 
 Then, copy and paste the script on a machine that has PHP installed and run it. You will see the server response with the contents of your My Folder in JSON format.
-
-Try the call again with the IDs of a few other folders that you can access via the Web interface. These IDs can be copied from the URL in your browser, which is in this format: https://[hostname]/#/folder/[id]

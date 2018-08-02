@@ -9,7 +9,6 @@ Apps using Signature Authorization flow can access any user's content, simply by
 </aside>
 
 ### Step 1
-
 ```php
 <?php
 // --- Configuration Section ---
@@ -26,7 +25,6 @@ $redirect_uri           = 'YOUR-REDIRECT-URI';
 Configure Accellion server, custom app and user details
 
 ### Step 2 - Calculate authorization code using the following parameters:
-
 ```php
 <?php
 // --- Generate Signature Based Auth Code ---
@@ -45,7 +43,6 @@ $auth_code = base64_encode($client_app_id)."|@@|".base64_encode($user_id)."|@@|$
  * Nonce: A random integer between 1 and 999999.
 
 ### Step 3 - Fetch access token from Accellion's token URI using the following parameters:
-
 ```php
 <?php
 // --- Initialize CURL Parameters Section ---

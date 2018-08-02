@@ -1,287 +1,76 @@
-# Sample Code
+# Common Use Cases
+The following examples make use of the access token received in the [Authentication](#authentication) section above to interact with the server.
 
-## Uploading Files
-To add a file to the folder, we need to use the **POST /folders/{id}/actions/file** endpoint under the **files** entity.
-
-![](../images/postfoldersid.png)
-
-Here, the ID required in the web request is the ID of the folder that the file should be added into. In this case, we could grab the ID indicated in the **X-Accellion-Location** field of the response header  when we created the folder. The file also needs to be attached, which is done via a multiple MIME request. Let us upload a text file with the classic "The Road Not Taken" poem by Robert Frost.
-
-![](../images/rfrostpoem.png)
-
-Again, the **ID** of the new uploaded file can be found in the **X-Accellion-Location** field of the response header of this request. Note this **ID**, because we are going to use it to download this file in the next section.
-
-![](../images/requestheaders2.png)
-
-### Uploading Large Files
-
-The caller can request the APIs to upload or download any kind and size of file successfully under normal conditions. kiteworks can also handle corner cases and report exceptions and errors logically.
-
-### Chunk Upload Workflow
-Chunk Upload is aimed to let users upload large files by parts. This section briefly describes the workflow of a chunk upload.
-
-### Chunk Upload Process Steps
-
-**Upload session initialization**
-The user can upload a new file to a folder or upload a new version of an existing file. To initiate a new file upload call:
-
-`
-POST /folders/{id}/actions/initiateUpload
-`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where **{id}** - Destination folder ID.
-
-To initiate a new file version upload call:
-
-`
-POST /files/{file_id}/actions/initiateUpload
-`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **{file_id}** - ID of the file for the file version.
-
-If you call **POST /folders/{id}/actions/initiateUpload** with **filename** that already exists in this directory, the new version of this file will be created.
-
-**Request Body Parameters Description**
-
-*	**filename** (required) - Filename that will be created after upload session completion.
-
-*	**totalSize** (optional, required if **totalChunks** was sent) - File size in bytes.
-
-*	**totalChunks** (optional, required if **totalSize** was sent) - Amount of chunks that file is split to.
-
-Chunk upload supports two different workflows. The first one requires **totalSize** and **totalChunks**, the second one does not require these fields, but it requires to send **lastChunk** field equals to 1 with the last chunk upload (see more details below). The first workflow is preferable since server is able to validate total file content at the end of upload session.
-
-1. To follow first workflow, send all fields listed above.
-
-2. (SFTP Client) The second workflow is meant to be uses by the SFTP client. The SFTP client cannot know the **totalSize** and **totalChunks** when an upload session is initiated. Send only the **filename** if you want to follow this workflow.
-
-If upload initialization was successful, response headers will contain **X-Accellion-Location** field with upload id value. For example:
-
-`
-{ ..., "X-Accellion-Location": "http://homeurl.com/rest/uploads/1", ... }
-`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **1** is an upload session ID. Use this ID to perform all further operations.
-
-**Retrieve Upload Session Data**
-
-After initialization each upload session will have assigned an **URI** parameter. This parameter contains **URI** where all chunks for this upload session should be uploaded. To retrieve this parameter call:
-
-`
-GET /uploads/{id}
-`
-
-**Response Body Parameters Description**
-
-**userId** - Upload session owner user ID.
-
-**timestamp** - Upload session creation date.
-
-**totalSize** - Total size of the file which was set in upload session initialization.
-
-**totalChunks** - Amount of expected chunks amount, which was set in upload session initialization.
-
-**clientCookie** - Client cookie field.
-
-**clientName** - Client ID which is assigned to upload session owner.
-
-**svrUploadTime** - Amount of time in milliseconds that was spent on uploading all uploaded file chunks.
-
-**error** - Last error message of the chunk upload, if any.
-
-**completeOk** - Boolean flag, equals to 0 if session is not completed (not all chunks was uploaded). Equals to 1 if upload session is finished. But since upload session is deleted after successful finish, this parameter will always be equal to 0 if upload session exists.
-
-**uri** - Uri where all chunks for this upload session should be uploaded. 
-Format of the uri is 
-`
-{host_name}/rest/uploads/{id}
-`
-
-Example: 
-`
-dacfs_upload1/rest/uploads/1
-`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **dacfs_upload1** - is a host name
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and **1** - is an upload ID.
-
-The host name parameter from the URI field is determined by the server according to user location settings. The host may be remote or local. If there is any local host, the file will be saved at the local host. If there is no local host to upload, the file will be sent to available remote host.
-
-**Upload Chunks**
-After retrieving correct endpoint for the chunks upload (uri field), you can upload all file chunks starting from the first one. To do so, call:
-
-`
-POST {host_name}/rest/uploads/{id}
-`
-
-**Request Body Parameters Description**
-
-**compressionMode** (required, optional if lastChunk = 1) - Compression mode for the chunk content. Available and valid modes:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NORMAL - file chunk content is uploaded without compression (as is).
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GZIP - file chunk content is compressed using https://en.wikipedia.org/wiki/Gzip format.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZLIB - file chunk content is compressed using https://en.wikipedia.org/wiki/Zlib format.
-
-**compressionSize** (required, optional if **lastChunk** = 1)  - File chunk content size in bytes after compression. If **compressionMode** is set to NORMAL, then **compressionSize** should match with **originalSize**.
-
-**originalSize** (required, optional if **lastChunk** = 1) - File chunk original size in bytes.
-
-**content** (required, optional if **lastChunk** = 1) - File chunk content string that is converted into base64 string https://en.wikipedia.org/wiki/Base64. User should encode the file content into base64 string after compression (if there is any compression applied), not before.
-
-**lastChunk** (optional, 1 or 0 value) - This field allows to mark current chunk as the last one and finish upload session. It can be used only for the second workflow (SFTP Client). If the user initiated upload following SFTP Client workflow and sending this field equal to 1 and content field is not empty, then all fields from above (**compressionMode, compressionSize, originalSize, content, lastChunk**) will be optional.
-
-Upload all chunks starting from the first one. After successful uploading the first chunk the user should receive the 200 response code. After uploading the last chunk the user should receive the 201 response code and the created file ID in a response header field "X-Accellion-Location". For example:
-
-`
-{ ..., "X-Accellion-Location": "http://homeurl.com/rest/files/1", ... }
-`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Where **1** - is a file ID.
-
-Depending on what workflow you chose at the upload initialization, the chunk upload workflow can be different:
-
-1. If **totalSize** and **totalChunks** was sent, the upload session will be finished automatically after the last chunk is be uploaded. For example, if **totalChunks** = 4, then server will accept the fourth chunk as the last one and will finish the upload session. If **totalChunks** was set in upload initialization, this upload session cannot be finished by sending the chunk with **lastChunk** = 1.
-
-2.	(For the SFTP Client) If **totalSize** and **totalChunks** was not sent, the upload session will be finished only if user send the chunk with **lastChunk** = 1. The server will accept this chunk as the last one and will finish the upload session. For this last chunk the server will not perform content validation.
-
-**Important Note:** Despite the fact that if **lastChunk** = 1 then all other chunk fields became optional, if user sends content with some value and **lastChunk** = 1, the server will validate this chunk content and all other fields (**compressionMode, compressionSize, originalSize**) will be required and validated.
-
-**Terminating Upload Session**
-The user can terminate the upload session by calling:
-
-`
-DELETE /uploads/{id}
-`
-
-**NOTES**
-Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount.
-
-**Generate_chunks_data.php – Download**
-
+## Listing folder contents
 ```php
 <?php
 
-class ChunkGenerator
-{
-    const COMPRESSION_NORMAL = 'NORMAL';
-    const COMPRESSION_GZIP = 'GZIP';
-    const COMPRESSION_ZLIB = 'ZLIB';
+define('CONST_EAPI_VERSION', 9);	// Put the latest API version in place of 9
 
-    public $validCompression = [
-        self::COMPRESSION_NORMAL,
-        self::COMPRESSION_GZIP,
-        self::COMPRESSION_ZLIB
-    ];
+$oAuthToken = "GET-OAUTH-TOKEN";	// Use the code in getOAuthToken.php to get the token
 
-    /**
-     * Create test file data
-     *
-     * @param int $totalChunks
-     * @param string $compressionMode
-     * @return array
-     */
-    public function initiateFileData($compressionMode = self::COMPRESSION_NORMAL, $totalChunks = 4)
-    {
-        $fileData = [];
+// --- Configuration Section ---
+$folderId 			= 'YOUR-FOLDER-ID';
+$kiteworks_hostname = 'YOUR-SERVER.DOMAIN.ORG';
 
-        $fileData['filename']     = uniqid() . '_test_file.txt';
-        $fileData['content']      = $this->generateRandomString();
-        $fileData['totalChunks']  = $totalChunks;
-        $fileData['clientCookie'] = $fileData['filename'];
 
-        $fileData = $this->splitFileIntoChunks($fileData, $compressionMode);
+// --- Generic helper function to make CURL calls based on the protocol --- 
 
-        unset($fileData['content']); // We don't need this for the qa
-
-        return $fileData;
-    }
-
-    /**
-     * Split file content into chunks
-     *
-     * @param array $fileData
-     * @param string $compressionMode
-     * @return mixed
-     */
-    public function splitFileIntoChunks($fileData, $compressionMode)
-    {
-        $fileData['totalSize']   = strlen($fileData['content']);
-        $fileData['mimeType']    = 'text/plain';
-        $fileData['timestamp']   = time();
-        $fileData['fingerprint'] = md5($fileData['content']);
-
-        $chunkSize = ceil($fileData['totalSize'] / $fileData['totalChunks']);
-
-        $split = chunk_split($fileData['content'], $chunkSize);
-        $chunksContent = explode("\r\n", $split);
-
-        $fileData['chunks'] = [];
-
-        foreach ($chunksContent as $i => $originalContent) {
-            if (!empty($originalContent)) {
-                $compressedContent = $originalContent;
-                switch ($compressionMode) {
-                    case self::COMPRESSION_NORMAL:
-                        break;
-                    case self::COMPRESSION_GZIP:
-                        $compressedContent = gzencode($originalContent);
-                        break;
-                    case self::COMPRESSION_ZLIB:
-                        $compressedContent = gzcompress($originalContent);
-                        break;
-                }
-
-                $fileData['chunks'][$i]['index']           = $i;
-                $fileData['chunks'][$i]['originalSize']    = strlen($originalContent);
-                $fileData['chunks'][$i]['fingerprint']     = md5($originalContent);
-                $fileData['chunks'][$i]['content']         = base64_encode($compressedContent);
-                $fileData['chunks'][$i]['compressionMode'] = $compressionMode;
-                $fileData['chunks'][$i]['compressionSize'] = strlen($compressedContent);
-
-            } else {
-                unset($fileData['chunks'][$i]);
-            }
-        }
-
-        return $fileData;
-    }
-
-    public function generateRandomString($repeat = 100)
-    {
-        return str_repeat(md5(time()), $repeat);
-    }
+function jsonCurl($url, $json_data, $arr_params = NULL) {
+	$ch = curl_init();
+	curl_setopt($ch,CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	// Do not add POSTFIELDS for a GET request
+	if (!($arr_params && array_key_exists('protocol', $arr_params) && $arr_params['protocol'] == 'get')) {
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+	}
+	if($arr_params && array_key_exists('header', $arr_params)) {
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $arr_params['header']);
+	}
+	else {
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
+	}
+	$response = curl_exec($ch);
+	$error = curl_error($ch);
+	$curl_http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	curl_close($ch);
+	$arr_response = array();
+	$arr_response['response'] = trim($response);
+	$arr_response['error'] = trim($error);
+	$arr_response['curl_http_code'] = $curl_http_code;
+	return $arr_response;
 }
 
-$chunkGenerator = new ChunkGenerator();
+$api_end_point = "https://$kiteworks_hostname/rest/folders/$folderId/children?deleted=false";
+$headers = array("Content-Type: application/json",
+			"Accept: application/json",
+			"X-Accellion-Version: " . CONST_EAPI_VERSION,
+			"Authorization: Bearer $oAuthToken" );
 
-$fileData = $chunkGenerator->initiateFileData();
+// --- Passing additional information about protocol and headers to the generic helper function --- 
+$arr_params = [];
+$arr_params['header'] = $headers;
+$arr_params['protocol'] = 'get';
 
-print_r($fileData);
+$postData = array();	//	API uses GET protocol. Does not require POST data. Initializing for the generic helper function
+$arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_params);
+$response = $arr_capi_response['response'];
+$curl_error = $arr_capi_response['error'];
+$curl_http_code = (int)$arr_capi_response['curl_http_code'];
+print "$response\n";
+print "$curl_error\n";
+print "$curl_htp_code\n";
+
+?>
+
 ```
 
-To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
+In [Try the playground](#try-the-playground) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).
 
-`
-php generate_chunks_data.php
-`
+One of the attributes returned was "syncdirId", which refers to your automatically created default "My Folder".
 
-The script will display all the data in your terminal window.
+In the code sample on the right, replace "YOUR-FOLDER-ID" with the value of "syncdirId". Also replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 
+Then, copy and paste the script on a machine that has PHP installed and run it. You will see the server response with the contents of your My Folder in JSON format.
 
-
-## Downloading Files
-
-To download a file use the **GET /rest/files/{id}/content** endpoint under the **files** entity.
-
-![](../images/getfiles.png)
-
-**Note:**  Files that are not text files will have a garbled response when downloaded using the developer documentation page. Files are not downloaded directly to the file system, as this is for testing the endpoints in this self-contained area.
-
-The first id needed for this web request is the id of the file to be downloaded, which we noted at the end of the last section. Once the web request returns, your response should be the Robert Frost poem we added.
-
-![](../images/rfrostpoem.png)
-
-
+Try the call again with the IDs of a few other folders that you can access via the Web interface. These IDs can be copied from the URL in your browser, which is in this format: https://[hostname]/#/folder/[id]

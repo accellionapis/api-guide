@@ -8,7 +8,7 @@ Accellion offers Signature Authorization flow for **trusted** apps where user in
 Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
 </aside>
 
-### Step 1 - Configure Accellion server, custom app and user details
+### Step 1
 
 ```php
 <?php
@@ -22,6 +22,8 @@ $api_scope              = 'YOUR-CLIENT-APP-SCOPES'; // e.g. 'folders/* files/* m
 $redirect_uri           = 'YOUR-REDIRECT-URI';
 ?>
 ```
+
+Configure Accellion server, custom app and user details
 
 ### Step 2 - Calculate authorization code using the following parameters:
 

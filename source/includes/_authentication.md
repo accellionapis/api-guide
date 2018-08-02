@@ -246,7 +246,13 @@ Apps using Signature Authorization flow can access any user's content, simply by
 </aside>
 
 ### Steps in Signature flow
-There are two main steps to performing the signature flow. The first is to calculate the authorization flow, and the second is to request an access token. These two steps are described in detail below:
+
+1. Calculate auth code using the signature key
+2. Fetch access token from Accellion server using 
+
+<aside class="notice">
+Note that the 2nd step is the same as OAuth 2.0 Authorization Code flow. The 1st step <b>calculates</b> the auth code instead of asking the user and Accellion for it. This is what gives Signature Flow its power and risks.
+<aside>
 
 ### Calculate the Authorization code
 

@@ -1,6 +1,4 @@
 # Common Use Cases
-The following examples make use of the access token received in the [Authentication](#authentication) section above to interact with the server.
-
 ```php
 <?php
 // --- Generic helper function to make CURL calls based on the protocol --- 
@@ -31,6 +29,8 @@ function jsonCurl($url, $json_data, $arr_params = NULL) {
 }
 ?>
 ```
+The following examples make use of the access token received in the [Authentication](#authentication) section above to interact with the server.
+
 On the right, we have a helper function that makes the actual HTTP call to the Accellion server. It takes in the endpoint URL, input data in the form of JSON and HTTP parameters in an array.
 
 This function will be used in the following code samples for different use cases.

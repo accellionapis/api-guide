@@ -12,9 +12,6 @@ includes:
   - quickstart
   - authentication
   - commonactions
-  - creatingapirequests
-  - usingapirequests
-  - usingid
   - versions
   - changelog
 

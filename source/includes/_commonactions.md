@@ -1,13 +1,6 @@
-# Common Actions
-This section dscribes common actions and provides sample code.
+# Sample Code
 
-## Create a new user
-## Create a new folder
-## Upload a file
-## Download a file
-## Send files
-## Creating Objects
-## Adding Files
+## Uploading Files
 To add a file to the folder, we need to use the **POST /folders/{id}/actions/file** endpoint under the **files** entity.
 
 ![](../images/postfoldersid.png)
@@ -20,11 +13,11 @@ Again, the **ID** of the new uploaded file can be found in the **X-Accellion-Loc
 
 ![](../images/requestheaders2.png)
 
-## Adding Large Files
+### Uploading Large Files
 
 The caller can request the APIs to upload or download any kind and size of file successfully under normal conditions. kiteworks can also handle corner cases and report exceptions and errors logically.
 
-## Chunk Upload Workflow
+### Chunk Upload Workflow
 Chunk Upload is aimed to let users upload large files by parts. This section briefly describes the workflow of a chunk upload.
 
 ### Chunk Upload Process Steps
@@ -168,9 +161,7 @@ Chunk upload requests requires data transformation, that can hardly be done with
 
 **Generate_chunks_data.php – Download**
 
-Example code on the right:
-
-<pre>
+```php
 <?php
 
 class ChunkGenerator
@@ -269,57 +260,7 @@ $chunkGenerator = new ChunkGenerator();
 $fileData = $chunkGenerator->initiateFileData();
 
 print_r($fileData);
-
-</pre>
-
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
-
-<br><br>
+```
 
 To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
 

@@ -1,2 +1,7 @@
 # Feedback
-<iframe width="640px" height= "480px" src= "https://forms.office.com/Pages/ResponsePage.aspx?id=MztdavQU3UiAMB298TYtbxsoOmf9xElCjrEvGVO2mmxUQlVENUswMlZOMzdUVFc2VEpPSzkwQldPRS4u&embed=true" frameborder= "0" marginwidth= "0" marginheight= "0" style= "border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+Please tell us how we can improve this guide for you.
+
+Perhaps you would like to see code samples in a different language or for a different use case. Or maybe you need help figuring out how to solve your business problem using Accellion's API.
+
+Send us an email at <support@accellion.com>

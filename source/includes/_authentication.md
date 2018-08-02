@@ -184,6 +184,14 @@ If the credentials of the client or the authorization code is invalid or there i
 
 
 ## Signature Authorization flow
+
+Accellion offers Signature Authorization flow for **trusted** apps where user interaction is impossible or undesirable. This is mostly applicable when some backend servers in your corporate network need to communicate with Accellion or when your app handles user authentication on its own.
+
+<aside class="warning">
+Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
+</aside>
+
+### Steps in Signature flow
 ```php
 <?php
 
@@ -239,60 +247,24 @@ else {
 }
 ?>
 ```
-Accellion offers Signature Authorization flow for **trusted** apps where user interaction is impossible or undesirable. This is mostly applicable when some backend servers in your corporate network need to communicate with Accellion or when your app handles user authentication on its own.
 
-<aside class="warning">
-Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
-</aside>
-
-### Steps in Signature flow
-
-1. Calculate auth code using the signature key
-2. Fetch access token from Accellion server using 
+1. Calculate authorization code using the following parameters:
+ * Signature Key and Client ID: These were displayed on the Admin interface when the custom app using Signature flow was created.
+ * Email address of the user for whom the app needs an access token.
+ * Current timestamp: The code will remain valid for an hour after creation.
+ * Nonce: A random integer between 1 and 999999.
+2. Fetch access token from Accellion's token URI using the following parameters:
+ * Client ID and secret: Displayed on Admin interface when app was created.
+ * Grant Type: This should be the string “authorization_code” for the token request to work.
+ * Scope: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
+ * Redirect URL: This is exactly the same redirect URI as registered with the server.
+ * Code: This is the authorization code calculated in step one.
 
 <aside class="notice">
-Note that the 2nd step is the same as OAuth 2.0 Authorization Code flow. The 1st step <b>calculates</b> the auth code instead of asking the user and Accellion for it. This is what gives Signature Flow its power and risks.
+Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
 </aside>
 
-### Calculate the Authorization code
-
-The following parameters are required to calculate the authorization code:
-
-*	**client_id:** This is the client application’s ID, which is registered in the server and was given when the client application was created in the admin UI.
-*	**client_signature_key:** This is the client application’s signature key. This is also registered in the server and was given when the client application was created.
-*	**user_id:** This is the user’s id (either the email address or the integer id associated with the user). This is required for the client application to access the appropriate resources.
-*	**timestamp:** This is the timestamp at the time (in UTC) that this signature is generated. The signature code will only remain valid within an hour of creation.
-*	**nonce:** A random integer between 1 and 999999.
-
-
-From there, the signature of the base string can be calculated, using the HMAC SHA1 method, and using the client application’s signature key as the HMAC’s key:
-
-
-Here is a sample method in Java to calculate the signature:
-
-Finally, the authorization code can be constructed as follows:
-
-Here is a sample method in Java for calculating the authorization code:
-
-
-### Access Token Request
-
-Make a POST request to the token endpoint with the following parameters:
-
-*	**client_id:** This is the client application’s ID, which is registered in the server and was given when the client application was created in the admin UI.
-*	**client_secret:** This is the client application’s secret phrase, which is registered in the server and was given when the client application was created in the admin UI.
-*	**grant_type:** This should be set the string “authorization code” for the token request to work.
-*	**scope:** This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
-*	**redirect_url:** This is exactly the same redirect URI as registered with the server.
-*	**code:** This is the authorization code calculated in step one.
-*	**install_tag_id** (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
-*	**install_name** (optional parameter): This is the friendly name of the device from which the API call has initiated.
-
-Here is an example of the POST request:
-
-
-Here is a sample method in Java to construct the string of parameters to be sent in the request:
-
+### Responses from server
 
 Once these two steps are complete, if there are no errors for the POST request, the server will return a HTTP response 200 OK. The body for the response will be in JSON format and will include the following:
 
@@ -301,8 +273,6 @@ Once these two steps are complete, if there are no errors for the POST request, 
 *	**scope:** This is the scope for which this token is valid.
 *	**refresh_token:** This is a token that can be used to get a new access token without going through the first step of authorization.
 *	**token_type:** This will be set to “bearer” because that is the type of token.
- 
-Here is an example of a successful response:
 
 
 If there are problems with the request, the server will return a HTTP 400 bad request. The body of the response will contain error information in JSON format. Here are the possible values for the error code:

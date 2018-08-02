@@ -1,6 +1,7 @@
 # Common Use Cases
 The following examples make use of the access token received in the [Authentication](#authentication) section above to interact with the server.
 
+## Listing folder contents
 ```php
 <?php
 
@@ -63,8 +64,6 @@ print "$curl_htp_code\n";
 ?>
 
 ```
-
-## Listing folder contents
 
 In [Try the playground](#try-the-playground) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).
 

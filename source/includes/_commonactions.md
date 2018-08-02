@@ -2,6 +2,7 @@
 The following examples make use of the access token received in the [Authentication](#authentication) section above to interact with the server.
 
 ```php
+<?php
 // --- Generic helper function to make CURL calls based on the protocol --- 
 
 function jsonCurl($url, $json_data, $arr_params = NULL) {
@@ -28,6 +29,7 @@ function jsonCurl($url, $json_data, $arr_params = NULL) {
 	$arr_response['curl_http_code'] = $curl_http_code;
 	return $arr_response;
 }
+?>
 ```
 On the right, we have a helper function that makes the actual HTTP call to the Accellion server. It takes in the endpoint URL, input data in the form of JSON and HTTP parameters in an array.
 
@@ -35,6 +37,7 @@ This function will be used in the following code samples for different use cases
 
 ## Listing folder contents
 ```php
+<?php
 define('CONST_EAPI_VERSION', 9);	// Put the latest API version in place of 9
 
 $oAuthToken = "GET-OAUTH-TOKEN";	// Use the code in getOAuthToken.php to get the token
@@ -57,7 +60,7 @@ $arr_params['protocol'] = 'get';
 $postData = array();	//	API uses GET protocol. Does not require POST data. Initializing for the generic helper function
 $arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_params);
 print_r($arr_capi_response);
-
+?>
 ```
 
 In [Try the playground](#try-the-playground) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).

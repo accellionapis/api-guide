@@ -12,7 +12,6 @@ includes:
   - quickstart
   - authentication
   - commonactions
-  - executeapicalls
   - creatingapirequests
   - usingapirequests
   - usingid

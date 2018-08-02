@@ -252,7 +252,7 @@ Apps using Signature Authorization flow can access any user's content, simply by
 
 <aside class="notice">
 Note that the 2nd step is the same as OAuth 2.0 Authorization Code flow. The 1st step <b>calculates</b> the auth code instead of asking the user and Accellion for it. This is what gives Signature Flow its power and risks.
-<aside>
+</aside>
 
 ### Calculate the Authorization code
 

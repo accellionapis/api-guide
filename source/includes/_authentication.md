@@ -9,7 +9,6 @@ Apps using Signature Authorization flow can access any user's content, simply by
 </aside>
 
 ### Steps in Signature flow
-
 ```php
 <?php
 // --- Configuration Section ---
@@ -22,7 +21,6 @@ $api_scope              = 'YOUR-CLIENT-APP-SCOPES'; // e.g. 'folders/* files/* m
 $redirect_uri           = 'YOUR-REDIRECT-URI';
 ?>
 ```
-
 Step 1 - Configure Accellion server, custom app and user details
 
 ```php
@@ -36,7 +34,6 @@ $signature = hash_hmac("sha1",$base_string, $signature_key);
 $auth_code = base64_encode($client_app_id)."|@@|".base64_encode($user_id)."|@@|$timestamp|@@|$nonce|@@|$signature";
 ?>
 ```
-
 Step 2 - Calculate authorization code using the following parameters:
  * Signature Key and Client ID: These were displayed on the Admin interface when the custom app using Signature flow was created.
  * Email address of the user for whom the app needs an access token.
@@ -79,7 +76,6 @@ else {
 }
 ?>
 ```
-
 Step 3 - Fetch access token from Accellion's token URI using the following parameters:
  * Client ID and secret: Displayed on Admin interface when app was created.
  * Grant Type: This should be the string “authorization_code” for the token request to work.

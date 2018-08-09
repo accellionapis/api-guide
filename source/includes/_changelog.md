@@ -1,6 +1,8 @@
 # Changelog
 
-## Version 9.1 (August 2018, Server Version 5.1)
+## Version 9.1
+
+August 2018, Server Version 5.1
 
 ### New Endpoints
 

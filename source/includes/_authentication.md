@@ -8,7 +8,7 @@ Accellion offers Signature Authorization flow for **trusted** apps where user in
 Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
 </aside>
 
-### Step 1 - Configure Accellion server, custom app and user details
+### Steps in Signature flow
 
 ```php
 <?php
@@ -23,7 +23,7 @@ $redirect_uri           = 'YOUR-REDIRECT-URI';
 ?>
 ```
 
-### Step 2 - Calculate authorization code using the following parameters:
+#### Step 1 - Configure Accellion server, custom app and user details
 
 ```php
 <?php
@@ -37,12 +37,11 @@ $auth_code = base64_encode($client_app_id)."|@@|".base64_encode($user_id)."|@@|$
 ?>
 ```
 
+#### Step 2 - Calculate authorization code using the following parameters:
  * Signature Key and Client ID: These were displayed on the Admin interface when the custom app using Signature flow was created.
  * Email address of the user for whom the app needs an access token.
  * Current timestamp: The code will remain valid for an hour after creation.
  * Nonce: A random integer between 1 and 999999.
-
-### Step 3 - Fetch access token from Accellion's token URI using the following parameters:
 
 ```php
 <?php
@@ -81,6 +80,7 @@ else {
 ?>
 ```
 
+#### Step 3 - Fetch access token from Accellion's token URI using the following parameters:
  * Client ID and secret: Displayed on Admin interface when app was created.
  * Grant Type: This should be the string “authorization_code” for the token request to work.
  * Scope: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.

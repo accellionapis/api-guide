@@ -63,7 +63,7 @@ print_r($arr_capi_response);
 ?>
 ```
 
-In [Try the playground](#try-the-playground) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).
+In [Call an endpoint](#call-an-endpoint) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).
 
 One of the attributes returned was "syncdirId", which refers to your automatically created default "My Folder".
 

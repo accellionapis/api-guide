@@ -35,7 +35,7 @@ On the right, we have a helper function that makes the actual HTTP call to the A
 
 This function will be used in the following code samples for different use cases.
 
-## Listing folder contents
+## List folder contents
 ```php
 <?php
 define('CONST_EAPI_VERSION', 10);	// Put the latest API version in place of 9

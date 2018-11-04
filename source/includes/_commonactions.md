@@ -38,7 +38,7 @@ This function will be used in the following code samples for different use cases
 ## Listing folder contents
 ```php
 <?php
-define('CONST_EAPI_VERSION', 9);	// Put the latest API version in place of 9
+define('CONST_EAPI_VERSION', 10);	// Put the latest API version in place of 9
 
 $oAuthToken = "GET-OAUTH-TOKEN";	// Use the code in getOAuthToken.php to get the token
 
@@ -70,3 +70,35 @@ One of the attributes returned was "syncdirId", which refers to your automatical
 In the code sample on the right, replace "YOUR-FOLDER-ID" with the value of "syncdirId" (or the ID of any other folder you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 
 Then, copy and paste the script on a machine that has PHP installed and run it. You will see the server response with the contents of your My Folder in JSON format.
+
+## Download file
+```php
+<?php
+define('CONST_EAPI_VERSION', 10);    // Put the latest API version in place of 9
+
+$oAuthToken = "GET-OAUTH-TOKEN";    // Use the code in getOAuthToken.php to get the token
+
+// --- Configuration Section ---
+$fileId           = 'YOUR-FILE-ID';
+$kiteworks_hostname = 'YOUR-SERVER.DOMAIN.ORG';
+
+$api_end_point = "https://$kiteworks_hostname/rest/files/$fileId/content";
+$headers = array("Content-Type: application/json",
+            "Accept: application/json",
+            "X-Accellion-Version: " . CONST_EAPI_VERSION,
+            "Authorization: Bearer $oAuthToken" );
+
+// --- Passing additional information about protocol and headers to the generic helper function --- 
+$arr_params = [];
+$arr_params['header'] = $headers;
+$arr_params['protocol'] = 'get';
+
+$postData = array();    //  API uses GET protocol. Does not require POST data. Initializing for the generic helper function
+$arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_params);
+print_r($arr_capi_response);
+?>
+```
+
+In the code sample on the right, replace "YOUR-FILE-ID" with one of the file IDs returned in the folder listing response (or the ID of any other file you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
+
+You will see the server response with the contents of your file in the 'response' key.

@@ -63,9 +63,9 @@ print_r($arr_capi_response);
 ?>
 ```
 
-In [Call an endpoint](#call-an-endpoint) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself).
+In [Call an endpoint](#call-an-endpoint) section above, you called **GET /rest/users/me** to retrieve basic information about the current user (yourself). One of the attributes returned was "syncdirId", which refers to your automatically created default "My Folder".
 
-One of the attributes returned was "syncdirId", which refers to your automatically created default "My Folder".
+In this section, you will use the **GET /rest/folders/{folder ID}/children** endpoint to get the list of items (files and sub-folders) inside this folder.
 
 In the code sample on the right, replace "YOUR-FOLDER-ID" with the value of "syncdirId" (or the ID of any other folder you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 
@@ -98,6 +98,8 @@ $arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_param
 print_r($arr_capi_response);
 ?>
 ```
+
+Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the contents of a file.
 
 In the code sample on the right, replace "YOUR-FILE-ID" with one of the file IDs returned in the folder listing response (or the ID of any other file you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 

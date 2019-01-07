@@ -12,8 +12,6 @@ includes:
   - quickstart
   - authentication
   - commonactions
-  - versions
-  - changelog
   - help
 
 search: true

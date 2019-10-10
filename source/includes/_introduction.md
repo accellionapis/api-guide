@@ -10,5 +10,5 @@ A key component of the platform is the set of RESTful Enterprise APIs that provi
 
 •	A catalog of sales items and marketing collateral can be distributed to a worldwide sales force using tablets. Automated folder creation and permissions can ensure the right items and collateral are available to the right people’s tablets at the right time.
 
-•	A bank can create a deal room for each major deal, and provide secure access to outside parties such as attorneys, agents and inspectors to upload and review documents using their tablets instead of a fax machine
+•	A bank can create a deal room for each major deal, and provide secure access to outside parties such as attorneys, agents and inspectors to upload and review documents using their tablets instead of a fax machine.
 

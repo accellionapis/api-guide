@@ -213,12 +213,14 @@ This access token can then be used to access user's resources through API servic
 
 Error Response 
 If the credentials of the client or the authorization code is invalid or there is some other error, the server will respond with HTTP 400 Bad Request. The body of the response will contain the following error information in JSON format:
-•	serror – is the error code. The following are the possible values :
-o	invalid_client – Client authentication failed. The client ID and/or secret key provided is invalid.
-o	invalid_grant – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
-o	invalid_request – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
-o	unauthorized_client – The client is not authorized to use this flow. 
- Example script for getting the OAuth token (Python 2.7):
+ * **serror** – is the error code. The following are the possible values :
+    - **invalid_client** – Client authentication failed. The client ID and/or secret key provided is invalid.
+    - **invalid_grant** – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
+    - **invalid_request** – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+    - **unauthorized_client** – The client is not authorized to use this flow.
+    
+```Example:
+Example script for getting the OAuth token (Python 2.7):
 #!/usr/bin/python
 '''
 Script for generating OAuth token using Kiteworks API

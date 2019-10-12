@@ -290,4 +290,64 @@ def main()
     print(response.json())
 
 main()
+```
+
+You will need to import some Python libraries and define some variables. The following example is hard-coded:
+
+```
+ 	import hmac
+import requests
+import json
+import time
+import datetime
+import hashlib
+import base64
+import random
+client_id = "186f3ead-4e52-555c-89ff-a8c306422186"
+client_secret = "zjzHsj2g"
+user_id = "jeremy.user.1@gmail.com"
+redirect_uri = "https://tsekiteworks.accellion.net/test2"
+token_uri = "https://tsekiteworks.accellion.net/oauth/token"
+time_stamp = int(time.time())
+nonce = randint(1, 999999)
+signature_key = "nMQItNF6yc7r57w8BmtdCrzQ0yWb3zvTWNet7sved1Ma"
+grant_type = "authorization_code"
+scope = '*/activities/* */admin/* */profile/* */users/* */files/* */folders/*'
+```
+
+Calculating Auth code using Signature:
+
+```
+ 	# Step 1 - Calculating Authorization Code using Signature
+#
+# construct base string using this format: base_string = client_id|@@|user_id|@@|timestamp|@@|nonce
+base_string = client_id + '|@@|' + user_id + '|@@|' + str(time_stamp) + '|@@|' + str(nonce)
+# calculate signature of base_string using HMAC SHA1 and signature key as HMAC key
+sig = hmac.new(signature_key,
+               msg=base_string,
+               digestmod=hashlib.sha1).hexdigest()
+# construct authorization code as: auth_code = base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature
+auth_code = base64.b64encode(client_id) + '|@@|' + base64.b64encode(user_id) + '|@@|' + str(time_stamp) + '|@@|' + str(nonce) + '|@@|' + sig
+```
+
+ Request Access Token
+ ```
+Step 2 - OAuth Token Request   
+
+HTML header data
+header_data = {'X-Accellion-Version':'8'}
+# payload to pass to token endpoint
+access_data = { 'client_id': client_id,
+                'client_secret': client_secret,
+                'grant_type': grant_type,
+                'scope': scope,
+                'code': auth_code,
+                'redirect_uri': redirect_uri}
+# POST
+response = requests.post(token_uri, headers=header_data, data=access_data)
+# print response
+print(response.json())
+```
+ 
+
 

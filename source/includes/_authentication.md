@@ -71,12 +71,106 @@ else {
  * Email address of the user for whom the app needs an access token.
  * Current timestamp: The code will remain valid for an hour after creation.
  * Nonce: A random integer between 1 and 999999.
+Using these parameters, the authorization flow can be calculated. First, a base string should be calculated using the following format:
+base_string = client_id|@@|user_id|@@|timestamp|@@|nonce
+
+Here is a sample snippet of Java code to calculate the base string:
+
+```
+//Constructs the base string using elements outlined in the documentation
+String baseString + clientId + “|@@}” + userId + “|@@|” + Long.toString(timestamp) + “|@@|” + Integer.toString(nonce);
+```
+
+From there, the signature of the base string can be calculated, using the HMAC SHA1 method, and using the client application’s signature key as the HMAC’s key:
+
+`signature = HMAC_SHA1(base_string, client_signature_key)` 
+ 
+Here is a sample method in Java to calculate the signature:
+
+```
+//Used by the authentication method. Gets a signature based on a key and a base string 
+Private String getSignature(String clientSignatureKey, StringbaseString) throws Exception{
+Mac hmacsha1 = Mac.getinstance(“HmacSHA1”);
+SecretKeySpec signinKey = new SecretKeySpec(clientSignatureKey.getBytes(), “HmacSHA1”);
+Hmacsha1.init(signingKey);
+Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
+String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
+return signature;
+]
+```
+
+
+Finally, the authorization code can be constructed as follows:
+`auth_code =
+base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature`
+
+
+Here is a sample method in Java for calculating the authorization code:
+
+```
+//Used by the authentication method. Gets an auth code based on parameters.
+Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
+
+//Base 64 encoder
+BASE64Encoder encoder = new BASE64Encoder();
+
+//encodes the client id and takes off the last character, as the encoder adds a new line character at the end
+String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
+encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);
+
+//encodes the user id
+String encodeUserId = encoder.encodrBuffer(userId.getBytes());
+encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
+
+//Construct auth code
+String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
+
+return authcode;
+}
+```
+ 
 2. Fetch access token from Accellion's token URI using the following parameters:
  * Client ID and secret: Displayed on Admin interface when app was created.
  * Grant Type: This should be the string “authorization_code” for the token request to work.
  * Scope: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
  * Redirect URL: This is exactly the same redirect URI as registered with the server.
  * Code: This is the authorization code calculated in step one.
+ * install_tag_id (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
+ * install_name (optional parameter): This is the friendly name of the device from which the
+API call has initiated.
+
+Here is an example of the POST request:
+
+```
+POST /oauth/token HTTP/1.1
+Host: kiteworks_server
+Content-type: application/x-www-form-urlencoded
+Content-length:  415
+Connection: close
+
+Client_id=playground&client_secret=secret&grant_type=authorization_code&scope=*
+%2folders%2F*%202F8files%&code=cGxheWdyb3VuZA%3D%7C
+%40540%7CdGVzdEBhY2N1bGxpb24uY29t%7C%40%40%7c1407493837%7C%40%40%7C724408%7C
+%40%40%7C4efc222192b742bd56516004412cce79267b4c02&redirect_url=https%3A%2F%2Fserver.com%2F
+```
+
+Here is a sample method in Java to construct the string of parameters to be sent in the request:
+
+```
+//Assembles all of the elements necessary to be passed through the web requested
+//to be authenticated successfully
+private String getParams(String clientId, String clientSecret, String scope, String redirectUri, StringauthCode) {
+
+String params = "client_id=" + clientId + "&";
+params = params + "client_secret=" + clientSecret + "&";
+params = params + "grant_type=" + "authorization_code" + "&";
+params = params + "scope=" + scope + "&";
+params = params + "redirect_uri=" + URLEncoder.encode(redirectUri) + "&";
+params = params + "code=" + URLEncoder.encode(authCode);
+return params;
+}
+``` 
+
 
 <aside class="notice">
 Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.

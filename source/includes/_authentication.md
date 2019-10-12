@@ -140,3 +140,152 @@ The first step is to call the Authorization end-point with the request parameter
 *	**scope** – is the scope of the API services that the client wants to access. This is a space-separated string consisting of the name of the method and API services that the application requires. For example: “GET/users/* */files/*”. The requested scope must be a sub-set of the client application's registered scope in the server. If a blank scope is provided, the registered scope will be assumed.
 *	**m** (optional parameter) – set to 1 to display mobile friendly authorization page.
 *	**state** (optional parameter) – is an optional parameter that the client application may pass in order to maintain the state of its process. The server will pass back this parameter as-is in the response. 
+
+```Example:
+(Note that line break is used only for clarity)
+GET https://kiteworks_server/oauth/authorize?
+
+client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1 
+```
+
+**Successful Response**
+After the server finishes the authorization and authentication procedure with the user, the server will redirect the user (via HTTP 302) to the redirect_uri provided in the Authorize call. Two parameters will be passed through this redirection URI: code and state. The code parameter is the authorization code that can be used to obtain the access token in the second step.
+
+```Example:
+HTTP/1.1 302 Found 
+
+Location: https://kiteworks_server/oauth_callback.php?code=60cc146c8dced75e26e 
+```
+
+**Error Response**
+If an error occurs (such as invalid consumer id, or invalid redirect URI), an error message will be displayed immediately within the user’s browser. For other errors (such as invalid scope or denied access by the user) the server will redirect the user (via HTTP302) to the redirect_URI. The parameters are:
+*	**error** – is the error code. The following are the possible values of the error code:  
+    - **access_denied**: The user denied the permission request. 
+    - **invalid_scope**: The requested scope is invalid.
+    - **invalid_request**: The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+    - **unauthorized_client**: The client-application is not authorized to use this flow. 
+    - **state** – is set to the exact value received in the request. 
+
+```Example:
+HTTP/1.1 302 Found 
+
+Location: https:// kiteworks_server/oauth_callback.php?error=access_denied 
+```
+
+## Step 2 - Access Token Request
+
+The authorization code obtained in the first step can be exchanged for the final access token by making a request to the access token end-point. The following parameters must be passed to the token end-point as POST parameters:
+ *	**client_id** – is the ID of the client as registered in the server. E.g. ‘playground’.
+ *	**client_secret** – is the client’s secret phrase as registered in the server.
+ *	**grant_type** – its value must be set to authorization_code.
+ *	**redirect_uri** – is exactly the same redirect URI as used in the first step.
+ *	**code** – is the authorization code obtained in the first step.
+ *	**install_tag_id** (optional parameter) – is a string to uniquely identify the device from which the API call has initiated.
+ *	**install_name** (optional parameter) – is the friendly name of the device from which the API call has initiated.
+
+```Example:
+(Note that line breaks on the message content are used only for clarity)
+POST /oauth/token HTTP/1.1
+Host: kiteworks_server
+Content-type: application/x-www-form-urlencoded
+
+client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad 
+```
+
+**Successful Response**
+If the credentials of the client and the authorization code are valid and there is no other error, the server will return a HTTP response 200 OK. The body of the response is in JSON format with the following information:
+
+ * **access_token** – is the token that can be used to request an API service.
+ * **expires_in** – is the number in seconds after which the access token would expire.
+ * **token_type** – is set to “bearer”
+ * **scope** – is the scope for which this token is valid, normally it will be the same as the requested scope.
+ * **refresh_token** – is the refresh token that can be used to get a new access token without going through Step 1 Authorization Request. This refresh token will be provided only if the client is allowed to use refresh tokens as specified during client registration.
+
+```Example:
+HTTP/1.1 200 OK 
+Cache-Control: no-store
+Content-Type: application/json
+
+{"access_token":"d932e1d32d89140163345d47fa97bfa60eeba1a5","expires_in":"360000","token_type":"bearer", "scope":"GET\/users\/* *\/files\/*","refresh_token":"d7ce54d721e8das60943f3fc7cb159e4b11d0ee5"}
+```
+
+This access token can then be used to access user's resources through API services. 
+
+Error Response 
+If the credentials of the client or the authorization code is invalid or there is some other error, the server will respond with HTTP 400 Bad Request. The body of the response will contain the following error information in JSON format:
+•	serror – is the error code. The following are the possible values :
+o	invalid_client – Client authentication failed. The client ID and/or secret key provided is invalid.
+o	invalid_grant – The authorization code or redirect URI provided is invalid. invalid_scope – The requested scope is invalid or exceeds the previously granted scope.
+o	invalid_request – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
+o	unauthorized_client – The client is not authorized to use this flow. 
+ Example script for getting the OAuth token (Python 2.7):
+#!/usr/bin/python
+'''
+Script for generating OAuth token using Kiteworks API
+'''
+
+import hmac
+import requests
+import json
+import time
+import datetime
+import hashlib
+import base64
+import random
+
+def auth_code(client_id, user_id, time_stamp, nonce, signature_key):
+    '''
+    Step 1 - Calculate authcode using signature_key.
+    '''
+    # create a base string using |@@| as delimiter between values
+    base_string = client_id + '|@@|' + user_id + '|@@|' + str(time_stamp) + '|@@|' + str(nonce)
+    # create HMAC cryptographic signature
+    sig = hmac.new( signature_key, msg=base_string, digestmod=hashlib.sha1).hexdigest()
+    # generate auth code with base64 encoded client_id, user_id with time_stamp, nonce and the HMAC sig
+    auth_code = base64.b64encode(client_id) + '|@@|' + base64.b64encode(user_id) + '|@@|' + str(time_stamp) + '|@@|' + str(nonce) + '|@@|' + sig
+    return authcode
+
+
+def oauth_token(token_uri, header_data, access_data)
+    '''
+    Step 2 - Request OAuth token from Kiteworks now that we have all the information that is needed.
+    '''
+    response = request.post(token_uri, headers=header_data, data=access_data)
+    return response
+
+
+def main()
+
+    # Setup initial variables required for OAuth, as well as scope for Kiteworks APIs
+    client_id = "186f9w3d-4e52-555c-89ff-a8c306422186"
+    client_secret = "zjzHsj2g"
+    user_id = "jeremy.user.1@gmail.com"
+    redirect_uri = "https://meowworks.accellion.net/test2"
+    token_uri = "https://meowworks.accellion.net/oauth/token"
+    time_stamp = int(time.time())
+    nonce = randint(1, 999999)
+    signature_key = "nMQItNF6yc7r57w8BmtdCrzQ0yWb3zvTWNet7sved1Ma"
+    grant_type = "authorization_code"
+    scope = '*/activities/* */admin/* */profile/* */users/* */files/* */folders/*'
+
+    # Dictionary containing header data for OAuth token POST request
+    header_data = {'X-Accellion-Version':'8'}
+
+    # Dictionary containing data for OAuth token POST request
+    access_data = {
+        'client_id': client_id,
+        'client_secret': client_secret,
+        'grant_type': grant_type,
+        'scope': scope,
+        'code': auth_code,
+        'redirect_uri': redirect_uri
+    }
+
+    authcode = auth_code(client_id, user_id, time_stamp, nonce, signature_key)
+    response = oauth_token(token_uri, header_data, access_data)
+
+    # Print response containing OAuth token in JSON format
+    print(response.json())
+
+main()
+

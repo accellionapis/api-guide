@@ -136,8 +136,11 @@ return authcode;
  * Redirect URL: This is exactly the same redirect URI as registered with the server.
  * Code: This is the authorization code calculated in step one.
  * install_tag_id (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
- * install_name (optional parameter): This is the friendly name of the device from which the
-API call has initiated.
+ * install_name (optional parameter): This is the friendly name of the device from which the API call has initiated
+
+<aside class="notice">
+Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
+</aside>
 
 Here is an example of the POST request:
 
@@ -171,11 +174,6 @@ return params;
 }
 ``` 
 
-
-<aside class="notice">
-Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
-</aside>
-
 ### Responses from server
 
 Once these two steps are complete, if there are no errors for the POST request, the server will return a HTTP response 200 OK. The body for the response will be in JSON format and will include the following:
@@ -186,6 +184,12 @@ Once these two steps are complete, if there are no errors for the POST request, 
 *	**refresh_token:** This is a token that can be used to get a new access token without going through the first step of authorization.
 *	**token_type:** This will be set to “bearer” because that is the type of token.
 
+Here is an example of a successful response:
+```
+HTTP/1.1 200 OK Cache-Control: no-store Content-Type: application/json 
+
+{"access_token":"054915e674bc35fa7fff1f499044e964d3a5d61b","expires_in":3600,"token_type":"bearer,"scope":"*\/folders\/* *\/files\/*", "refresh_token":"085b8f5e3153c083fdde20d53030b5b623a6ecb3"}
+```
 
 If there are problems with the request, the server will return a HTTP 400 bad request. The body of the response will contain error information in JSON format. Here are the possible values for the error code:
 

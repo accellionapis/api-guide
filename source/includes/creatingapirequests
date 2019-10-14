@@ -4,7 +4,7 @@ When making web requests to the API from your own application, make sure to incl
 
 Most modern web browsers either come with a set of developer tools (e.g., Chrome Developer Tools) or have a set that can be found online (e.g., Firebug for Firefox). In the developer tools, there will generally be a Network tab that will show all network calls being made through the browser. There are also a number of standalone software applications   that can be used to do this (e.g., Fiddler, Wireshark, Charles Proxy).
 
-![](../images/users.png)
+![](../images/developertools.jpg)
 
 As an exercise, let's make the same request from the developer documentation we made in the last section, look at the request using developer tools, and figure out where the token is used.
 

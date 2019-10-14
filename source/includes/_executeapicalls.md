@@ -9,3 +9,10 @@ Let us begin with performing a basic API call. In the body of the webpage, there
 As an example, navigate to the users entity.
 
 ![](../images/usersentity.png)
+
+Here, you can see the list of endpoints associated with the users entity. For clarity purposes, they are color coded based on what method is being used. To the right of each list item, there is a brief description of what the entity does.
+
+When an item in this list is clicked, the interface will expand again to show information relevant to the selected endpoint.
+
+Click on the endpoint GET /rest /users/me.
+

@@ -8,3 +8,4 @@ Let us begin with performing a basic API call. In the body of the webpage, there
  
 As an example, navigate to the users entity.
 
+![](../images/usersentity.png)

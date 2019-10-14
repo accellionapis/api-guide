@@ -1,0 +1,3 @@
+## Creating API Requests
+
+When making web requests to the API from your own application, make sure to include your token in the header for your request. The steps for obtaining this token were outlined in the Prerequisites section of this documentation. This section will outline how to include the token in your request from a third-party application

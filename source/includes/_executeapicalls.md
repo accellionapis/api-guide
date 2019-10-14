@@ -8,7 +8,7 @@ Let us begin with performing a basic API call. In the body of the webpage, there
  
 As an example, navigate to the **users** entity.
 
-![](../images/usersentity.png)
+![](../images/usersentity.jpg)
 
 Here, you can see the list of endpoints associated with the **users** entity. For clarity purposes, they are color coded based on what method is being used. To the right of each list item, there is a brief description of what the entity does.
 
@@ -16,7 +16,7 @@ When an item in this list is clicked, the interface will expand again to show in
 
 Click on the endpoint **GET /rest /users/me**.
 
-![](../images/clickendpoint.png)
+![](../images/clickendpoint.jpg)
 
 Go over the details for this endpoint. In summary, it returns a JSON representation of the entity that is populated with information that the access token represents. This information is tied to the current user. Once you've gone over the information for the endpoint, click the **Try it out!** button
 

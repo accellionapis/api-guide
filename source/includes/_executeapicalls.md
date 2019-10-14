@@ -4,4 +4,7 @@ Now that we have the access token, it is time to get started with using the kite
 
 ![](../images/users.png)
 
+Let us begin with performing a basic API call. In the body of the webpage, there is a list of entities, each of which correspond to a different part of kiteworks and is represented with a JSON payload. When an entity name is clicked, the interface will expand to show all of the endpoints associated with that entity. An endpoint is a web request that performs a task related to the entity it falls under.
  
+As an example, navigate to the users entity.
+

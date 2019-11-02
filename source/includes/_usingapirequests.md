@@ -13,4 +13,4 @@ As you can see, the object   being acted upon is the current user. In this case,
 
 The response of the request is the JSON object that we previously saw in the UI of the developer documentation page.
 
-Here, it is important to note that every object has an id element, which is the unique identifier for the object with respect to all other objects of that entity type. Most of the endpoints that get and/or modify a specific data will require the id of the object that corresponds to the data. Such an endpoint will be outlined in the next section, as well as how to obtain the id value for the request.
+Here, it is important to note that every object has an **id** element, which is the unique identifier for the object with respect to all other objects of that entity type. Most of the endpoints that get and/or modify a specific data will require the id of the object that corresponds to the data. Such an endpoint will be outlined in the next section, as well as how to obtain the id value for the request.

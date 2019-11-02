@@ -7,7 +7,7 @@ Before moving onto the next exercise, let's dig into the response of the request
 For instance, this is the response header for the request we just made.
 
 
-![](../images/respheader.png)
+![](../images/respheader.jpg)
 
 As you can see, the object   being acted upon is the current user. In this case, the information about this user is just being returned. However, when adding, removing, updating, or otherwise editing objects, it is often critical to make note of which object   is being acted upon.
 

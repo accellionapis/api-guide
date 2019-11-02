@@ -1,6 +1,6 @@
 # Creating API Requests
 
-When making web requests to the API from your own application, make sure to include your token in the header for your request. The steps for obtaining this token were outlined in the [Prerequisites](#prerequisites)section of this documentation. This section will outline how to include the token in your request from a third-party application
+When making web requests to the API from your own application, make sure to include your token in the header for your request. The steps for obtaining this token were outlined in the [Prerequisites](#prerequisites) section of this documentation. This section will outline how to include the token in your request from a third-party application
 
 Most modern web browsers either come with a set of developer tools (e.g., Chrome Developer Tools) or have a set that can be found online (e.g., Firebug for Firefox). In the developer tools, there will generally be a Network tab that will show all network calls being made through the browser. There are also a number of standalone software applications   that can be used to do this (e.g., Fiddler, Wireshark, Charles Proxy).
 

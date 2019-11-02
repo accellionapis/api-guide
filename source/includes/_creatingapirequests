@@ -16,3 +16,4 @@ authentication. This is the exact format the authorization field in the request 
 Authorization: Bearer <token string>
 
 Where <token string> is replaced with the actual token string.
+

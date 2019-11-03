@@ -22,7 +22,7 @@ The most noteworthy part of this response is the **X-Accellion-Location** field.
 
 Now that we have created a folder, let us add one of your contacts as a downloader.
 
-If you don't have any contacts or you wouldn't like to share this folder with any of your existing contacts, you can use the **POST /contacts** endpoint under the **contacts** entity to create another contact
+If you don't have any contacts or you wouldn't like to share this folder with any of your existing contacts, you can use the **POST /rest/contacts** endpoint under the **contacts** entity to create another contact
 
 ![](../images/postcontacts.jpg)
 

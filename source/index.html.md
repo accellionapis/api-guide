@@ -11,6 +11,11 @@ includes:
   - introduction
   - quickstart
   - authentication
+  - execute api calls
+  - creating api requests
+  - using api requests
+  - using id
+  - dreating objects
   - commonactions
   - help
 

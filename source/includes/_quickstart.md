@@ -35,6 +35,9 @@ If you already have an Accellion instance:
 3. Click "Developer Documentation". This should open the playground in a new tab.
 ![](../images/playground-setup.png)
 
+The following screenshot shows the **Developer Documentation** page.
+![](../images/developerdoc.jpg)
+
 ## Get a token
 Once the playground has loaded (resource list has been fetched), click the **Get a token** (1) button near the top right.
 

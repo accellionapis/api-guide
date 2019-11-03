@@ -8,7 +8,7 @@ Unlike the users entity, which has the aforementioned endpoint to return the cur
 
 There are a number of ways to get the **id** of the **My Folder** folder for the current user.
 
-One is simply to make the **GET /users/me** request. In the response of that request, there is a **links** array, in which there is an element identified as **syncdir**. The **id** associated with that element is the **id** of the **My Folder** folder for this user.
+One is simply to make the **GET /rest/users/me** request. In the response of that request, there is a **links** array, in which there is an element identified as **syncdir**. The **id** associated with that element is the **id** of the **My Folder** folder for this user.
 
 ![](../images/syncdir.jpg)
 

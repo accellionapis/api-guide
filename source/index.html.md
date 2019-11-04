@@ -15,7 +15,7 @@ includes:
   - creating api requests
   - using api requests
   - using id
-  - dreating objects
+  - creating objects
   - adding files
   - commonactions
   - help

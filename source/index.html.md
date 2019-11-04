@@ -16,6 +16,7 @@ includes:
   - using api requests
   - using id
   - dreating objects
+  - adding files
   - commonactions
   - help
 

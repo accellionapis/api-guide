@@ -106,3 +106,103 @@ The user can terminate the upload session by calling:
 Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount.
 
 ### Generate_chunks_data.php – Download
+
+```php
+<?php
+
+class ChunkGenerator
+{
+    const COMPRESSION_NORMAL = 'NORMAL';
+    const COMPRESSION_GZIP = 'GZIP';
+    const COMPRESSION_ZLIB = 'ZLIB';
+
+    public $validCompression = [
+        self::COMPRESSION_NORMAL,
+        self::COMPRESSION_GZIP,
+        self::COMPRESSION_ZLIB
+    ];
+
+    /**
+     * Create test file data
+     *
+     * @param int $totalChunks
+     * @param string $compressionMode
+     * @return array
+     */
+    public function initiateFileData($compressionMode = self::COMPRESSION_NORMAL, $totalChunks = 4)
+    {
+        $fileData = [];
+
+        $fileData['filename']     = uniqid() . '_test_file.txt';
+        $fileData['content']      = $this->generateRandomString();
+        $fileData['totalChunks']  = $totalChunks;
+        $fileData['clientCookie'] = $fileData['filename'];
+
+        $fileData = $this->splitFileIntoChunks($fileData, $compressionMode);
+
+        unset($fileData['content']); // We don't need this for the qa
+
+        return $fileData;
+    }
+
+    /**
+     * Split file content into chunks
+     *
+     * @param array $fileData
+     * @param string $compressionMode
+     * @return mixed
+     */
+    public function splitFileIntoChunks($fileData, $compressionMode)
+    {
+        $fileData['totalSize']   = strlen($fileData['content']);
+        $fileData['mimeType']    = 'text/plain';
+        $fileData['timestamp']   = time();
+        $fileData['fingerprint'] = md5($fileData['content']);
+
+        $chunkSize = ceil($fileData['totalSize'] / $fileData['totalChunks']);
+
+        $split = chunk_split($fileData['content'], $chunkSize);
+        $chunksContent = explode("\r\n", $split);
+                $fileData['chunks'] = [];
+
+        foreach ($chunksContent as $i => $originalContent) {
+            if (!empty($originalContent)) {
+                $compressedContent = $originalContent;
+                switch ($compressionMode) {
+                    case self::COMPRESSION_NORMAL:
+                        break;
+                    case self::COMPRESSION_GZIP:
+                        $compressedContent = gzencode($originalContent);
+                        break;
+                    case self::COMPRESSION_ZLIB:
+                        $compressedContent = gzcompress($originalContent);
+                        break;
+                }
+
+                $fileData['chunks'][$i]['index']           = $i;
+                $fileData['chunks'][$i]['originalSize']    = strlen($originalContent);
+                $fileData['chunks'][$i]['fingerprint']     = md5($originalContent);
+                $fileData['chunks'][$i]['content']         = base64_encode($compressedContent);
+                $fileData['chunks'][$i]['compressionMode'] = $compressionMode;
+                $fileData['chunks'][$i]['compressionSize'] = strlen($compressedContent);
+
+            } else {
+                unset($fileData['chunks'][$i]);
+            }
+        }
+
+        return $fileData;
+    }
+
+    public function generateRandomString($repeat = 100)
+    {
+        return str_repeat(md5(time()), $repeat);
+    }
+}
+
+$chunkGenerator = new ChunkGenerator();
+
+$fileData = $chunkGenerator->initiateFileData();
+
+print_r($fileData);
+```

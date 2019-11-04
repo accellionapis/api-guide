@@ -206,3 +206,8 @@ $fileData = $chunkGenerator->initiateFileData();
 
 print_r($fileData);
 ```
+To launch this script, launch terminal, navigate to a folder where this script is located and execute this command:
+```
+“php generate_chunks_data.php”
+```
+The script will display all the data in your terminal window.

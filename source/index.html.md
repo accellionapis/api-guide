@@ -11,12 +11,12 @@ includes:
   - introduction
   - quickstart
   - authentication
-  - execute api calls
-  - creating api requests
-  - using api requests
-  - using id
-  - creating objects
-  - adding files
+  - executeapicalls
+  - creatingapirequests
+  - usingapirequests
+  - usingid
+  - creatingobjects
+  - addingfiles
   - commonactions
   - help
 

@@ -22,6 +22,6 @@ It is assumed that the reader is familiar with the following concepts and techno
 * OAuth 2.0 Protocol
 * JavaScript Object Notation (JSON) format and structure
 * Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
-•	Multipart MIME requests
+* Multipart MIME requests
 
 

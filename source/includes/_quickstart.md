@@ -1,14 +1,5 @@
 # Quickstart
 
-## Prerequisites
-You should be an experienced developer and have an understanding of the following concepts and technologies:
-
-* OAuth 2.0
-* Understand the format, structure and common paradigm of JSON
-* HTTP methods and status codes
-•	Formulate web requests for common methods, e.g., GET, POST, PUT, and DELETE They have a working knowledge of multipart MIME requests
-* REST APIs
-
 ## Get an Accellion instance
 You will need an Accellion instance to get access to the API. If you don't already have one, please click on the button below:
 

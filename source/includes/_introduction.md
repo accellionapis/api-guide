@@ -12,7 +12,7 @@ This site describes the behavior that RESTful APIs expose in the Representationa
 -	UI Integration
 -	File System activities 
 
-Currently, code sample snippets are structured in the PHP script. Samples in other languages such as, Python, and JavaScript, will be added subsequently.The code snippets can be viewed on the right panel of the project board.
+Currently, code sample snippets are structured in the PHP script. Samples in other languages such as, Python, and JavaScript, will be added subsequently. The code snippets can be viewed on the right panel of the project board.
 
 
 

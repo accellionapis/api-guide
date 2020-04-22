@@ -4,10 +4,12 @@ Welcome to the Accellion API Guide.
 
 The Accellion RESTful Enterprise Public APIs enable developers to build apps designed for specific industry and business use cases, and integrate them within existing IT infrastructure.
 
-This site describes the behavior that RESTful APIs expose in the Representational State Transfer (REST) API environment within the Accellion RESTful Enterprise System framework. It describes the API workflow request/response protocols that cover integrated endpoints and includes the following API sections. 
+This site describes the behavior that RESTful APIs expose in the Representational State Transfer (REST) API environment within the Accellion RESTful Enterprise System framework and offers documentation on the usage of the API system and its workflow. 
 
-*	Types
-*	Authentication 
+It covers the following API sections. 
+
+*	Types and description
+*	Authentication protocol 
 *	User Management
 *	UI Integration
 *	File System activities 

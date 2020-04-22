@@ -19,11 +19,11 @@ Currently, code sample snippets are structured in the PHP script. Samples in oth
 ## Prerequisites
 It is assumed that the reader is familiar with the following concepts and technologies:
 
-* REST APIs
+* Representational State Transfer (REST) APIs
 *	RESTful architectural styles 
 * OAuth 2.0 Protocol
 * JavaScript Object Notation (JSON) format and structure
 * Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
-* Multipart MIME requests
+* Multipart MIME ( Multipurpose Internet Mail Extensions) requests
 
 

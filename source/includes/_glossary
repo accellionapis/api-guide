@@ -40,3 +40,4 @@ The **https://accellion.myserver.net/rest/users/me** URI is an example of an Acc
 
 **https://accellion.myserver.net** is the base path, and
 **/rest/users/me** is a REST URI resource identifier and the end path of the endpoint.
+

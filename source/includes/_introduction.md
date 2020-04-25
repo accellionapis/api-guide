@@ -20,7 +20,7 @@ Currently, code sample snippets are structured in the PHP script. Samples in oth
 Accellion Enterprise APTs use the following concepts and technologies. It is assumed that the reader is familiar with them.
 
 * Representational State Transfer (REST) architectural styles  
-*	RESTful implementation
+*	RESTful style implementation
 * OAuth 2.0 Protocol
 * JavaScript Object Notation (JSON) format and structure
 * Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes

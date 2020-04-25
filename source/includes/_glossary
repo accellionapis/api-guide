@@ -1,8 +1,8 @@
-**Glossary**
+# Glossary
 
 The following section lists the terms and their definitions used in the Accellion Developer API domain.
 
-**Access Token**
+## Access Token
 An **[Access Token](https://auth0.com/docs/tokens/concepts/access-tokens)**  is an Authorization Token granted to an API client to make API calls during a logged-in session. It authenticates the user before authorizing access to a request processing session for a protected resource. It is implemented between a user, client, and resource.
 
 A **[Lifetime](https://www.oauth.com/oauth2-servers/access-tokens/access-token-lifetime/)** is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Management**> **Custom Applications**. Once the token expires, a **[Refresh Token](https://tools.ietf.org/html/rfc6749#section-1.5)** can be generated as instructed in **[Refreshing an Access Token](https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/)** to obtain a **[New Access Token](https://www.oauth.com/oauth2-servers/access-tokens/)**.

@@ -24,6 +24,6 @@ Accellion Enterprise APTs use the following concepts and technologies. It is ass
 * OAuth 2.0 Protocol
 * JavaScript Object Notation (JSON) format and structure
 * Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
-* Multipart MIME ( Multipurpose Internet Mail Extensions) requests
+* Multipart MIME (Multipurpose Internet Mail Extensions) requests
 
 

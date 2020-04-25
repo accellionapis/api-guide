@@ -17,7 +17,7 @@ It covers the following API sections.
 Currently, code sample snippets are structured in the PHP script. Samples in other languages such as, Python, and JavaScript, will be added subsequently. The code snippets can be viewed on the right panel of the project board.
 
 ## Prerequisites
-It is assumed that the reader is familiar with the following concepts and technologies:
+Kiteworks APTs use the following concepts and technologies. It is assumed that the reader is familiar with them.
 
 * Representational State Transfer (REST) APIs
 *	RESTful architectural styles 

@@ -1,72 +1,29 @@
-# Glossary
+**Glossary**
 
 The following section lists the terms and their definitions used in the Kiteworks API domain. 
-## **Access Token*[link to OAuth!] https://auth0.com/docs/tokens/concepts/access-tokens!)
-     An Access Token is an Authorization Token is granted to an API client to make API calls for a login      session.  It identifies the user before authorizing access to a requested protected resource and is      implemented between a user, client, and resource.
-   
-     A **Lifetime** is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Management > Custom Applications. Once the token expires, a  Refresh Token can be generated as instructed in Refreshing an Access Token to obtain a New Access Token. 
-API 
-An Application Programming Interface (API) is a multi-layer interface that implements a set of routines and protocols for building and integrating software applications, using ‘push’ and ‘pull’ protocols behind the UI between the Client and Server.
+
+**Access Token**
+
+An **[Access Token](https://auth0.com/docs/tokens/concepts/access-tokens)**  is an Authorization Token granted to an API client to make API calls for a login session. It identifies the user before authorizing access to a requested protected resource and is implemented between a user, client, and resource.
+
+A **[Lifetime](https://www.oauth.com/oauth2-servers/access-tokens/access-token-lifetime/)** is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Managemen**t > **Custom Applications**. Once the token expires, a  **[Refresh Token](https://tools.ietf.org/html/rfc6749#section-1.5)** can be generated as instructed in **[Refreshing an Access Token](https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/)** to obtain a **[New Access Token](https://www.oauth.com/oauth2-servers/access-tokens/)**.
+
+**API** 
+
+An **Application Programming Interface** (**API**) is a multi-layer interface that implements a set of routines and protocols for building and integrating software applications, using ‘push’ and ‘pull’ protocols behind the User Interface between the Client and Server.
+
 An API can be implemented as:
-Networked API: Exposed by services across a network using Web protocols such as HTTP. Not all APIs are accessible across the internet.
-Remote API: Operates across a network and enables manipulating of remote resources that reside outside the system making the request.
-Web API: The most commonly used Web-based application that implements the common Web HTTP protocol to provide resources as a Web service in a platform-language agnostic format.
+
+**Networked API:** Exposed by services across a network using Web protocols such as HTTP. Not all APIs are accessible across the internet.
+
+**Remote API:** Operates across a network and enables manipulating of remote resources that reside outside the system making the request.
+
+**Web API:** The most commonly used Web-based application that implements the common Web HTTP protocol to provide resources as a Web service in a platform-language agnostic format.
+
 Web API requests and responses are negotiated over the HTTP client-server model.
+
 An API can be released under three policies:
-Private: For internal use only.
-Partner: For use with specific business partners only.
-Public: For use by the public
-API Backend
-Termed Mobile Backend as a Service (MBaaS or BaaS) an API backend enables developers to link applications to the back-end of a cloud-based storage and access Software Development Kits (SDKs) and other APIs. It serves push notifications, monitoring and configuration functionalities, integration of data and file storage, to implement the business logic for an API Service, between a set of server infrastructure.
-API Call 
-An API Call is executed when an endpoint to a URL is added and an API request to the server is made using an SDK or an API. For example, a Login request -where the requested information is transferred, retrieved and responded to.
-To initiate and API call, an Access Token is required.
-API Endpoint
-The intersection point/node in the API communication channel where request meets response or the point where the API interacts with another system that contains resource-specific information such as its location, how it can be accessed, or where the request for the resource is received, is called an endpoint. An endpoint can include a URL, URI of a server or service.
-While an API endpoint shows the whole path to the resource it executes end path parameters only of a request in the complete path fields. The complete path –also called a resource URL. -contains both, the base path and endpoint parameters. The endpoint implements functions such as, retrieving client information or processing a payment and transmits the processed information to the API frontend in HTML, CSS, and JavaScript.
-The https://meowworks.accellion.net/rest/users/me URI is an example of an Accellion Enterprise API endpoint, where
-https://meowworks.accellion.net is the base path.
-/rest/users/me is a REST URI resource identifier and the end path of the endpoint.
-API Frontend
-An API Frontend is a service layer code that implements the business logic segment of the request for the resource received from a client, in conjunction with the API endpoint. The frontend validates the request using HTML, CSS, and JavaScript received from the API endpoint and represents it in the browser.
-In systems that include two services, for example, an interlinked website and a database, a backend of a service can be implemented as the client to the frontend of the second service.
-API Interface
-Describes the structure of data to a program which generates and represents the source code based on the description of the structured data within a Protocol Buffers (Protobuf) service method that is implemented in an Interface Description/Definition Language (IDL).
-An API interface is typically mapped to an interface and can be implemented by any number of API Services.
-API Method
-A specific operation within an API Interface by a Remote Procedure Call (RPC) that uses the Protocol Buffers method. In most programming languages.it is typically mapped to a function in the API Interface.
-API Microservice
-A Microservice interacts with a backend segment of an API. It is implemented on the Microservice architectural method for building component-based applications.
-API Product
-An API Service collectively generates documentation such as Terms of Service, client libraries, and service support, and presented to clients as a product. For example, Kiteworks Suite.
-API Request
-A single invocation of an API Method to a server in the name of an application. For example, https://meowworks.accellion.net/path/login
-API Routes / Endpoints
-A route is the “name” attribute rule assigned to endpoints in the URL for routing requests/responses in HTTP operations. Depending on the HTTP verb, a route can have multiple endpoints associated with it.
-For example,  https://meowworks.accellion.net/mw-json/mw/v2/posts/123, 
-where, 
-mw-json is the base path for the API
-mw/v2/posts/123 is the route attribute for the API
-For sites that do not contain Permalink URL- permanent web address which are never modified - the route is added to the URL as a rest_route parameter, and would display as
-https://meowworks.accellion.net/?rest_route=mw/v2/posts/123
-The above example contains three endpoints:
-GET triggers a get_item method, returning the requested data to the client.
-PUT triggers an update_item method, updating data and returning the updated data to the client.
-DELETE triggers a delete_item method, returning the deleted post data to the client.
-API Service 
-A Service platform exposed over a network address that provides the ability to build, test, deploy, newly developed API interface(s) and connect an application to third-party APIs, such as Google Maps.
-API Service Definition
-A converged definition of an API Interface such as proto files in conjunction with API Service YAML configuration files used to define an API Service. The schema for Kiteworks API Service Definition is kiteworks.api.Service.
-API Service Endpoint
-Refers to a unique network address endpoint that an API service uses to service a set of REST resources. One API service may have multiple API service endpoints or a set of resources associated with one resource, such as https://kiteworksapis/pubsub..com and https://kiteworksapis /pubsub-content.com.
-Since the resources are maintained by one server, the base URL for the API Service Endpoint in this example would be https://kiteworksapis/pubsub/.
-API Service Name
-Refers to the logical identifier of an API service. Accellion APIs use RFC 1035 compatible names as API service names, such as "pubsub.kiteworksapis.com".
-API Version
-Due to its layered system and unified interface REST architectural style is predominantly used to expose services to third parties over the internet. since it uses the HTTP standard instead of complex protocols like SOAP or RPC.
-There are four ways of versioning the API releases:
-1.	Include the version number in the URI path: http://www.kiteworks.com/api/1/products
-2.	Include the version number as a query parameter: http://www.kiteworks.com/api/1/products?version=1
-3.	Include the version number as an attribute in a custom header: http://www.kiteworks.com/api//products
-4.	Address the version number through content negotiation: 
-curl -H “Accept: application/vnd.openxml.device+json; version=1”http://www.kiteworks.com/api//products
+
+- **Private**: For internal use only.
+- **Partner**: For use with specific business partners only.
+- **Public**: For use by the public.

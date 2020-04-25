@@ -4,7 +4,7 @@ The following section lists the terms and their definitions used in the Kitework
 ## **Access Token*[link to OAuth!] https://auth0.com/docs/tokens/concepts/access-tokens!)
      An Access Token is an Authorization Token is granted to an API client to make API calls for a login      session.  It identifies the user before authorizing access to a requested protected resource and is      implemented between a user, client, and resource.
    
-     A Lifetime is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Management > Custom Applications. Once the token expires, a  Refresh Token can be generated as instructed in Refreshing an Access Token to obtain a New Access Token. 
+     A **Lifetime** is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Management > Custom Applications. Once the token expires, a  Refresh Token can be generated as instructed in Refreshing an Access Token to obtain a New Access Token. 
 API 
 An Application Programming Interface (API) is a multi-layer interface that implements a set of routines and protocols for building and integrating software applications, using ‘push’ and ‘pull’ protocols behind the UI between the Client and Server.
 An API can be implemented as:

@@ -1,24 +1,24 @@
 **Glossary**
 
-The following section lists the terms and their definitions used in the Kiteworks API domain. 
+The following section lists the terms and their definitions used in the Accellion API domain.
 
 **Access Token**
 
-An **[Access Token](https://auth0.com/docs/tokens/concepts/access-tokens)**  is an Authorization Token granted to an API client to make API calls for a login session. It identifies the user before authorizing access to a requested protected resource and is implemented between a user, client, and resource.
+An **[Access Token](https://auth0.com/docs/tokens/concepts/access-tokens)**  is an Authorization Token granted to an API client to make API calls during a logged-in session. It identifies the user before authorizing access to a session before processing a request for a protected resource. It is implemented between a user, client, and resource.
 
 A **[Lifetime](https://www.oauth.com/oauth2-servers/access-tokens/access-token-lifetime/)** is specified for each issued Access Token by the **Admin**-**in**-**Application** > **Client Managemen**t > **Custom Applications**. Once the token expires, a  **[Refresh Token](https://tools.ietf.org/html/rfc6749#section-1.5)** can be generated as instructed in **[Refreshing an Access Token](https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/)** to obtain a **[New Access Token](https://www.oauth.com/oauth2-servers/access-tokens/)**.
 
-**API** 
+**API**
 
-An **Application Programming Interface** (**API**) is a multi-layer interface that implements a set of routines and protocols for building and integrating software applications, using ‘push’ and ‘pull’ protocols behind the User Interface between the Client and Server.
+An **[Application Programming Interfac](https://en.wikipedia.org/wiki/Application_programming_interface)e** (**API**) is a multi-layer interface that implements a set of routines and protocols for building and integrating software applications, using ‘push’ and ‘pull’ protocols behind the User Interface between the Client and Server.
 
 An API can be implemented as:
 
 **Networked API:** Exposed by services across a network using Web protocols such as HTTP. Not all APIs are accessible across the internet.
 
-**Remote API:** Operates across a network and enables manipulating of remote resources that reside outside the system making the request.
+**[Remote API](https://en.wikipedia.org/wiki/Remote_Application_Programming_Interface):** Operates across a network and enables manipulating of remote resources that reside outside the system making the request.
 
-**Web API:** The most commonly used Web-based application that implements the common Web HTTP protocol to provide resources as a Web service in a platform-language agnostic format.
+**[Web API](https://en.wikipedia.org/wiki/Web_API):** The most commonly used Web-based application that implements the common Web HTTP protocol to provide resources as a Web service in a platform-language agnostic format.
 
 Web API requests and responses are negotiated over the HTTP client-server model.
 
@@ -27,3 +27,26 @@ An API can be released under three policies:
 - **Private**: For internal use only.
 - **Partner**: For use with specific business partners only.
 - **Public**: For use by the public.
+
+**API Backend**
+
+Termed Mobile Backend as a Service (MBaaS or BaaS), an API backend enables developers to link applications to the back-end of a cloud-based storage and access Software Development Kit (SDK) and other APIs. It serves push notifications, monitoring and configuration functionalities, integration of data and file storage, to implement the business logic for an API Service between a set of server infrastructure.
+
+**API Call**
+
+An API Call is executed when an endpoint to a URL is added and an API request to the server is made using an SDK or an API.
+
+For example, a Log-in request -where the requested information is transferred, retrieved and responded to.
+
+An Access Token is required to initiate an API call.
+
+**API Endpoint**
+
+The intersection point/node in the API communication channel where request meets response or the point where the API interacts with another system that contains resource-specific information such as its location, how it can be accessed, or where the request for the resource is received, is called an endpoint. An endpoint can include a URL, URI of a server or service.
+
+While an API endpoint shows the whole path to the resource, it executes only the end path parameters of a request in the complete path fields. The complete path –also called a resource URL -contains both, the base path and endpoint parameters. The endpoint implements functions such as, retrieving client information or processing payment and transmits the processed information to the API frontend in HTML, CSS, and JavaScript.
+
+The **https://accellion.myserver.net/rest/users/me** URI is an example of an Accellion Enterprise API endpoint, where
+
+**https://accellion.myserver.net** is the base path, and
+**/rest/users/me** is a REST URI resource identifier and the end path of the endpoint.

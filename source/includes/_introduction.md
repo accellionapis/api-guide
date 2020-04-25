@@ -11,7 +11,7 @@ It covers the following API sections.
 *	Types and description
 *	Authentication protocol 
 *	User Management workflow
-*	User interface Integration
+*	User Interface integration
 *	File System methods 
 
 Currently, code sample snippets are structured in the PHP script. Samples in other languages such as, Python, and JavaScript, will be added subsequently. The code snippets can be viewed on the right panel of the project board.

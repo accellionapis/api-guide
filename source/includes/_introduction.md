@@ -1,29 +1,16 @@
 # Introduction
 
-Welcome to the Accellion Developer API Guide.
+Welcome to Accellion's API Guide.
 
-The Accellion Enterprise RESTful Public APIs enable developers to build apps designed for specific industry and business use cases, and integrate them within existing IT infrastructure.
+Accellion’s RESTful Enterprise API is programming language agnostic and enables you to quickly develop apps that leverage the power of the Accellion Platform. Developers can build custom apps tailored to specific industries, business use cases, and integrate them within an existing IT infrastructure. The APIs allow you to do an HTTPS GET, POST, DELETE or UPDATE.
 
-This site describes the behavior that RESTful APIs expose in the Representational State Transfer (REST) API environment within the Accellion Enterprise System RESTful framework and offers documentation on the usage of the API system and its workflow. 
-
-It covers the following API sections. 
-
-*	Types and description
-*	Authentication protocol 
-*	User Management workflow
-*	User Interface integration
-*	File System methods 
-
-Currently, code sample snippets are structured in the PHP script. Samples in other languages such as, Python, and JavaScript, will be added subsequently. The code snippets can be viewed on the right panel of the project board.
 
 ## Prerequisites
-Accellion Enterprise APTs use the following concepts and technologies. It is assumed that the reader is familiar with them.
+It is assumed that the reader is familiar with the following concepts and technologies used within the Accellion API framework:
 
-* Representational State Transfer (REST) architectural styles  
+* Representational State Transfer (REST) architectural styles   
 *	RESTful style implementation
 * OAuth 2.0 Protocol
 * JavaScript Object Notation (JSON) format and structure
-* Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
+* Hypertext Transfer Protocol (HTTP) terminology, methods and status codes
 * Multipart MIME (Multipurpose Internet Mail Extensions) requests
-
-

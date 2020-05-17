@@ -103,8 +103,10 @@ You are now ready to test your application. Go to
 <https://< your kiteworks hostname > /rest/index.html> to test your app using the app credentials. 
 Note 	“your kiteworks hostname” is the name of your Accellion deployment.  
 
-6. **Distribution**:   
-You can distribute your application and export the application package by clicking **Export App** and submit it for certification at developer.kiteworks.com.
+7. **Distribution**:   
+You can distribute your application and export the application package by clicking **Export App**.  
+
+![](../images/distribution.png)
 
 
 

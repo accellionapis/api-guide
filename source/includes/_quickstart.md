@@ -54,7 +54,7 @@ Perform the following steps to create a Custom Application:
   **Access Token Lifetime**: Set the duration of a token lifetime.  
   **Refresh Token Lifetime**: Set the duration that an access token can be refreshed.  
   c. 	Click **Add Application**.
-
+![](../images/navigation-custom-apps.png)
 
 
 

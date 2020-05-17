@@ -1,9 +1,26 @@
-# Quickstart
+# Prerequisites
+It is assumed that the reader is familiar with the following concepts and technologies used within the Accellion API framework:
+*	Representational State Transfer (REST) architectural styles  
+*	RESTful style constraints and implementation
+*	OAuth 2.0 Protocol
+*	JavaScript Object Notation (JSON) format and structure
+*	Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
+*	Multipart MIME (Multipurpose Internet Mail Extensions) requests
 
-## Get an Accellion instance
+
+# Get an Accellion instance
 You will need an Accellion instance to get access to the API. If you don't already have one, please click on the button below:
 
 <a href="https://info.accellion.com/demo-request?ref=api-guide-setup" target="_blank"><img src="images/get-a-demo.png" alt="drawing" width="90px"/></a>
+
+# Licensing
+The RESTAPI is available on every Accellion Enterprise package that has the Automation Suite enabled.
+
+Perform the following two steps to see if you have a license for the Accellion APIs:
+1.	Log into an Accellion system and click on the Application icon as shown below. 
+2.	Click on Licensing on the left panel.
+The API is listed in the Features section and it will be enabled if you have an Accellion Enterprise package. 
+
 
 ## Setup your first custom app
 If you already have an Accellion instance:

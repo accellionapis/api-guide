@@ -22,6 +22,15 @@ Perform the following two steps to see if you have a license for the Accellion A
 The API is listed in the Features section and it will be enabled if you have an Accellion Enterprise package. 
 ![](../images/licensing.png)
 
+# Enabling the Accellion API Playground
+Perform the following steps to enable the Accellion API Playground:
+1.	Click on the Application > Client Management > Custom Applications as shown below. 
+2.	Click on Enable kiteworks API Playground UI  ON/OFF switch to enable it if it not enabled.
+A confirmation window displays, click OK to enable the playground.
+
+![](../images/developerdoc.jpg)
+
+
 ## Setup your first custom app
 If you already have an Accellion instance:
 
@@ -37,14 +46,6 @@ If you already have an Accellion instance:
 8. Copy and save the Client Application ID and Client Secret Key from the popup to a secure location. **NOTE**: This is your only chance to copy the secret key.
 9. Click OK. Your custom application is now created and you are ready to start experimenting in the playground.
 
-## Setup the playground
-1. On the Custom Applications page in Admin interface, turn the API playground ON. Click OK in the confirmation popup.
-2. Click the "?" icon near the top right.
-3. Click "Developer Documentation". This should open the playground in a new tab.
-![](../images/playground-setup.png)
-
-The following screenshot shows the **Developer Documentation** page.
-![](../images/developerdoc.jpg)
 
 ## Get a token
 Once the playground has loaded (resource list has been fetched), click the **Get a token** (1) button near the top right.

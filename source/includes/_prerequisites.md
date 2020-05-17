@@ -86,7 +86,28 @@ Perform the following steps to create a Custom Application:
 
 Every custom application that is created can have server-side authorization scopes. You can define on the server what endpoints the custom application is allowed to use and how it can use those endpoints. Select the APIs you plan to use for your custom application. By default, all APIs are selected when you first create the application.   
 
-![](../images/scopes.png) 
+![](../images/scopes.png)   
+
+6. **Security** tab: 
+**Remote Wipe Enabled**:  
+Enable Remote Wipe for this application.  
+**Pin Enabled**:  
+Specify whether a PIN should be enabled for this application. Recommended for mobile apps.  
+**White Listed Apps**:
+List third-party mobile apps that can be used to open files via the Open-In menu.  
+
+![](../images/security1.png)   
+
+Select **Save Changes**.  
+You are now ready to test your application. Go to 
+<https://< your kiteworks hostname > /rest/index.html> to test your app using the app credentials. 
+Note 	“your kiteworks hostname” is the name of your Accellion deployment.  
+
+6. **Distribution**:   
+You can distribute your application and export the application package by clicking **Export App** and submit it for certification at developer.kiteworks.com.
+
+
+
 
 
 

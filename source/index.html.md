@@ -10,7 +10,7 @@ toc_footers:
 
 includes:
   - introduction
-  - quickstart
+  - prerequisites
   - authentication
   - executeapicalls
   - creatingapirequests

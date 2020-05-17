@@ -54,7 +54,20 @@ Perform the following steps to create a Custom Application:
   **Access Token Lifetime**: Set the duration of a token lifetime.  
   **Refresh Token Lifetime**: Set the duration that an access token can be refreshed.  
   c. 	Click **Add Application**.
-![](../images/navigation-custom-apps.png)
+![](../images/navigation-custom-apps.png)  
+  
+  d. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location. 
+ 
+ ---
+ 
+  > **CAUTION** The Client Application ID and Client Secret Key cannot be changed and should be protected, since these credentials could be used to access Accellion systems, potentially exposing these systems to loss or theft of critical information. The Administrator is responsible for keeping these credentials safe and should only share them with trusted individuals.
+---
+---
+
+ > **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.
+---
+![](../images/add-client-app.png) 
+
 
 
 

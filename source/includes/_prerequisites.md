@@ -19,7 +19,7 @@ The RESTAPI is available on every Accellion Enterprise package that has the Auto
 Perform the following two steps to see if you have a license for the Accellion APIs:
 1.	Log into an Accellion system and click on the Application icon as shown below. 
 2.	Click on Licensing on the left panel.
-The API is listed in the Features section and it will be enabled if you have an Accellion Enterprise package. 
+The API is listed in the Features section and it will be enabled if you have an Accellion Enterprise package.   
 ![](../images/licensing.png)
 
 # Enabling the Accellion API Playground
@@ -53,7 +53,7 @@ Perform the following steps to create a Custom Application:
   **Redirect URI**: Specify the Redirect URI using this format <https://%%HOST%%/rest/callback.html>  
   **Access Token Lifetime**: Set the duration of a token lifetime.  
   **Refresh Token Lifetime**: Set the duration that an access token can be refreshed.  
-  c. 	Click **Add Application**.
+  c. 	Click **Add Application**.    
 ![](../images/navigation-custom-apps.png)  
   
   d. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location. 
@@ -65,7 +65,7 @@ Perform the following steps to create a Custom Application:
 ---
 
  > **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.
----
+---  
 ![](../images/add-client-app.png)    
 
 2. Click **OK**. The application you just created will display on the Custom Applications page.  
@@ -80,8 +80,13 @@ Perform the following steps to create a Custom Application:
   
 4. **Settings** tab: You can make changes to the settings, if desired.
 
-![](../images/settings1.png) 
+![](../images/settings1.png)   
 
+5. **Scopes**: Scopes are defined limits to client applications for accessing data. By selecting the appropriate scopes for the application, clients can enable or restrict certain tasks to be performed by a user or on behalf of an Accellion user.  
+
+Every custom application that is created can have server-side authorization scopes. You can define on the server what endpoints the custom application is allowed to use and how it can use those endpoints. Select the APIs you plan to use for your custom application. By default, all APIs are selected when you first create the application.   
+
+![](../images/scopes.png) 
 
 
 

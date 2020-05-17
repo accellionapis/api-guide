@@ -28,7 +28,7 @@ Perform the following steps to enable the Accellion API Playground:
 2.	Click on Enable kiteworks API Playground UI  ON/OFF switch to enable it if it not enabled.
 A confirmation window displays, click OK to enable the playground.
 
-![](../images/developerdoc.jpg)
+![](../images/developerdoc1.jpg)
 
 
 ## Setup your first custom app

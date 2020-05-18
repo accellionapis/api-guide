@@ -309,7 +309,7 @@ Content-Type: application/json
 
 This access token can then be used to access user's resources through API services. 
 
-Error Response 
+**Error Response** 
 If the credentials of the client or the authorization code is invalid or there is some other error, the server will respond with HTTP 400 Bad Request. The body of the response will contain the following error information in JSON format:
  * **serror** – is the error code. The following are the possible values :
     - **invalid_client** – Client authentication failed. The client ID and/or secret key provided is invalid.

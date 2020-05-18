@@ -12,6 +12,7 @@ includes:
   - introduction
   - prerequisites
   - licensing
+  - enablingplayground
   - authentication
   - executeapicalls
   - creatingapirequests

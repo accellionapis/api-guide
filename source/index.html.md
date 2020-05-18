@@ -14,6 +14,7 @@ includes:
   - licensing
   - enablingplayground
   - gettingstarted
+  - signupfreetrial
   - authentication
   - executeapicalls
   - creatingapirequests

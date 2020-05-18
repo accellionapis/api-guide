@@ -28,7 +28,7 @@ Perform the following steps to create a Custom Application:
 
    **CAUTION** The Client Application ID and Client Secret Key cannot be changed and should be protected, since these credentials could be used to access Accellion systems, potentially exposing these systems to loss or theft of critical information. The Administrator is responsible for keeping these credentials safe and should only share them with trusted individuals.
 
-    **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.   
+   **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.   
 
 
 ![](../images/add-client-app.png)    
@@ -39,7 +39,7 @@ Perform the following steps to create a Custom Application:
 
 3. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
 
-**NOTE** For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  
+  **NOTE** For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  
   
 4. **Settings** tab: You can make changes to the settings, if desired.
 

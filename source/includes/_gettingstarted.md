@@ -25,19 +25,13 @@ Perform the following steps to create a Custom Application:
 ![](../images/navigation-custom-apps.png)  
   
   d. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location.   
-  
-***
 
->
+<div class="alert alert-success">
 
-**CAUTION**  
 The Client Application ID and Client Secret Key cannot be changed and should be protected, since these credentials could be used to access Accellion systems, potentially exposing these systems to loss or theft of critical information. The Administrator is responsible for keeping these credentials safe and should only share them with trusted individuals.
+</div>
 
-***
 
-***
-
->
 
 **IMPORTANT**:   
 You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.  

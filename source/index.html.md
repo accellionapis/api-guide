@@ -16,6 +16,7 @@ includes:
   - gettingstarted
   - signupfreetrial
   - swaggerinterface
+  - getatoken
   - authentication
   - executeapicalls
   - creatingapirequests

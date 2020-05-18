@@ -204,7 +204,7 @@ The kiteworks APIs allows any new client application (client for short) to be de
 
 A client must provide an access token to access resources belonging to a user on the kiteworks server. The kiteworks server provides access token provisioning flows based on the OAuth 2.0 (https://tools.ietf.org/html/rfc6749). The majority of clients will consume the so-called Authorization Code Flow to obtain an access token. This flow is developed based on the authorization code grant type of the OAuth 2.0 specification.
 
-This document provides a step-by-step guide for application developers to build a client for consuming the Authorization Code Flow to obtain an access token and use the access token to access users’ resources on a kiteworks server. Example codes for Android based clients are also provided. 
+This section provides a step-by-step guide for application developers to build a client for consuming the Authorization Code Flow to obtain an access token and use the access token to access users’ resources on a kiteworks server. 
 
 ## Obtaining Access Token Requirements
 For obtaining an access token using the kiteworks Authorization Code Flow, you need the client registration information recorded in the previous steps:

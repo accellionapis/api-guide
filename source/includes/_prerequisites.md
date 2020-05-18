@@ -7,15 +7,6 @@ It is assumed that the reader is familiar with the following concepts and techno
 *	Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
 *	Multipart MIME (Multipurpose Internet Mail Extensions) requests
 
-# Licensing
-The RESTAPI is available on every Accellion Enterprise package that has the Automation Suite enabled.
-
-Perform the following two steps to see if you have a license for the Accellion APIs:
-1.	Log into an Accellion system and click on the Application icon as shown below. 
-2.	Click on Licensing on the left panel.
-The API is listed in the Features section and it will be enabled if you have an Accellion Enterprise package.   
-![](../images/licensing.png)
-
 # Enabling the Accellion API Playground
 Perform the following steps to enable the Accellion API Playground:
 1.	Click on the Application > Client Management > Custom Applications as shown below. 
@@ -113,17 +104,5 @@ Within a few minutes after signing up, your trial Accellion system in the cloud 
  
   > **NOTE** This trial is not intended for commercial use in a production environment, its sole purpose is for non-production development and testing. 
 ---	
-
-
-
-
-
-
-
-
-
-
-
-
 
 

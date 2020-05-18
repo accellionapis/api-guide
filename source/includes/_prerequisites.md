@@ -7,12 +7,6 @@ It is assumed that the reader is familiar with the following concepts and techno
 *	Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
 *	Multipart MIME (Multipurpose Internet Mail Extensions) requests
 
-
-# Get an Accellion instance
-You will need an Accellion instance to get access to the API. If you don't already have one, please click on the button below:
-
-<a href="https://info.accellion.com/demo-request?ref=api-guide-setup" target="_blank"><img src="images/get-a-demo.png" alt="drawing" width="90px"/></a>
-
 # Licensing
 The RESTAPI is available on every Accellion Enterprise package that has the Automation Suite enabled.
 

@@ -13,6 +13,7 @@ includes:
   - prerequisites
   - licensing
   - enablingplayground
+  - gettingstarted
   - authentication
   - executeapicalls
   - creatingapirequests

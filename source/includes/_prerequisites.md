@@ -7,14 +7,6 @@ It is assumed that the reader is familiar with the following concepts and techno
 *	Hypertext Transfer Protocol (HTTP) terminology, methods, and status codes
 *	Multipart MIME (Multipurpose Internet Mail Extensions) requests
 
-# Enabling the Accellion API Playground
-Perform the following steps to enable the Accellion API Playground:
-1.	Click on the Application > Client Management > Custom Applications as shown below. 
-2.	Click on Enable kiteworks API Playground UI  ON/OFF switch to enable it if it not enabled.
-A confirmation window displays, click OK to enable the playground.
-
-![](../images/developerdoc1.jpg)
-
 # Getting Started
 To start your custom application development, perform the steps below. 
 1.	Sign in to kiteworks. 

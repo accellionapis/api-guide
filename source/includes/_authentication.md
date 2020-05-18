@@ -130,13 +130,13 @@ return authcode;
 ```
  
 2. Fetch access token from Accellion's token URI using the following parameters:
- * Client ID and secret: Displayed on Admin interface when app was created.
- * Grant Type: This should be the string “authorization_code” for the token request to work.
- * Scope: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
- * Redirect URL: This is exactly the same redirect URI as registered with the server.
- * Code: This is the authorization code calculated in step one.
- * install_tag_id (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
- * install_name (optional parameter): This is the friendly name of the device from which the API call has initiated
+ * **Client ID** and **secret**: Displayed on Admin interface when app was created.
+ * **Grant Type**: This should be the string “authorization_code” for the token request to work.
+ * **Scope**: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
+ * **Redirect URL**: This is exactly the same redirect URI as registered with the server.
+ * **Code**: This is the authorization code calculated in step one.
+ * **install_tag_id** (optional parameter): This is a string to uniquely identify the device from which the API call has initiated.
+ * **install_name** (optional parameter): This is the friendly name of the device from which the API call has initiated
 
 <aside class="notice">
 Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.

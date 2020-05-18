@@ -15,6 +15,7 @@ includes:
   - enablingplayground
   - gettingstarted
   - signupfreetrial
+  - swaggerinterface
   - authentication
   - executeapicalls
   - creatingapirequests

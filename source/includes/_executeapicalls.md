@@ -12,14 +12,14 @@ As an example, shown below is the **users** entity.
 
 ![](../images/usersentity.jpg)
 
-Here, you can see the list of endpoints associated with the users entity. For clarity purposes, they are color coded based on what method is being used. To the right of each list item, there is a brief description of what the entity does.  
+Here, you can see the list of endpoints associated with the **users** entity. For clarity purposes, they are color coded based on what method is being used. To the right of each list item, there is a brief description of what the entity does.  
 When an item in this list is clicked, the interface expands to show the information relevant to the selected endpoint.
 
 Click on the endpoint **GET /rest /users/me**.
 
 ![](../images/get_rest_users_me.png)
 
-You can go over the details for this endpoint. In summary, it returns a JSON representation of the entity that is populated with information that the access token represents. This information is tied to the current user. After going  over the information for the endpoint, click the Try it out! button.  
+You can go over the details for this endpoint. In summary, it returns a JSON representation of the entity that is populated with information that the access token represents. This information is tied to the current user. After going  over the information for the endpoint, click the **Try it out!** button.  
 
 ![](../images/try_it_out.png)
 

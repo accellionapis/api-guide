@@ -102,28 +102,8 @@ return signature;
 Finally, the authorization code can be constructed as follows:  
 `auth_code = base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature`  
 
-Here is a sample method in Java for calculating the authorization code:  
-`//Used by the authentication method. Gets an auth code based on parameters.
-Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
-
-//Base 64 encoder
-BASE64Encoder encoder = new BASE64Encoder();
-
-//encodes the client id and takes off the last character, as the encoder adds a new line character at the end
-String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
-encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);
-
-//encodes the user id
-String encodeUserId = encoder.encodrBuffer(userId.getBytes());
-encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v
-
-//Construct auth code
-String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;
-
-return authcode;
-}`
  
-2. Fetch access token from Accellion's token URI using the following parameters:
+2. Fetch access token from Accellion's token URI using the following parameters:  
  * **Client ID** and **secret**: Displayed on Admin interface when app was created.
  * **Grant Type**: This should be the string “authorization_code” for the token request to work.
  * **Scope**: This is the scope of the API services that the client application wants to access. This should be a space-separated string that consists of the name of the services that the application requires. The requested scope must be a subset of the client application’s registered scope in the server.
@@ -136,7 +116,7 @@ return authcode;
 Note that the step 2 is the same as OAuth 2.0 Authorization Code flow. Step 1 <b>calculates</b> the auth code instead of asking the user and Accellion server for it. This is what gives Signature Flow its power and risks.
 </aside>
 
-Here is an example of the POST request:
+Here is an example of the POST request:  
 
 `POST /oauth/token HTTP/1.1
 Host: kiteworks_server

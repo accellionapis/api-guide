@@ -83,8 +83,9 @@ String baseString + clientId + “|@@}” + userId + “|@@|” + Long.toString(
 
 From there, the signature of the base string can be calculated, using the HMAC SHA1 method, and using the client application’s signature key as the HMAC’s key:
 
-`signature = HMAC_SHA1(base_string, client_signature_key)` 
+`signature = HMAC_SHA1(base_string, client_signature_key)`   
  
+
 Here is a sample method in Java to calculate the signature:
 
 `//Used by the authentication method. Gets a signature based on a key and a base string 
@@ -95,17 +96,13 @@ Hmacsha1.init(signingKey);
 Byte[] rawHmac = hmacsha1.doFinal(baseString.getBytes());
 String signature = DatatypeConverter.printHexBinary(rawHmac).toLowercase();
 return signature;
-]`
+]`  
 
 
-Finally, the authorization code can be constructed as follows:
-`auth_code =
-base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature`
+Finally, the authorization code can be constructed as follows:  
+`auth_code = base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature`  
 
-
-Here is a sample method in Java for calculating the authorization code:
-
-
+Here is a sample method in Java for calculating the authorization code:  
 `//Used by the authentication method. Gets an auth code based on parameters.
 Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {
 

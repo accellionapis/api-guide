@@ -122,9 +122,8 @@ Here is an example of the POST request:
 Host: kiteworks_server
 Content-type: application/x-www-form-urlencoded
 Content-length:  415
-Connection: close`
-
-`Client_id=playground&client_secret=secret&grant_type=authorization_code&scope=*
+Connection: close
+Client_id=playground&client_secret=secret&grant_type=authorization_code&scope=*
 %2folders%2F*%202F8files%&code=cGxheWdyb3VuZA%3D%7C
 %40540%7CdGVzdEBhY2N1bGxpb24uY29t%7C%40%40%7c1407493837%7C%40%40%7C724408%7C
 %40%40%7C4efc222192b742bd56516004412cce79267b4c02&redirect_url=https%3A%2F%2Fserver.com%2F`

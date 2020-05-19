@@ -102,6 +102,27 @@ return signature;
 Finally, the authorization code can be constructed as follows:  
 `auth_code = base64_encode(client_id)|@@|base64_encode(user_id)|@@|timestamp|@@|nonce|@@|signature`  
 
+Here is a sample method in Java for calculating the authorization code:  
+`//Used by the authentication method. Gets an auth code based on parameters.
+Private String getAuthCode (String clientId, String userId, String timestamp, String nonce, String signature) throws IOException {`
+
+`//Base 64 encoder
+BASE64Encoder encoder = new BASE64Encoder();`
+
+`//encodes the client id and takes off the last character, as the encoder adds a new line character at the end
+String encodedClientId = encoder.encodeBuffer(clientId.getBytes());
+encodedClientId = encodedClientId.substring(0, encodedClientId.length() – 1);`
+
+`//encodes the user id
+String encodeUserId = encoder.encodrBuffer(userId.getBytes());
+encodeUserId = encodeUserId.substring (0, encodeUserId.length() – 1;v`
+
+`//Construct auth code
+String authCode = encodedClientId + “|@@|” + encodedUserId + “|@@|” + timestamp + “|@@|” + nonce + “|@@|” + signature;`
+
+`return authcode;
+}`
+
  
 2. Fetch access token from Accellion's token URI using the following parameters:  
  * **Client ID** and **secret**: Displayed on Admin interface when app was created.
@@ -155,10 +176,9 @@ Once these two steps are complete, if there are no errors for the POST request, 
 *	**token_type:** This will be set to “bearer” because that is the type of token.
 
 Here is an example of a successful response:
+`HTTP/1.1 200 OK Cache-Control: no-store Content-Type: application/json`
 
-`HTTP/1.1 200 OK Cache-Control: no-store Content-Type: application/json 
-
-{"access_token":"054915e674bc35fa7fff1f499044e964d3a5d61b","expires_in":3600,"token_type":"bearer,"scope":"*\/folders\/* *\/files\/*", "refresh_token":"085b8f5e3153c083fdde20d53030b5b623a6ecb3"}`
+`{"access_token":"054915e674bc35fa7fff1f499044e964d3a5d61b","expires_in":3600,"token_type":"bearer,"scope":"*\/folders\/* *\/files\/*", "refresh_token":"085b8f5e3153c083fdde20d53030b5b623a6ecb3"}`
 
 If there are problems with the request, the server will return a HTTP 400 bad request. The body of the response will contain error information in JSON format. Here are the possible values for the error code:
 
@@ -208,19 +228,19 @@ The first step is to call the Authorization end-point with the request parameter
 *	**m** (optional parameter) – set to 1 to display mobile friendly authorization page.
 *	**state** (optional parameter) – is an optional parameter that the client application may pass in order to maintain the state of its process. The server will pass back this parameter as-is in the response. 
 
-`Example:
+Example:
 (Note that line break is used only for clarity)
-GET https://kiteworks_server/oauth/authorize?
+`GET https://kiteworks_server/oauth/authorize?`
 
-client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1`
+`client_id=abc&response_type=code&scope=&redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php HTTP/1.1`
 
 **Successful Response**
 After the server finishes the authorization and authentication procedure with the user, the server will redirect the user (via HTTP 302) to the redirect_uri provided in the Authorize call. Two parameters will be passed through this redirection URI: code and state. The code parameter is the authorization code that can be used to obtain the access token in the second step.
 
-`Example:
-HTTP/1.1 302 Found 
+Example:
+`HTTP/1.1 302 Found`
 
-Location: https://kiteworks_server/oauth_callback.php?code=60cc146c8dced75e26e`
+`Location: https://kiteworks_server/oauth_callback.php?code=60cc146c8dced75e26e`
 
 **Error Response**
 If an error occurs (such as invalid consumer id, or invalid redirect URI), an error message will be displayed immediately within the user’s browser. For other errors (such as invalid scope or denied access by the user) the server will redirect the user (via HTTP302) to the redirect_URI. The parameters are:
@@ -231,10 +251,10 @@ If an error occurs (such as invalid consumer id, or invalid redirect URI), an er
     - **unauthorized_client**: The client-application is not authorized to use this flow. 
     - **state** – is set to the exact value received in the request. 
 
-`Example:
-HTTP/1.1 302 Found 
+Example:
+`HTTP/1.1 302 Found`
 
-Location: https:// kiteworks_server/oauth_callback.php?error=access_denied`
+`Location: https:// kiteworks_server/oauth_callback.php?error=access_denied`
 
 ## Step 2 - Access Token Request
 
@@ -247,13 +267,13 @@ The authorization code obtained in the first step can be exchanged for the final
  *	**install_tag_id** (optional parameter) – is a string to uniquely identify the device from which the API call has initiated.
  *	**install_name** (optional parameter) – is the friendly name of the device from which the API call has initiated.
 
-`Example:
+Example:
 (Note that line breaks on the message content are used only for clarity)
-POST /oauth/token HTTP/1.1
+`POST /oauth/token HTTP/1.1
 Host: kiteworks_server
-Content-type: application/x-www-form-urlencoded
+Content-type: application/x-www-form-urlencoded`
 
-client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad`
+`client_id=abc&client_secret=TheSecret&grant_type=authorization_code&code=c88bc36f751549adf60658c2c607a03b52e417bc& redirect_uri= https%3A%2F%2Fkiteworks_server%2Foauth_callback.php &install_tag_id=device_123&install_name=user_ipad`
 
 **Successful Response**
 If the credentials of the client and the authorization code are valid and there is no other error, the server will return a HTTP response 200 OK. The body of the response is in JSON format with the following information:
@@ -264,12 +284,12 @@ If the credentials of the client and the authorization code are valid and there 
  * **scope** – is the scope for which this token is valid, normally it will be the same as the requested scope.
  * **refresh_token** – is the refresh token that can be used to get a new access token without going through Step 1 Authorization Request. This refresh token will be provided only if the client is allowed to use refresh tokens as specified during client registration.
 
-`Example:
-HTTP/1.1 200 OK 
+Example:
+`HTTP/1.1 200 OK 
 Cache-Control: no-store
-Content-Type: application/json
+Content-Type: application/json`
 
-{"access_token":"d932e1d32d89140163345d47fa97bfa60eeba1a5","expires_in":"360000","token_type":"bearer", "scope":"GET\/users\/* *\/files\/*","refresh_token":"d7ce54d721e8das60943f3fc7cb159e4b11d0ee5"}`
+`{"access_token":"d932e1d32d89140163345d47fa97bfa60eeba1a5","expires_in":"360000","token_type":"bearer", "scope":"GET\/users\/* *\/files\/*","refresh_token":"d7ce54d721e8das60943f3fc7cb159e4b11d0ee5"}`
 
 This access token can then be used to access user's resources through API services. 
 
@@ -281,7 +301,7 @@ If the credentials of the client or the authorization code is invalid or there i
     - **invalid_request** – The request is missing a required parameter, includes an unsupported parameter or parameter value, or is otherwise malformed.
     - **unauthorized_client** – The client is not authorized to use this flow.
     
-`Example:
+```python
 Example script for getting the OAuth token (Python 2.7):
 #!/usr/bin/python
 '''
@@ -403,7 +423,8 @@ access_data = { 'client_id': client_id,
 # POST
 response = requests.post(token_uri, headers=header_data, data=access_data)
 # print response
-print(response.json())`
+print(response.json())
+```
  
 
 

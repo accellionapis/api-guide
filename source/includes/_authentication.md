@@ -268,7 +268,7 @@ The authorization code obtained in the first step can be exchanged for the final
  *	**install_name** (optional parameter) – is the friendly name of the device from which the API call has initiated.
 
 Example:  
-(Note that line breaks on the message content are used only for clarity)
+(Note that line breaks on the message content are used only for clarity)  
 `POST /oauth/token HTTP/1.1
 Host: kiteworks_server
 Content-type: application/x-www-form-urlencoded`

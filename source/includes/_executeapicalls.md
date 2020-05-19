@@ -17,9 +17,10 @@ When an item in this list is clicked, the interface expands to show the informat
 
 Click on the endpoint **GET /rest /users/me**.
 
-![](../images/clickendpoint.jpg)
+![](../images/get_rest_users_me.png)
 
-Go over the details for this endpoint. In summary, it returns a JSON representation of the entity that is populated with information that the access token represents. This information is tied to the current user. Once you've gone over the information for the endpoint, click the **Try it out!** button
+You can go over the details for this endpoint. In summary, it returns a JSON representation of the entity that is populated with information that the access token represents. This information is tied to the current user. After going  over the information for the endpoint, click the Try it out! button.  
+In the Response Body section, there will be a JSON object of the users class, and it will contain the current user's information as shown below.
 
 ![](../images/tryitout.png)
 

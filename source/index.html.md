@@ -22,7 +22,7 @@ includes:
   - creatingapirequests
   - usingapirequests
   - usingid
-  - creatingobjects
+  - createobjects
   - addingfiles
   - commonactions
   - help

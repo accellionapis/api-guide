@@ -1,27 +1,26 @@
-APIs Overview
+# APIs Overview  
+
 kiteworks APIs provide broad coverage of the platform. The APIs can be categorized into Content, Collaboration, Preferences, Contacts, Security, Clients, and kiteworks Maintenance APIs.
 
-Content APIs
+## Content APIs
+
 Content-related APIs provide access to user content in your application. You will be able to access and manage files and folders as a part of the business flows of your app and work with files from various enterprise content sources like Microsoft SharePoint or EMC Documentum.
 
+### users
+**users** APIs enable your application to obtain basic information about the user, user's root folders, and provide a starting point to further navigate through the files and folders the user has access to. By using the **/users/me** endpoint, you can obtain the ID of the user, the IDs of the root folder for this user, the email address or the name of the user, and status of the user (active, deleted).  
 
-users
-users APIs enable your application to obtain basic information about the user, user's root folders, and provide a starting point to further navigate through the files and folders the user has access to. By using
-the /users/me endpoint, you can obtain the ID of the user, the IDs of the root folder for this user, the email
-address or the name of the user, and status of the user (active, deleted).
+Complete details of the **users** API is available at (your installation URL /rest/index.html#!/users).  
 
-Complete details of the users API is available at <your installation URL>/rest/index.html#!/users.
+### folders  
 
+The next step is to work with the files and folders accessible to the authenticated user.  
 
-folders
-The next step is to work with the files and folders accessible to the authenticated user.
+Complete details of the **folder** API is available at (your installation URL /rest/index.html#!/folders).   
 
-Complete details of the folder API is available at <your installation URL>/rest/index.html#!/folders.
-
-
-files
-Together with folders, files are another fundamental entity that your application will have at its disposal. Complete details of the files API is available at <your installation URL>/rest/index.html#!/files.
-sources
+### files
+Together with folders, **files** are another fundamental entity that your application will have at its disposal. Complete details of the files API is available at (your installation URL /rest/index.html#!/files).
+sources.
+  
 One of the advantages of the kiteworks Content Platform is its ability to securely connect to existing enterprise content sources through a single user interface. Using the sources APIs, your application can access and manage EC content sources in a similar fashion.
 
 Complete details of the sources API is available at <your installation URL>/rest/index.html#!/sources.

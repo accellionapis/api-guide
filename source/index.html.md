@@ -24,6 +24,8 @@ includes:
   - usingid
   - createobjects
   - addingfiles
+  - downloadingfiles
+  - apisoverview
   - commonactions
   - help
 

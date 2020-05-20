@@ -6,7 +6,7 @@ As a creation request for the API, this endpoint requires some information for t
 
 ![](../images/postrestfolders.png)
 
-Note that the Request Payload is expected to be JSON and that the Content-Type must be application/json.  
+Note that the **Request Payload** is expected to be JSON and that the Content-Type must be **application/json**.  
 
 ![](../images/reqpayload.jpg)  
 

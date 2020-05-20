@@ -12,8 +12,8 @@ Using the developer tools, if an endpoint is executed, the browser sends out req
 
 The most important part of this header is the Authorization field, which contains the word "Bearer" followed by a space, followed by your token string. The word "Bearer" describes the type of token that is being used for authentication. This is the exact format the authorization field in the request headers should be in order to perform this request successfully. It should read exactly like:  
 
-Authorization: Bearer <token string>  
+Authorization: Bearer **token string**  
 
-Where <token string> is replaced with the actual token string.
+Where **token string** is replaced with the actual token string.
 
 

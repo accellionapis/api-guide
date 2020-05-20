@@ -18,7 +18,7 @@ The URL should read **https://<hostname>/#/folder/** followed by a number. That 
 
 ![](../images/folder_number.png)  
 
-In some instances URLs are not available in the **id**.  In those cases, the best way to get the **id** of a specific object would be to use the corresponding endpoint that lists all instances of the class you are interested in. From the list, you can then pick which instance is the one you are interested in, and from there, you can get the **id**.  
+In some instances URLs are not available in the **id**.  In those cases, the best way to get the **id** of a specific object would be to use the corresponding endpoint that lists all instances of the class you are interested in. From the list, you can then pick which instance is the one you are interested in, and from there, you can get the **id**.   
 
 Plug in the **id** of the **My Folder** folder in the web request and the response will be a JSON payload that contains information relevant to that folder.
 

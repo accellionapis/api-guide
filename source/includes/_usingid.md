@@ -16,10 +16,11 @@ This method of obtaining the id is specific to the **My Folder** folder of the u
 
 The URL should read **https://<hostname>/#/folder/** followed by a number. That number is the **id** of the folder that is currently open.
 
-![](../images/folderid.jpg)
+![](../images/folder_number.png)  
 
-The URL should read **https://<hostname>/#/folder/** followed by a number. That number is the id of the folder that is currently open.
-While this will work for the majority of cases - **folders** being one of them, there are a few instances where there are not available URLs to grab the **id** from.  In those cases, the best way to get the **id** of a specific object would be to use the corresponding endpoint that lists all instances of the class you are interested in. From the list, you can then pick which instance is the one you are interested in, and from there, you can get the **id**.
-Now that we have the **id** of the **My Folder** folder, we can plug it into the web request, and our response will be a JSON payload that contains information relevant to that folder.
+In some instances URLs are not available in the **id**.  In those cases, the best way to get the **id** of a specific object would be to use the corresponding endpoint that lists all instances of the class you are interested in. From the list, you can then pick which instance is the one you are interested in, and from there, you can get the **id**.  
+
+Plug in the **id** of the **My Folder** folder in the web request and the response will be a JSON payload that contains information relevant to that folder.
+
   
   ![](../images/folderinfo.jpg)

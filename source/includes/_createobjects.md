@@ -34,7 +34,7 @@ Inside the response for this endpoint, there is an **Items** array, and the firs
 
 ![](../images/idfield.jpg)  
 
-To add a contact to this **folder** as a downloader, go to the folders entity, and click on is a **POST /rest/folders/{id}/members** entity. In the actual request, the **id** is the **id** of the folder you want to add the user to. In this case, it would be the **id** of the folder we created earlier in **My Folder**.
+To add a contact to this **folder** as a downloader, go to the folders entity, and click on the **POST /rest/folders/{id}/members** entity. In the actual request, the **id** is the **id** of the folder you want to add the user to. In this case, it would be the **id** of the folder we created earlier in **My Folder**.
 
 ![](../images/postrestfoldersid.png)
 

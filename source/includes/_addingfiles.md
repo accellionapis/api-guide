@@ -4,12 +4,10 @@ To add a file to the folder, we need to use the **POST /rest/folders/{id}/action
 
 ![](../images/addfile.jpg)
 
-Here, the id required in the web request is the id of the folder that the file should be added into. In this case, we could
-grab the id indicated in the **X-Accellion-Location** field of the response header when we created the folder. The file also
-needs to be attached, which is done via a multiple MIME request. Let's upload a text file with the classic "The Road Not
-Taken" poem by Robert Frost.
+Here, the id required in the web request is the id of the folder that the file should be added into. In this case, the **id** indicated in the **X-Accellion-Location** field of the response header can be used when we created the folder. The file also needs to be attached, which is done via a multiple MIME request. 
 
-![](../images/textfile.jpg)
+Again, the **id** of the new uploaded file can be found in the **X-Accellion-Location** field of the response header of this request. Note this **id**, because we are going to use it to download this file in the next section. 
+
 
 Again, the **id** of the new uploaded file can be found in the **X-Accellion-Location** field of the response header of this request. 
 
@@ -33,7 +31,7 @@ To initiate a new file version upload call:
 **{file_id}** - ID of the file for the file version
 
 
-If you call POST /folders/{id}/actions/initiateUpload with filename that already exists in this directory, the new version of this file will be created.
+If you call **POST /folders/{id}/actions/initiateUpload** with filename that already exists in this directory, the new version of this file will be created.
  
 #### Request Body Parameters Description
 

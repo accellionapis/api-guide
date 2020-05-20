@@ -25,7 +25,7 @@ includes:
   - createobjects
   - addingfiles
   - downloadingfiles
-  - apisoverview
+  - apioverview
   - commonactions
   - help
 

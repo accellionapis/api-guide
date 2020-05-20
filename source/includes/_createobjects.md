@@ -1,8 +1,9 @@
 # Creating Objects
 
-Now that we have been able to get the **id** of the **My Folder** folder and grab the associated JSON object, let's try to actually create a folder inside of this one. This will, again, require the **id** of the folder, which we already have.
+In the Developer Documentation website, click on the endpoint under **folders** which is **Create a new folder**. The **parent id** expected in this request is the id of the folder that is being created in the new folder.
 
-If you look at the developer documentation website, you will see that there is an endpoint under **folders** that is used to create a new folder.
+As a creation request for the API, this endpoint requires some information for the object that is being created. The Developer Documentation outlines the format that this information should be provided in. This can be found under the **Data Type** of the body parameter. In this case, the name is the only requirement. The required information is expected to be in the Request Payload of the request. In addition, there are options to add a description and specify if the folder is syncable. If these options are used, that information should also be included in the Request Payload.
+
 
 ![](../images/createfolder.jpg)
 

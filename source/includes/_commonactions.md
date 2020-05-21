@@ -104,3 +104,56 @@ Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the co
 In the code sample on the right, replace "YOUR-FILE-ID" with one of the file IDs returned in the folder listing response (or the ID of any other file you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
 
 You will see the server response with the contents of your file in the 'response' key.
+
+## Get current user Info
+This example demonstrates how to get a current user’s information.
+#### HTTP Method
+GET
+#### Request URL
+https://{hostname}/rest/users/me
+#### Request Body
+None
+#### Response
+The response is a 200 OK status code. The response body contains a JSON representations of the user.
+**Example Request**
+curl 'https://{hostname}/rest/users/me' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Accellion-Version: 15' \
+      -H 'Authorization: Bearer {access_token}'
+Example Response
+{
+    "active": true,
+    "basedirId": 3,
+    "created": "2019-06-28T02:20:12+0000",
+    "deactivated": false,
+    "deleted": false,
+    "email": "user@email.com",
+    "flags": 2,
+    "id": 1,
+    "internal": true,
+    "mydirId": 4,
+    "name": "User",
+    "profileIcon": "1_e34981cfe2f471e31072fed529d83dfa395a9b540e7581d697f69f05935daaf3",
+    "serviceName": "Service Name",
+    "suspended": false,
+    "syncdirId": 5,
+    "userTypeId": 1,
+    "verified": true
+}
+Example Python Code
+import request
+
+access_token = "ca648ba442acfd8fa8a57962bf7fc8233df0d87c"
+api_version = "15
+hostname = "hostname.com"
+
+headers = {
+    "Accept": "application/json",
+    "X-Accellion-Version": api_version,
+    "Authorization": "Bearer {access_token}".format(access_token=access_token)
+}
+url = "https://{hostname}/rest/users/me".format(hostname=hostname)
+response = requests.get(url=url, headers=headers)
+current_user = response.json()
+

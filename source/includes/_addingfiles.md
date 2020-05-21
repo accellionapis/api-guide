@@ -19,8 +19,8 @@ The caller can request the APIs to upload or download any kind and size of file 
 ### Chunk Upload Workflow
 Chunk Upload is aimed to let users upload large files by parts. This section briefly describes the workflow of a chunk upload.
 
-#### Chunk Upload Process Steps
-#### Upload session initialization 
+### Chunk Upload Process Steps
+### Upload session initialization 
 The user can upload a new file to a folder or upload a new version of an existing file. To initiate a new file upload call:
 **POST /folders/{id}/actions/initiateUpload**
 **{id}** - Destination folder ID
@@ -33,7 +33,7 @@ To initiate a new file version upload call:
 
 If you call **POST /folders/{id}/actions/initiateUpload** with filename that already exists in this directory, the new version of this file will be created.
  
-#### Request Body Parameters Description
+### Request Body Parameters Description
 
 * filename (required) - Filename that will be created after upload session completion
 * totalSize (optional, required if totalChunks was sent) - File size in bytes
@@ -49,7 +49,7 @@ If upload initialization was successful, response headers will contain **X-Accel
 Where **1** is an upload session ID. Use this ID to perform all further operations.
 
 
-#### Retrieve Upload Session Data
+### Retrieve Upload Session Data
 
 After initialization each upload session will have assigned an "uri" parameter. This parameter contains uri where all chunks for this upload session should be uploaded. To retrieve this parameter call:
 **GET /uploads/{id}**
@@ -72,11 +72,11 @@ Example: **dacfs_upload1/rest/uploads/1**.
 The host name parameter from the uri field is determined by the server according to user location settings. The host may be remote or local. If there is any local host, the file will be saved at the local host. If there is no local host to upload, the file will be sent to available remote host.
 
 
-#### Upload Chunks
+### Upload Chunks
 After retrieving correct endpoint for the chunks upload (uri field), you can upload all file chunks starting from the first one. To do so, call:
 **POST {host_name}/rest/uploads/{id}**
 
-#### Request Body Parameters Description  
+### Request Body Parameters Description  
 **compressionMode** (required, optional if **lastChunk** = 1) - Compression mode for the chunk content. Available and valid modes:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORMAL - file chunk content is uploaded without compression (as is)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GZIP - file chunk content is compressed using https://en.wikipedia.org/wiki/Gzip format  
@@ -97,7 +97,7 @@ Depending on what workflow you chose at the upload initialization, the chunk upl
 **NOTES**
 For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  Important Note:  Despite the fact that if **lastChunk** = 1 then all other chunk fields became optional, if user sends content with some value and **lastChunk** = 1, the server will validate this chunk content and all other fields (**compressionMode**, **compressionSize**, **originalSize**) will be required and validated.
 
-####Terminating Upload Session  
+### Terminating Upload Session  
 The user can terminate the upload session by calling:  
 **DELETE /uploads/{id}**
 

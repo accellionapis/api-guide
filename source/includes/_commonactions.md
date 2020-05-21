@@ -191,7 +191,8 @@ The response is a `200 OK` status code. The response body contains an array of J
       -H 'Authorization: Bearer {access_token}'
 ```
 **Example Response**
-```curl{
+```curl
+{
     "data": [
         {
             "id": 100,
@@ -237,7 +238,8 @@ The response is a `200 OK` status code. The response body contains an array of J
     }
 }
 ```
-Example Python Code
+**Example Python Code**
+```python
 import requests
 
 headers = {
@@ -249,28 +251,33 @@ url = "https://{hostname}/rest/folders/top?orderBy=name%3Aasc".format(hostname=h
 response = requests.get(url=url, headers=headers)
 response_json = response.json()
 folders = response_json["data"]
-Create a Folder
-This example demonstrates how to create a new top level folder named "MyNewFolder".  {folder_id} = 0 means the folder is created at the user's top level.
-HTTP Method
+```
+
+## Create a Folder
+This example demonstrates how to create a new top level folder named "MyNewFolder".  `{folder_id} = 0` means the folder is created at the user's top level.
+### HTTP Method
 POST
-Request URL
+### Request URL
 https://{hostname}/rest/folders/{folder_id}/folders
-Request Body
-{
+### Request Body
+`{
     "name": "MyNewFolder"
-}
-Response
-If the folder is created successfully, the response is a 201 Created status code. 
-The response header X-Accellion-Location contains the URI that you can use for subsequent requests.
-If returnEntity=true is specified in the query string, the response body contains a JSON representation of the data source, including a id property that you can use as the data source ID for subsequent requests.
-Example Request
-curl -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
+}'
+###Response
+If the folder is created successfully, the response is a `201 Created` status code. 
+The response header `X-Accellion-Location` contains the URI that you can use for subsequent requests.
+If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.  
+**Example Request**
+```curl
+   -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"name": "MyNewFolder"}'
-Example Response
+```
+**Example Response**
+```curl
 {
     "id": 1234,
     "created": "2020-05-15T05:33:19+0000",
@@ -291,7 +298,9 @@ Example Response
     "maxFolderExpiration": 0,
     "maxFileLifetime": 0
 }
-Example Python Code
+```
+**Example Python Code**
+```python
 import requests
 
 headers = {
@@ -307,8 +316,10 @@ data = {
 }
 response = requests.post(url=url, headers=headers, data=data)
 folder = response.json()
-Get a particular folder
-This example demonstrates how to retrieve the folder (MyNewFolder") that you created in the previous example. When you create a new data source, the dataStreamId includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.
+```
+
+## Get a particular folder
+This example demonstrates how to retrieve the folder (MyNewFolder") that you created in the previous example. When you create a new data source, the `dataStreamId` includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.
 HTTP Method
 GET
 Request URL

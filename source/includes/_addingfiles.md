@@ -94,14 +94,18 @@ Depending on what workflow you chose at the upload initialization, the chunk upl
 1.	If **totalSize** and **totalChunks** were sent, the upload session will be finished automatically after the last chunk is be uploaded. For example, if **totalChunks** = 4, then server will accept the fourth chunk as the last one and will finish the upload session. If **totalChunks** was set in upload initialization, this upload session cannot be finished by sending the chunk with **lastChunk** = 1.    
 2.	(For the SFTP Client) If **totalSize** and **totalChunks** was not sent, the upload session will be finished only if user send the chunk with **lastChunk** = 1. The server will accept this chunk as the last one and will finish the upload session. For this last chunk the server will not perform content validation.
 
-**Important Note:**  Despite the fact that if **lastChunk** = 1 then all other chunk fields became optional, if user sends content with some value and **lastChunk** = 1, the server will validate this chunk content and all other fields (**compressionMode**, **compressionSize**, **originalSize**) will be required and validated.
+<aside class="notice">
+
+For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  Important Note:  Despite the fact that if **lastChunk** = 1 then all other chunk fields became optional, if user sends content with some value and **lastChunk** = 1, the server will validate this chunk content and all other fields (**compressionMode**, **compressionSize**, **originalSize**) will be required and validated. </aside>
 
 ####Terminating Upload Session  
 The user can terminate the upload session by calling:  
 **DELETE /uploads/{id}**
 
-**NOTES**
-Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount.
+<aside class="notice">
+
+NOTES
+Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount. </aside>
 
 ### Generate_chunks_data.php – Download
 

@@ -28,6 +28,7 @@ includes:
   - downloadingfiles
   - apioverview
   - commonactions
+  - terminology
   - help
 
 search: true

@@ -46,7 +46,7 @@ Perform the following steps to create a Custom Application:
 
 <aside class="notice">
 
-For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide. ide> </as
+For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  </aside>
 
   
 4. **Settings** tab: You can make changes to the settings, if desired.

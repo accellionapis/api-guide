@@ -21,7 +21,7 @@ Perform the following steps to create a Custom Application:
   **Access Token Lifetime**: Set the duration of a token lifetime.  
   **Refresh Token Lifetime**: Set the duration that an access token can be refreshed.  
 
-3. Click **Add Application**.    
+ 3. Click **Add Application**.    
 ![](../images/navigation-custom-apps.png)  
   
 4. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location.   
@@ -38,11 +38,11 @@ Perform the following steps to create a Custom Application:
 
 ![](../images/add-client-app.png)    
 
-5. Click **OK**. The application you just created will display on the Custom Applications page.  
+ 5. Click **OK**. The application you just created will display on the Custom Applications page.  
 
 ![](../images/my-app.png)  
 
-6. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
+ 6. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
 
 <aside class="notice">
 

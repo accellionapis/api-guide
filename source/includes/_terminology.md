@@ -1,4 +1,4 @@
-# Terminology:
+# Terminology
 **Access Token** - The token is used by the API client for authorization and can be used to make API calls.  There is a  **lifetime** given to each Access Token, and this is configured by the admin in **Application** > **Client Management** > **Custom Applications**, per client application.  After the lifetime is over, the token expires and is unusable. A **refresh token** can be used to obtain a new  **access token** after it expires. 
 
 **API call** - An API call is a general term for a HTTP request that is sent from the client to the server, to perform some kind of action.  Common **HTTP methods** are **GET** and **POST**.  GET requests data from a specified resource.  POST submits data to be processed by a specified resource.  See https://www.w3schools.com/tags/ref_httpmethods.asp for more information on HTTP methods.

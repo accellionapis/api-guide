@@ -117,15 +117,14 @@ None
 The response is a 200 OK status code. The response body contains a JSON representations of the user.  
 
 **Example Request**  
-
 ```curl
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
-      -H 'Authorization: Bearer {access_token}  
+      -H 'Authorization: Bearer {access_token}
 ```
-**Example Response**
+**Example Response**  
 ```curl
 {
     "active": true,
@@ -145,10 +144,10 @@ https://{hostname}/rest/users/me' \
     "syncdirId": 5,
     "userTypeId": 1,
     "verified": true
-}
+}  
 ```
 
-**Example Python Code**
+**Example Python Code**  
 ```python
 import request
 
@@ -163,7 +162,7 @@ headers = {
 }
 url = "https://{hostname}/rest/users/me".format(hostname=hostname)
 response = requests.get(url=url, headers=headers)
-current_user = response.json()
+current_user = response.json()  
 ```  
 
 # Manage Folders

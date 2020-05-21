@@ -30,8 +30,10 @@ Perform the following steps to create a Custom Application:
 <aside class="warning">
 
    **CAUTION** The Client Application ID and Client Secret Key cannot be changed and should be protected, since these credentials could be used to access Accellion systems, potentially exposing these systems to loss or theft of critical information. The Administrator is responsible for keeping these credentials safe and should only share them with trusted individuals. </aside>
+   
+<aside class="important">   
 
-   **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app.   
+   **IMPORTANT**: You must copy this information and keep it in a secure location. The Client Secret Key is required for authenticating your app. If you lose this information, you will have to start over and re-register your app. </aside>   
 
 
 ![](../images/add-client-app.png)    
@@ -44,7 +46,7 @@ Perform the following steps to create a Custom Application:
 
 <aside class="notice">
 
-**NOTE** For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide. </aside> 
+For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide. </aside> 
 
   
 4. **Settings** tab: You can make changes to the settings, if desired.
@@ -70,7 +72,7 @@ List third-party mobile apps that can be used to open files via the Open-In menu
 Select **Save Changes**.  
 You are now ready to test your application. Go to 
 <https://< your kiteworks hostname > /rest/index.html> to test your app using the app credentials. 
-Note 	“your kiteworks hostname” is the name of your Accellion deployment.  
+Note “your kiteworks hostname” is the name of your Accellion deployment.  
 
 7. **Distribution**:   
 You can distribute your application and export the application package by clicking **Export App**.  

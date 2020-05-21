@@ -448,18 +448,18 @@ headers = {
     "Authorization": "Bearer {access_token}".format(access_token=access_token)
 }
 
-# initiate Upload
+To initiate Upload
 file_size = os.path.getsize(upload_file_path)
 file_name = os.path.basename(upload_file_path)
 
-# calculate the number of chunks to be uploaded in sequence
+To calculate the number of chunks to be uploaded in sequence
 total_num_of_chunks = file_size // chunk_size
 
-# e.g. 7 // 2 = 3. But the actual number of chunks should be 4 [2, 2, 2, 1]
+For e.g. 7 // 2 = 3. But the actual number of chunks should be 4 [2, 2, 2, 1]
 if file_size % chunk_size:
     total_num_of_chunks += 1
 
-# min number of chunks is 0 even though file size is 0
+For min number of chunks is 0 even though file size is 0
 if total_num_of_chunks == 0:
     total_num_of_chunks = 1
 
@@ -471,7 +471,7 @@ url = "https://{hostname}/rest/folders/{folder_id}/actions/initiateUpload".forma
 response = requests.post(url=url, data=payload, headers=headers)
 response_json = response.json()
 
-# get upload uri
+To get upload uri
 upload_uri = response_json["uri"]
 ```
 

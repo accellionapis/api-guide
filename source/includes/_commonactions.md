@@ -119,11 +119,11 @@ The response is a 200 OK status code. The response body contains a JSON represen
 **Example Request**  
 
 ```curl
-'https://{hostname}/rest/users/me' \
+https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
-      -H 'Authorization: Bearer {access_token}'   
+      -H 'Authorization: Bearer {access_token}  
 ```
 **Example Response**
 ```curl

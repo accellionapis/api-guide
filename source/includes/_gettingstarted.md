@@ -8,9 +8,8 @@ Once you have your instance up and running, sign in to the Accellion admin inter
 Custom applications can be used to automate business workflows, for example, on-boarding new Accellion users to access relevant folders automatically. Accellion APIs are used to develop custom applications. On the **Custom Application** page a list with all the custom applications that already exist on the system is displayed.
 
 Perform the following steps to create a Custom Application:  
-1. Create a new Custom Application.   
-    a. Go to **Applications** > **Client Management** > **Custom Applications** and click the **+** icon to create a new custom application.  
-    b. Enter the following information:  
+1. Go to **Applications** > **Client Management** > **Custom Applications** and click the **+** icon to create a new custom application.  
+2. Enter the following information:  
   **Name**: Enter a name for your custom application.  
   **Description**: Enter a description for your application.  
   **Flows**: Select the authorization flow that your application will use to obtain an access token.  
@@ -21,10 +20,11 @@ Perform the following steps to create a Custom Application:
   **Redirect URI**: Specify the Redirect URI using this format <https://%%HOST%%/rest/callback.html>  
   **Access Token Lifetime**: Set the duration of a token lifetime.  
   **Refresh Token Lifetime**: Set the duration that an access token can be refreshed.  
-  c. 	Click **Add Application**.    
+
+3. Click **Add Application**.    
 ![](../images/navigation-custom-apps.png)  
   
-  d. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location.   
+4. The Add Client Application dialog box will show the **Client Application ID**, **Client Secret Key** and the **Signature Secret**. Record the information in a secure location.   
   
   
 <aside class="warning">
@@ -38,28 +38,28 @@ Perform the following steps to create a Custom Application:
 
 ![](../images/add-client-app.png)    
 
-2. Click **OK**. The application you just created will display on the Custom Applications page.  
+5. Click **OK**. The application you just created will display on the Custom Applications page.  
 
 ![](../images/my-app.png)  
 
-3. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
+6. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
 
 <aside class="notice">
 
 For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  </aside>
 
   
-4. **Settings** tab: You can make changes to the settings, if desired.
+**Settings** tab: You can make changes to the settings, if desired.
 
 ![](../images/settings1.png)   
 
-5. **Scopes**: Scopes are defined limits to client applications for accessing data. By selecting the appropriate scopes for the application, clients can enable or restrict certain tasks to be performed by a user or on behalf of an Accellion user.  
+**Scopes**: Scopes are defined limits to client applications for accessing data. By selecting the appropriate scopes for the application, clients can enable or restrict certain tasks to be performed by a user or on behalf of an Accellion user.  
 
 Every custom application that is created can have server-side authorization scopes. You can define on the server what endpoints the custom application is allowed to use and how it can use those endpoints. Select the APIs you plan to use for your custom application. By default, all APIs are selected when you first create the application.   
 
 ![](../images/scopes.png)   
 
-6. **Security** tab: 
+**Security** tab: 
 **Remote Wipe Enabled**:  
 Enable Remote Wipe for this application.  
 **Pin Enabled**:  
@@ -74,7 +74,7 @@ You are now ready to test your application. Go to
 <https://< your kiteworks hostname > /rest/index.html> to test your app using the app credentials. 
 Note “your kiteworks hostname” is the name of your Accellion deployment.  
 
-7. **Distribution**:   
+**Distribution**:   
 You can distribute your application and export the application package by clicking **Export App**.  
 
 ![](../images/distribution.png) 

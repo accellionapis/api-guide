@@ -2,9 +2,9 @@
 
 In the response header shown below, the field called **X-Accellion-Location**, indicates what object is being acted upon.  
 
+<aside class="notice">
 
-
-**NOTE**:  In the case of an error, this field might not indicate the object being acted upon. </aside>  
+In the case of an error, this field might not indicate the object being acted upon. </aside>  
 
 In this example the object being acted upon is the current user. In this case, the information about this user is just being returned. However, when adding, removing, updating, or otherwise editing objects, it is critical to make note of which object is being acted upon.  
 

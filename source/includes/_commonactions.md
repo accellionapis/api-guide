@@ -107,13 +107,13 @@ You will see the server response with the contents of your file in the 'response
 
 ## Get current user Info
 This example demonstrates how to get a current user’s information.
-#### HTTP Method
+### HTTP Method
 GET
-#### Request URL
+### Request URL
 https://{hostname}/rest/users/me
-#### Request Body
+### Request Body
 None
-#### Response
+### Response
 The response is a 200 OK status code. The response body contains a JSON representations of the user.  
 
 **Example Request**  
@@ -123,8 +123,10 @@ The response is a 200 OK status code. The response body contains a JSON represen
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
-      -H 'Authorization: Bearer {access_token}'
-Example Response
+      -H 'Authorization: Bearer {access_token}'   
+```
+**Example Response**
+```curl
 {
     "active": true,
     "basedirId": 3,
@@ -162,4 +164,200 @@ headers = {
 url = "https://{hostname}/rest/users/me".format(hostname=hostname)
 response = requests.get(url=url, headers=headers)
 current_user = response.json()
+```  
+
+# Manage Folders
+This section gives examples for the following:
+*	Get top level folders
+*	Create a Folder
+*	Get a particular folder  
+
+## Get top level folders
+This example demonstrates how to get a list of top level folders sorted by ascending order of the folder name.
+### HTTP Method
+GET
+### Request URL
+https://{hostname}/rest/folders/top
+### Request Body
+None
+### Response
+The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.
+**Example Request**
+```curl
+'https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Accellion-Version: 15' \
+      -H 'Authorization: Bearer {access_token}'
 ```
+**Example Response**
+```curl{
+    "data": [
+        {
+            "id": 100,
+            "created": "2020-05-06T04:36:09+0000",
+            "deleted": false,
+            "permDeleted": false,
+            "expire": 0,
+            "modified": "2020-05-14T07:35:29+0000",
+            "name": "FolderA",
+            "parentId": 3,
+            "userId": 1,
+            "type": "d",
+            "permalink": "https:\/\/{hostname}\/w\/o8FOt1ycGVL8MEIN",
+            "description": "",
+            "syncable": false,
+            "fileLifetime": 0,
+            "secure": false,
+            "path": "FolderA"
+        },
+        {
+            "id": 5,
+            "created": "2019-06-28T02:20:12+0000",
+            "deleted": false,
+            "permDeleted": false,
+            "expire": 0,
+            "modified": "2019-08-22T07:04:40+0000",
+            "name": "My Folder",
+            "parentId": 3,
+            "userId": 1,
+            "type": "d",
+            "permalink": "https:\/\/{hostname}\/w\/JKncWKCQrIURunW9",
+            "description": "",
+            "syncable": true,
+            "fileLifetime": 0,
+            "secure": false,
+            "path": "My Folder"
+        }
+    ],
+    "metadata": {
+        "total": 2,
+        "limit": null,
+        "offset": 0
+    }
+}
+```
+Example Python Code
+import requests
+
+headers = {
+    "Accept": "application/json",
+    "X-Accellion-Version": api_version,
+    "Authorization": "Bearer {access_token}".format(access_token=access_token)
+}
+url = "https://{hostname}/rest/folders/top?orderBy=name%3Aasc".format(hostname=hostname)
+response = requests.get(url=url, headers=headers)
+response_json = response.json()
+folders = response_json["data"]
+Create a Folder
+This example demonstrates how to create a new top level folder named "MyNewFolder".  {folder_id} = 0 means the folder is created at the user's top level.
+HTTP Method
+POST
+Request URL
+https://{hostname}/rest/folders/{folder_id}/folders
+Request Body
+{
+    "name": "MyNewFolder"
+}
+Response
+If the folder is created successfully, the response is a 201 Created status code. 
+The response header X-Accellion-Location contains the URI that you can use for subsequent requests.
+If returnEntity=true is specified in the query string, the response body contains a JSON representation of the data source, including a id property that you can use as the data source ID for subsequent requests.
+Example Request
+curl -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   -H 'X-Accellion-Version: 15' \
+   -H 'Authorization: Bearer {access_token}' \
+   -d '{"name": "MyNewFolder"}'
+Example Response
+{
+    "id": 1234,
+    "created": "2020-05-15T05:33:19+0000",
+    "deleted": false,
+    "permDeleted": false,
+    "expire": 0,
+    "modified": "2020-05-15T05:33:19+0000",
+    "name": "MyNewFolder",
+    "parentId": 3,
+    "userId": 1,
+    "permalink": "https:\/\/{hostname}\/w\/DD9J7QUIz1kj6ZPR",
+    "type": "d",
+    "description": null,
+    "syncable": false,
+    "fileLifetime": 0,
+    "secure": false,
+    "path": "MyNewFolder",
+    "maxFolderExpiration": 0,
+    "maxFileLifetime": 0
+}
+Example Python Code
+import requests
+
+headers = {
+    "Accept": "application/json",
+    "X-Accellion-Version": api_version,
+    "Authorization": "Bearer {access_token}".format(access_token=access_token)
+}
+url = "https://{hostname}/rest/folders/{folder_id}/folders?returnEntity=true".format(
+    hostname=hostname, folder_id=folder_id
+)
+data = {
+    "name": folder_name
+}
+response = requests.post(url=url, headers=headers, data=data)
+folder = response.json()
+Get a particular folder
+This example demonstrates how to retrieve the folder (MyNewFolder") that you created in the previous example. When you create a new data source, the dataStreamId includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.
+HTTP Method
+GET
+Request URL
+https://{hostname}/rest/folders/{folder_id}
+Request Body
+None
+Response
+If the data source exists, the response is a 200 OK status code. The response body contains a JSON representation of the data source.
+Example Request
+curl -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
+   -H 'Accept: application/json' \
+   -H 'Content-Type: application/json' \
+   -H 'X-Accellion-Version: 15' \
+   -H 'Authorization: Bearer {access_token}' \
+   -d '{"name": "MyNewFolder"}'
+Example Response
+{
+    "id": 1234,
+    "created": "2020-05-15T05:33:19+0000",
+    "deleted": false,
+    "permDeleted": false,
+    "expire": 0,
+    "modified": "2020-05-15T05:33:19+0000",
+    "name": "MyNewFolder",
+    "parentId": 3,
+    "userId": 1,
+    "permalink": "https:\/\/{hostname}\/w\/DD9J7QUIz1kj6ZPR",
+    "type": "d",
+    "description": null,
+    "syncable": false,
+    "fileLifetime": 0,
+    "secure": false,
+    "path": "MyNewFolder",
+    "maxFolderExpiration": 0,
+    "maxFileLifetime": 0
+}
+Example Python Code
+import requests
+
+headers = {
+    "Accept": "application/json",
+    "X-Accellion-Version": api_version,
+    "Authorization": "Bearer {access_token}".format(access_token=access_token)
+}
+url = "https://{hostname}/rest/folders/{folder_id}/folders?returnEntity=true".format(
+    hostname=hostname, folder_id=folder_id
+)
+data = {
+    "name": folder_name
+}
+response = requests.post(url=url, headers=headers, data=data)
+folder = response.json()

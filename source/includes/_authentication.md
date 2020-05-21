@@ -202,8 +202,10 @@ For obtaining an access token using the kiteworks Authorization Code Flow, you n
 *	**client_secret** – This secret serves as a password for your client to authenticate itself to the kiteworks server.
 *	**redirect URI** – This is the URI on which your client must listen for the authorization result. For mobile clients or for clients that cannot be redirected to another service, the landing page https://<kiteworks_server>/oauth_callback.php can be used.
 *	**scope** – This is the set of API services that your client wants to access. Consult with your administrator regarding which scopes are available for your client.
-*	**grant_type** – REQUIRED.  Value MUST be set to "authorization_code".
-**NOTE**: You might need to specify grant_type when generating the code first. If the grant_type is not specified in the auth code request, you might get an error “grant_type was not specified” when requesting the token with that auth code saying the. One the grant_type is specified in the initial auth code request, the code works for the access token request.
+*	**grant_type** – REQUIRED.  Value MUST be set to "authorization_code".  
+<aside class="warning">
+
+You might need to specify grant_type when generating the code first. If the grant_type is not specified in the auth code request, you might get an error “grant_type was not specified” when requesting the token with that auth code saying the. One the grant_type is specified in the initial auth code request, the code works for the access token request. </aside>
 
 ## Sequence Overview
 The sequence of the Authorization Code Flow is as follows:

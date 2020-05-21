@@ -42,7 +42,9 @@ Perform the following steps to create a Custom Application:
 
 3. Select the Application Name you just created, and customize the **Settings**, **Scopes**, **Security** and **Distribution** tabs.  
 
-  **NOTE** For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.  
+<aside class="notice">
+For more information, go to the Developer Portal at <https://developer.kiteworks.com> to download a demo and view the Developer Guide.
+</aside> 
   
 4. **Settings** tab: You can make changes to the settings, if desired.
 

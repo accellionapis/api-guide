@@ -319,23 +319,26 @@ folder = response.json()
 ```
 
 ## Get a particular folder
-This example demonstrates how to retrieve the folder (MyNewFolder") that you created in the previous example. When you create a new data source, the `dataStreamId` includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.
-HTTP Method
+This example demonstrates how to retrieve the folder (MyNewFolder) that you created in the previous example. When you create a new data source, the `dataStreamId` includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.
+### HTTP Method
 GET
-Request URL
+### Request URL
 https://{hostname}/rest/folders/{folder_id}
-Request Body
+### Request Body
 None
-Response
-If the data source exists, the response is a 200 OK status code. The response body contains a JSON representation of the data source.
-Example Request
-curl -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
+### Response
+If the data source exists, the response is a `200 OK` status code. The response body contains a JSON representation of the data source.
+**Example Request**
+```curl
+   -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"name": "MyNewFolder"}'
-Example Response
+```
+**Example Response**
+```curl
 {
     "id": 1234,
     "created": "2020-05-15T05:33:19+0000",
@@ -356,7 +359,9 @@ Example Response
     "maxFolderExpiration": 0,
     "maxFileLifetime": 0
 }
-Example Python Code
+```
+**Example Python Code**
+```python
 import requests
 
 headers = {
@@ -372,3 +377,4 @@ data = {
 }
 response = requests.post(url=url, headers=headers, data=data)
 folder = response.json()
+```

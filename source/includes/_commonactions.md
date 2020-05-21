@@ -144,7 +144,10 @@ Example Response
     "userTypeId": 1,
     "verified": true
 }
-Example Python Code
+```
+
+**Example Python Code**
+```python
 import request
 
 access_token = "ca648ba442acfd8fa8a57962bf7fc8233df0d87c"

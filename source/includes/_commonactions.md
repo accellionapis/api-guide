@@ -146,7 +146,7 @@ https://{hostname}/rest/users/me' \
     "verified": true
 }  
 ```  
-**Example Python Code**
+**Example Python Code**  
 ```python
 import request
 

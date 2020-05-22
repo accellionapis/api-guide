@@ -386,9 +386,10 @@ folder = response.json()
 # Manage Files
 This section gives examples for the following:
 Upload a file
-*	Initiate multi-chunks upload
-*	Chunk upload
-*	Download a file
+* Initiate multi-chunks upload
+* Chunk upload
+* Download a file
+
 ## Upload a file
 This example demonstrates how to upload a new file named "MyNewFile.txt" to a previously created folder. 
 You must initiate a multi-chunks Upload before you can upload any part. In response of your initiated request, the API will return an upload URI that you must include in the upload as part of the request.

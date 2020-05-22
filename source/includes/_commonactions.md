@@ -386,9 +386,9 @@ folder = response.json()
 # Manage Files
 This section gives examples for the following:
 Upload a file
-* Initiate multi-chunks upload
-* Chunk upload
-* Download a file
+..* Initiate multi-chunks upload
+..* Chunk upload
+..* Download a file
 
 ## Upload a file
 This example demonstrates how to upload a new file named "MyNewFile.txt" to a previously created folder. 

@@ -127,7 +127,8 @@ https://{hostname}/rest/users/me' \
 ~~~
 
 **Example Response**  
-```curl
+
+~~~curl
 {
     "active": true,
     "basedirId": 3,
@@ -147,9 +148,10 @@ https://{hostname}/rest/users/me' \
     "userTypeId": 1,
     "verified": true
 }  
-```  
+~~~  
 **Example Python Code**  
-```python
+
+~~~python
 import request
 
 access_token = "ca648ba442acfd8fa8a57962bf7fc8233df0d87c"
@@ -164,7 +166,7 @@ headers = {
 url = "https://{hostname}/rest/users/me".format(hostname=hostname)
 response = requests.get(url=url, headers=headers)
 current_user = response.json()  
-```  
+~~~  
 
 # Manage Folders
 This section gives examples for the following:

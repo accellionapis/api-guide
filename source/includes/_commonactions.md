@@ -1,4 +1,4 @@
-  # Common Use Cases
+# Common Use Cases
 ```php
 <?php
 // --- Generic helper function to make CURL calls based on the protocol --- 

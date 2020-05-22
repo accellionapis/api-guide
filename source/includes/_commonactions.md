@@ -127,7 +127,6 @@ https://{hostname}/rest/users/me' \
 ~~~
 
 ### Example Response   
-
 ~~~curl
 {
     "active": true,
@@ -151,7 +150,6 @@ https://{hostname}/rest/users/me' \
 ~~~  
 
 ### Example Python Code  
-
 ~~~python
 import request
 

@@ -174,10 +174,10 @@ current_user = response.json()
 ~~~  
 
 # Manage Folders
-This section gives examples for the following:
-*	Get top level folders
-*	Create a Folder
-*	Get a particular folder  
+This section gives examples for the following:  
+*	Get top level folders  
+*	Create a Folder  
+*	Get a particular folder    
 
 ## Get top level folders
 This example demonstrates how to get a list of top level folders sorted by ascending order of the folder name.

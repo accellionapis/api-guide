@@ -119,7 +119,6 @@ The response is a 200 OK status code. The response body contains a JSON represen
 **Example Request**  
 
 ```curl
-
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
@@ -127,6 +126,7 @@ https://{hostname}/rest/users/me' \
       -H 'Authorization: Bearer {access_token}
 ```  
 **Example Response**  
+
 ```curl
 {
     "active": true,
@@ -149,6 +149,7 @@ https://{hostname}/rest/users/me' \
 }  
 ```  
 **Example Python Code**  
+
 ```python
 import request
 

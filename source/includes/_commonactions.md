@@ -183,6 +183,7 @@ None
 ### Response
 The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.
 **Example Request**
+
 ```curl
 'https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
       -H 'Accept: application/json' \
@@ -191,6 +192,7 @@ The response is a `200 OK` status code. The response body contains an array of J
       -H 'Authorization: Bearer {access_token}'
 ```
 **Example Response**
+
 ```curl
 {
     "data": [
@@ -239,6 +241,7 @@ The response is a `200 OK` status code. The response body contains an array of J
 }
 ```
 **Example Python Code**
+
 ```python
 import requests
 

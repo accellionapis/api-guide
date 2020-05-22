@@ -106,27 +106,26 @@ In the code sample on the right, replace "YOUR-FILE-ID" with one of the file IDs
 You will see the server response with the contents of your file in the 'response' key.
 
 ## Get current user Info
-This example demonstrates how to get a current user’s information.
-### HTTP Method
-GET
-### Request URL
-https://{hostname}/rest/users/me
-### Request Body
-None
-### Response
-The response is a 200 OK status code. The response body contains a JSON representations of the user.  
+This example demonstrates how to get a current user’s information.  
+### HTTP Method  
+GET  
+### Request URL  
+https://{hostname}/rest/users/me  
+### Request Body  
+None  
+### Response  
+The response is a `200 OK` status code. The response body contains a JSON representations of the user.  
 
-**Example Request**  
-
+**Example Request**    
 ```curl
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
-```  
-**Example Response**  
+```
 
+**Example Response**
 ```curl
 {
     "active": true,

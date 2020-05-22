@@ -126,8 +126,6 @@ https://{hostname}/rest/users/me' \
       -H 'Authorization: Bearer {access_token}
 ~~~
 
-
-
 **Example Response**  
 
 ~~~curl
@@ -151,8 +149,6 @@ https://{hostname}/rest/users/me' \
     "verified": true
 }  
 ~~~  
-
-
 
 **Example Python Code**  
 

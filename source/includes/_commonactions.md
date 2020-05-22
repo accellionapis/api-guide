@@ -117,6 +117,7 @@ None
 The response is a `200 OK` status code. The response body contains a JSON representations of the user.  
 
 **Example Request**    
+
 ```curl
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
@@ -126,6 +127,7 @@ https://{hostname}/rest/users/me' \
 ```
 
 **Example Response**
+
 ```curl
 {
     "active": true,

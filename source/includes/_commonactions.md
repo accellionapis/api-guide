@@ -1,4 +1,4 @@
-# Common Use Cases
+  # Common Use Cases
 ```php
 <?php
 // --- Generic helper function to make CURL calls based on the protocol --- 
@@ -116,14 +116,15 @@ None
 ### Response  
 The response is a `200 OK` status code. The response body contains a JSON representations of the user.  
 
-**Example Request**  
-```curl
+**Example Request**   
+
+~~~curl
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
-```
+~~~
 
 **Example Response**  
 ```curl
@@ -265,7 +266,7 @@ https://{hostname}/rest/folders/{folder_id}/folders
 `{
     "name": "MyNewFolder"
 }'
-###Response
+### Response
 If the folder is created successfully, the response is a `201 Created` status code. 
 The response header `X-Accellion-Location` contains the URI that you can use for subsequent requests.
 If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.  

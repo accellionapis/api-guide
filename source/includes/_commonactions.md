@@ -118,6 +118,7 @@ The response is a `200 OK` status code. The response body contains a JSON repres
 
 ### Example Request 
 To view the **Example Request** code, click on the **cURL** tab on the right panel.  
+
 ```shell
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
@@ -128,6 +129,7 @@ https://{hostname}/rest/users/me' \
 
 ### Example Response  
 To view the **Example Response** code, click on the **json** tab on the right panel.  
+
 ```json
 {
     "active": true,
@@ -152,6 +154,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 ### Example Python Code  
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
+
 ```python
 import request
 

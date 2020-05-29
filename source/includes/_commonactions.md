@@ -123,7 +123,8 @@ https://{hostname}/rest/users/me' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
-```
+```  
+
 ### Example Response  
 ```shell
 {

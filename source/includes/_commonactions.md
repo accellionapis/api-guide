@@ -125,10 +125,13 @@ https://{hostname}/rest/users/me' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
-```
-
-
-
+```  
+  
+    
+      
+      
+  
+  
   
 ### Example Response  
 To view the **Example Response** code, click on the **json** tab on the right panel.  

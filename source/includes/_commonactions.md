@@ -174,6 +174,7 @@ current_user = response.json()
 
 # Manage Folders
 This section gives examples for the following:  
+  
 *	Get top level folders  
 *	Create a Folder  
 *	Get a particular folder    
@@ -187,8 +188,9 @@ https://{hostname}/rest/folders/top
 ### Request Body
 None
 ### Response
-The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.
-**Example Request**
+The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.  
+
+**Example Request**  
 To view the **Example Request** code, click on the **cURL** tab on the right panel. 
 
 ```shell
@@ -198,7 +200,8 @@ https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}'
 ```
-**Example Response**
+
+**Example Response**  
 To view the **Example Response** code, click on the **json** tab on the right panel. 
 
 ```json
@@ -248,7 +251,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
     }
 }
 ```
-**Example Python Code**
+
+**Example Python Code**  
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
 
 ```python

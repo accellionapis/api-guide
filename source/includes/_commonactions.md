@@ -127,6 +127,9 @@ https://{hostname}/rest/users/me' \
       -H 'Authorization: Bearer {access_token}
 ```
 
+
+
+  
 ### Example Response  
 To view the **Example Response** code, click on the **json** tab on the right panel.  
 

@@ -126,7 +126,7 @@ https://{hostname}/rest/users/me' \
 ```
 
 ### Example Response  
-```shell
+```json
 {
     "active": true,
     "basedirId": 3,

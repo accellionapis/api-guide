@@ -3,7 +3,7 @@ title: Accellion API Guide
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - php
-  - python
+  - py
   - bash
 
 toc_footers:

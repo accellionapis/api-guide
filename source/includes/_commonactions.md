@@ -98,6 +98,13 @@ $arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_param
 print_r($arr_capi_response);
 ?>
 ```
+```curl
+https://{hostname}/rest/users/me' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Accellion-Version: 15' \
+      -H 'Authorization: Bearer {access_token}
+```
 
 Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the contents of a file.
 
@@ -118,13 +125,7 @@ The response is a `200 OK` status code. The response body contains a JSON repres
 
 ### Example Request
 
-```curl
-https://{hostname}/rest/users/me' \
-      -H 'Accept: application/json' \
-      -H 'Content-Type: application/json' \
-      -H 'X-Accellion-Version: 15' \
-      -H 'Authorization: Bearer {access_token}
-```
+
 
 ### Example Response   
 ```curl

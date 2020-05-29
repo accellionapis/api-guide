@@ -98,6 +98,7 @@ $arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_param
 print_r($arr_capi_response);
 ?>
 ```
+
 ```bash
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \

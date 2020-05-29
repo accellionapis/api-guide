@@ -99,7 +99,7 @@ print_r($arr_capi_response);
 ?>
 ```
 
-```bash
+```shell
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
@@ -129,7 +129,7 @@ The response is a `200 OK` status code. The response body contains a JSON repres
 
 
 ### Example Response   
-```curl
+```shell
 {
     "active": true,
     "basedirId": 3,

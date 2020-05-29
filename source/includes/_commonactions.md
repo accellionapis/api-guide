@@ -98,14 +98,14 @@ $arr_capi_response = jsonCurl($api_end_point, json_encode($postData), $arr_param
 print_r($arr_capi_response);
 ?>
 ```
-```curl
+```bash
 https://{hostname}/rest/users/me' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
 ```
-```python 
+```py 
 ```
 
 Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the contents of a file.

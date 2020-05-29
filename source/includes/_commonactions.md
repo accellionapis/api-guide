@@ -189,17 +189,19 @@ None
 ### Response
 The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.
 **Example Request**
+To view the **Example Request** code, click on the **cURL** tab on the right panel. 
 
-```curl
-'https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
+```shell
+https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}'
 ```
 **Example Response**
+To view the **Example Response** code, click on the **json** tab on the right panel. 
 
-```curl
+```json
 {
     "data": [
         {
@@ -247,6 +249,7 @@ The response is a `200 OK` status code. The response body contains an array of J
 }
 ```
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
 
 ```python
 import requests
@@ -276,8 +279,11 @@ https://{hostname}/rest/folders/{folder_id}/folders
 If the folder is created successfully, the response is a `201 Created` status code. 
 The response header `X-Accellion-Location` contains the URI that you can use for subsequent requests.
 If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.  
+
 **Example Request**
-```curl
+To view the **Example Request** code, click on the **cURL** tab on the right panel. 
+
+```shell
    -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
@@ -286,7 +292,9 @@ If `returnEntity=true` is specified in the query string, the response body conta
    -d '{"name": "MyNewFolder"}'
 ```
 **Example Response**
-```curl
+To view the **Example Response** code, click on the **json** tab on the right panel. 
+
+```json
 {
     "id": 1234,
     "created": "2020-05-15T05:33:19+0000",
@@ -309,6 +317,8 @@ If `returnEntity=true` is specified in the query string, the response body conta
 }
 ```
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
+
 ```python
 import requests
 

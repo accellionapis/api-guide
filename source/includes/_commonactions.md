@@ -99,14 +99,6 @@ print_r($arr_capi_response);
 ?>
 ```
 
-```shell
-https://{hostname}/rest/users/me' \
-      -H 'Accept: application/json' \
-      -H 'Content-Type: application/json' \
-      -H 'X-Accellion-Version: 15' \
-      -H 'Authorization: Bearer {access_token}
-```
-
 Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the contents of a file.
 
 In the code sample on the right, replace "YOUR-FILE-ID" with one of the file IDs returned in the folder listing response (or the ID of any other file you have access to). Also, replace "GET-OAUTH-TOKEN" with the access token retrieved in the [Authentication](#authentication) section, and "YOUR-SERVER.DOMAIN.ORG" with the hostname of your Accellion server.
@@ -124,11 +116,15 @@ None
 ### Response  
 The response is a `200 OK` status code. The response body contains a JSON representations of the user.  
 
-### Example Request
-
-
-
-### Example Response   
+### Example Request  
+```shell
+https://{hostname}/rest/users/me' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -H 'X-Accellion-Version: 15' \
+      -H 'Authorization: Bearer {access_token}
+```
+### Example Response  
 ```shell
 {
     "active": true,

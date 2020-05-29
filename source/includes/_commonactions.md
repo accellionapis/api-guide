@@ -206,7 +206,7 @@ https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
       -H 'Content-Type: application/json' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}'
-```
+```  
 
 **Example Response**  
 To view the **Example Response** code, click on the **json** tab on the right panel. 
@@ -257,7 +257,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
         "offset": 0
     }
 }
-```
+```  
 
 **Example Python Code**  
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
@@ -274,7 +274,7 @@ url = "https://{hostname}/rest/folders/top?orderBy=name%3Aasc".format(hostname=h
 response = requests.get(url=url, headers=headers)
 response_json = response.json()
 folders = response_json["data"]
-```
+```  
 
 ## Create a Folder
 This example demonstrates how to create a new top level folder named "MyNewFolder".  `{folder_id} = 0` means the folder is created at the user's top level.
@@ -289,10 +289,10 @@ https://{hostname}/rest/folders/{folder_id}/folders
 ### Response
 If the folder is created successfully, the response is a `201 Created` status code. 
 The response header `X-Accellion-Location` contains the URI that you can use for subsequent requests.
-If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.  
+If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.
 
-**Example Request**
-To view the **Example Request** code, click on the **cURL** tab on the right panel. 
+**Example Request**  
+To view the **Example Request** code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
@@ -301,9 +301,10 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"name": "MyNewFolder"}'
-```
-**Example Response**
-To view the **Example Response** code, click on the **json** tab on the right panel. 
+```  
+
+**Example Response**  
+To view the **Example Response** code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -326,9 +327,10 @@ To view the **Example Response** code, click on the **json** tab on the right pa
     "maxFolderExpiration": 0,
     "maxFileLifetime": 0
 }
-```
-**Example Python Code**
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
+```  
+
+**Example Python Code**  
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests
@@ -346,7 +348,7 @@ data = {
 }
 response = requests.post(url=url, headers=headers, data=data)
 folder = response.json()
-```
+```  
 
 ## Get a particular folder
 This example demonstrates how to retrieve the folder (MyNewFolder) that you created in the previous example. When you create a new data source, the `dataStreamId` includes a unique identifier (shown as "1234" in these examples). Be sure to use the id from the data source you created.

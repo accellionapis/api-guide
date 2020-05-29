@@ -105,8 +105,6 @@ https://{hostname}/rest/users/me' \
       -H 'X-Accellion-Version: 15' \
       -H 'Authorization: Bearer {access_token}
 ```
-```py 
-```
 
 Next, let's use the **GET /rest/files/{file ID}/content** endpoint to get the contents of a file.
 

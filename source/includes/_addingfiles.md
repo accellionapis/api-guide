@@ -104,7 +104,9 @@ The user can terminate the upload session by calling:
 **NOTES**
 Chunk upload requests requires data transformation, that can hardly be done without code help (split file into chunks, encode file content, create content fingerprint, etc.). The following php script is an example that will generate all needed data for whole chunk upload process for the NORMAL compress mode. The script will generate data for 4 chunks. The script may be upgraded to support different compression modes and chunks amount.
 
-### Generate_chunks_data.php – Download
+### Generate_chunks_data.php – Download  
+
+To view the sample code, click on the **php** tab on the right panel.
 
 ```php
 <?php

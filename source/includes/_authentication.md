@@ -6,7 +6,9 @@ Accellion offers Signature Authorization flow for **trusted** apps where user in
 
 <aside class="warning">
 Apps using Signature Authorization flow can access any user's content, simply by specifying their email address. As such, these apps should only be accessible by trusted employees with high security clearance.
-</aside>
+</aside>  
+
+To view the sample code, click on the **php** tab on the right panel.
 
 
 ```php

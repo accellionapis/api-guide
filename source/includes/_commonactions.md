@@ -359,18 +359,24 @@ https://{hostname}/rest/folders/{folder_id}
 ### Request Body
 None
 ### Response
-If the data source exists, the response is a `200 OK` status code. The response body contains a JSON representation of the data source.
-**Example Request**
-```curl
+If the data source exists, the response is a `200 OK` status code. The response body contains a JSON representation of the data source.  
+
+**Example Request**  
+To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+
+```shell
    -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"name": "MyNewFolder"}'
-```
-**Example Response**
-```curl
+```  
+
+**Example Response**  
+To view the **Example Response** code, click on the **json** tab on the right panel.   
+
+```json
 {
     "id": 1234,
     "created": "2020-05-15T05:33:19+0000",
@@ -391,8 +397,11 @@ If the data source exists, the response is a `200 OK` status code. The response 
     "maxFolderExpiration": 0,
     "maxFileLifetime": 0
 }
-```
+```  
+
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+
 ```python
 import requests
 
@@ -414,14 +423,15 @@ folder = response.json()
 # Manage Files
 This section gives examples for the following:
 Upload a file
-..* Initiate multi-chunks upload
-..* Chunk upload
-..* Download a file
+
+* Initiate multi-chunks upload
+* Chunk upload
+* Download a file
 
 ## Upload a file
 This example demonstrates how to upload a new file named "MyNewFile.txt" to a previously created folder. 
 You must initiate a multi-chunks Upload before you can upload any part. In response of your initiated request, the API will return an upload URI that you must include in the upload as part of the request.
-In this example, a file 'MyNewFile.txt' will be uploaded in 2 chunks with 1KB in each chunk (the user can choose their own chunk size).
+In this example, a file 'MyNewFile.txt' will be uploaded in 2 chunks with 1KB in each chunk (the user can choose their own chunk size).  
 ## Initiate multi-chunks upload
 ### HTTP Method
 POST
@@ -440,17 +450,22 @@ totalChunks - the total number of chunks
 If the upload is initiated successfully, the response is a `201 Created` status code. 
 The response body contains a JSON representation of the chunk upload info, including a `uri` property (dacfs_upload1/rest/uploads/7890 in this sample request) that you can use as the upload URI for subsequent requests.
 
-**Example Request**
-```curl
+**Example Request**  
+To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+
+```shell
    -X POST 'https://{hostname}/rest/folders/1234/actions/initiateUpload' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"filename": "MyNewFile.txt", "totalSize": 2048, totalChunks': 2}'
-```
-**Example Response**
-```curl
+```  
+
+**Example Response**  
+To view the **Example Response** code, click on the **json** tab on the right panel.   
+
+```json
 {
     "error": "OK",
     "totalSize": 2048,
@@ -470,8 +485,11 @@ The response body contains a JSON representation of the chunk upload info, inclu
     "replaceId": null,
     "backend": "acfs"
 }
-```
+```  
+
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+
 ```python
 import requests
 import os
@@ -527,10 +545,13 @@ index - The index of the file.
 }`
 ### Response
 If the individual chunk is completed, the response is a `200 OK` status code.  Once the whole multi-chunks upload is completed successfully, the response is a `201 Created` status code.
-The response body contains a JSON representation of the chunk upload info, including a uri property (dacfs_upload1/rest/uploads/7890 in this sample request) that you can use as the URI for subsequent requests.
+The response body contains a JSON representation of the chunk upload info, including a uri property (dacfs_upload1/rest/uploads/7890 in this sample request) that you can use as the URI for subsequent requests.  
+
 **Example Request**
-Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand not the actual full file.
-```curl
+Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand not the actual full file.  
+To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+
+```shell
    -X POST 'https://{hostname}/dacfs_upload1/rest/uploads/7890?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'X-Accellion-Version: 15' \
@@ -540,9 +561,12 @@ Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand n
    -F 'originalSize=1024' \
    -F 'index=1' \
    -F 'content=@/tmp/MyNewFile.txt_chunk_1'
-```
+```  
+
 **Example Response (chunk)**
-```curl
+To view the **Example Response** code, click on the **json** tab on the right panel.   
+
+```json
 {
     "error": "OK",
     "totalSize": 2048,
@@ -562,9 +586,12 @@ Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand n
     "replaceId": null,
     "backend": "acfs"
 }
-```
+```  
+
 **Example Response (Final chunk)** 
-```curl
+To view the **Example Response** code, click on the **json** tab on the right panel.   
+
+```json
 {
     "locked": false,
     "description": "",
@@ -585,8 +612,11 @@ Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand n
     "id": 1240,
     "size": 2048
 }
-```
+```  
+
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+
 ```python
 class FileLimiter(object):
 
@@ -618,8 +648,11 @@ with open(upload_file_path, "rb") as fn:
             file_obj = response.json()
 
 return file_obj
-```
+```  
+
 **Example whole multi-chunks**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+
 ```python
 import requests
 import os
@@ -683,7 +716,8 @@ with open(upload_file_path, "rb") as fn:
 return file_obj
 ```
 # Manage Mail
-This section gives examples for the following:
+This section gives examples for the following:  
+
 * Send a mail with files
 *	Send mail
 ## Send a Mail with Files
@@ -706,18 +740,24 @@ draft - 1 means create a draft mail. 0 - send the mail directly
 }`
 ### Response
 If the upload is initiated successfully, the response is a `201 Created` status code.
-The response body contains a JSON representation of the mail, including a id property (256 in this sample request) that you can use as the mail ID for subsequent requests.
+The response body contains a JSON representation of the mail, including a id property (256 in this sample request) that you can use as the mail ID for subsequent requests.  
+
 **Example Request**
-```curl
+To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+
+```shell
    -X POST 'https://{hostname}/rest/mail/actions/sendFile?returnEntity=true' \
    -H 'Accept: application/json' \
    -H 'Content-Type: application/json' \
    -H 'X-Accellion-Version: 15' \
    -H 'Authorization: Bearer {access_token}' \
    -d '{"to": ["user1@email.com", "user2@email.com"], "files": [1240], "subject": "Test mail subject", "body": "Test mail body", "draft": 0}'
-```
+```  
+
 **Example Response**
-```python
+To view the **Example Response** code, click on the **json** tab on the right panel.   
+
+```json
 {
     "emailPackageId": 197,
     "isRead": false,
@@ -790,8 +830,11 @@ The response body contains a JSON representation of the mail, including a id pro
     "status": "queued",
     "watermark": null
 }
-```
+```  
+
 **Example Python Code**
+To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+
 ```python
 import requests
  

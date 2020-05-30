@@ -7,9 +7,11 @@
 
 **Endpoint** - An endpoint is just a reference to a URI that accepts HTTP requests (for example, in https://meowworks.accellion.net/rest/users/me is an **endpoint**).  Endpoints and resources are very similar, but the **endpoint** is the entire **URI**.
 
-**Flow** - The flow refers to the **authentication flow** used by the client application.  This is typically **Authorization Code**** or **Signature Based Authorization Code** or **SAML 2.0** (SAML 2.0 is less commonly used).  In the API Playground, there are more flows available when you click **Get Token** however these are **not available** to be used and have not been implemented.  
-*	Authorization code: standard OAuth 2.0, consent and code redemption process
-*	Signature Based Authorization Code: use this flow with the application can verify the identity of the user. This should only be used for trusted applications.
+**Flow** - The flow refers to the **authentication flow** used by the client application.  This is typically **Authorization Code** or **Signature Based Authorization Code** or **SAML 2.0** (SAML 2.0 is less commonly used).  In the API Playground, there are more flows available when you click **Get Token** however these are **not available** to be used and have not been implemented. 
+
+*	Authorization code: standard OAuth 2.0, consent and code redemption process.
+*	Signature Based Authorization Code: use this flow with the application can verify the identity of the user. This should only be used for trusted applications.  
+
 **OAuth Playground** - The API playground is a sample client that also serves as "documentation" for our API endpoints.  It allows an application admin to test out API calls, and see how they work - what the **resource** is, **HTTP method**, as well as the required **parameters**. 
 
 **Parameters** - Each **API call** has a set of required and/or optional **parameters** which tell the server information about the resource that is being accessed.  For instance, when using /rest/users/{id} a required parameter is user ID (in order to look up a specific user) which can be obtained with another **GET** call (GET /rest/users) that returns a list of users and their user IDs.

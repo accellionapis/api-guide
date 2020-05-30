@@ -33,7 +33,9 @@ The following examples make use of the access token received in the [Authenticat
 
 On the right, we have a helper function that makes the actual HTTP call to the Accellion server. It takes in the endpoint URL, input data in the form of JSON and HTTP parameters in an array.
 
-This function will be used in the following code samples for different use cases.
+This function will be used in the following code samples for different use cases.  
+
+To view the sample code, click on the **php** tab on the right panel. 
 
 ## List folder contents
 ```php
@@ -117,7 +119,7 @@ None
 The response is a `200 OK` status code. The response body contains a JSON representations of the user.  
 
 ### Example Request 
-To view the **Example Request** code, click on the **cURL** tab on the right panel.  
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.  
 
 ```shell
 https://{hostname}/rest/users/me' \
@@ -135,7 +137,7 @@ https://{hostname}/rest/users/me' \
     
   
 ### Example Response  
-To view the **Example Response** code, click on the **json** tab on the right panel.  
+To view the **Example Response** sample code, click on the **json** tab on the right panel.  
 
 ```json
 {
@@ -160,7 +162,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 ```  
 
 ### Example Python Code  
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.  
 
 ```python
 import request
@@ -198,7 +200,7 @@ None
 The response is a `200 OK` status code. The response body contains an array of JSON representations of the folder.  
 
 **Example Request**  
-To view the **Example Request** code, click on the **cURL** tab on the right panel. 
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel. 
 
 ```shell
 https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
@@ -209,7 +211,7 @@ https://{hostname}/rest/folders/top?orderBy=name%3Aasc' \
 ```  
 
 **Example Response**  
-To view the **Example Response** code, click on the **json** tab on the right panel. 
+To view the **Example Response** sample code, click on the **json** tab on the right panel. 
 
 ```json
 {
@@ -260,7 +262,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 ```  
 
 **Example Python Code**  
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.  
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.  
 
 ```python
 import requests
@@ -292,7 +294,7 @@ The response header `X-Accellion-Location` contains the URI that you can use for
 If `returnEntity=true` is specified in the query string, the response body contains a JSON representation of the data source, including a `id` property that you can use as the data source ID for subsequent requests.
 
 **Example Request**  
-To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
@@ -304,7 +306,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 ```  
 
 **Example Response**  
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -330,7 +332,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 ```  
 
 **Example Python Code**  
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests
@@ -362,7 +364,7 @@ None
 If the data source exists, the response is a `200 OK` status code. The response body contains a JSON representation of the data source.  
 
 **Example Request**  
-To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/rest/folders/0/folders?returnEntity=true' \
@@ -374,7 +376,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 ```  
 
 **Example Response**  
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -401,7 +403,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 **Example Python Code**  
 
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests
@@ -453,7 +455,7 @@ The response body contains a JSON representation of the chunk upload info, inclu
 
 **Example Request**  
 
-To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/rest/folders/1234/actions/initiateUpload' \
@@ -466,7 +468,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 
 **Example Response**  
 
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -492,7 +494,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 **Example Python Code**  
 
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests
@@ -553,7 +555,7 @@ The response body contains a JSON representation of the chunk upload info, inclu
 
 **Example Request**
 Please note that the chunk /tmp/MyNewFile.txt_chunk_1 was generated beforehand not the actual full file.  
-To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/dacfs_upload1/rest/uploads/7890?returnEntity=true' \
@@ -569,7 +571,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 
 **Example Response (chunk)**  
 
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -595,7 +597,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 **Example Response (Final chunk)**  
 
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -622,7 +624,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 **Example Python Code**  
 
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 class FileLimiter(object):
@@ -659,7 +661,7 @@ return file_obj
 
 **Example whole multi-chunks**  
 
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests
@@ -756,7 +758,7 @@ The response body contains a JSON representation of the mail, including a id pro
 
 **Example Request**  
 
-To view the **Example Request** code, click on the **cURL** tab on the right panel.   
+To view the **Example Request** sample code, click on the **cURL** tab on the right panel.   
 
 ```shell
    -X POST 'https://{hostname}/rest/mail/actions/sendFile?returnEntity=true' \
@@ -769,7 +771,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 
 **Example Response**  
 
-To view the **Example Response** code, click on the **json** tab on the right panel.   
+To view the **Example Response** sample code, click on the **json** tab on the right panel.   
 
 ```json
 {
@@ -848,7 +850,7 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 
 **Example Python Code**  
 
-To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
+To view the **Example Python Code** sample code, click on the **Python** tab on the right panel.    
 
 ```python
 import requests

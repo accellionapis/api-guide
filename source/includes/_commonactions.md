@@ -399,7 +399,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 }
 ```  
 
-**Example Python Code**
+**Example Python Code**  
+
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python
@@ -451,6 +452,7 @@ If the upload is initiated successfully, the response is a `201 Created` status 
 The response body contains a JSON representation of the chunk upload info, including a `uri` property (dacfs_upload1/rest/uploads/7890 in this sample request) that you can use as the upload URI for subsequent requests.
 
 **Example Request**  
+
 To view the **Example Request** code, click on the **cURL** tab on the right panel.   
 
 ```shell
@@ -463,6 +465,7 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
 ```  
 
 **Example Response**  
+
 To view the **Example Response** code, click on the **json** tab on the right panel.   
 
 ```json
@@ -487,7 +490,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 }
 ```  
 
-**Example Python Code**
+**Example Python Code**  
+
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python
@@ -563,7 +567,8 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
    -F 'content=@/tmp/MyNewFile.txt_chunk_1'
 ```  
 
-**Example Response (chunk)**
+**Example Response (chunk)**  
+
 To view the **Example Response** code, click on the **json** tab on the right panel.   
 
 ```json
@@ -722,15 +727,19 @@ return file_obj
 This section gives examples for the following:  
 
 * Send a mail with files
-*	Send mail
+*	Send mail  
+
 ## Send a Mail with Files
-This example demonstrates how to send a mail with an uploaded file to "user1@email.com", "user2@email.com".
-## Send mail
-### HTTP Method
+This example demonstrates how to send a mail with an uploaded file to "user1@email.com", "user2@email.com".  
+
+## Send mail  
+
+### HTTP Method  
+
 POST
-### Request URL
+### Request URL  
 https://{hostname}/rest/mail/actions/sendFile
-### Request Body
+### Request Body  
 draft - 1 means create a draft mail. 0 - send the mail directly
 `{
     "to": ["user1@email.com", "user2@email.com"],
@@ -740,7 +749,7 @@ draft - 1 means create a draft mail. 0 - send the mail directly
     "subject": "Test mail subject",
     "body": "Test mail body",
     "draft": 0
-}`
+}`  
 ### Response
 If the upload is initiated successfully, the response is a `201 Created` status code.
 The response body contains a JSON representation of the mail, including a id property (256 in this sample request) that you can use as the mail ID for subsequent requests.  

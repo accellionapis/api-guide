@@ -588,7 +588,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 }
 ```  
 
-**Example Response (Final chunk)** 
+**Example Response (Final chunk)**  
+
 To view the **Example Response** code, click on the **json** tab on the right panel.   
 
 ```json
@@ -614,7 +615,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 }
 ```  
 
-**Example Python Code**
+**Example Python Code**  
+
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python
@@ -650,7 +652,8 @@ with open(upload_file_path, "rb") as fn:
 return file_obj
 ```  
 
-**Example whole multi-chunks**
+**Example whole multi-chunks**  
+
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python
@@ -742,7 +745,8 @@ draft - 1 means create a draft mail. 0 - send the mail directly
 If the upload is initiated successfully, the response is a `201 Created` status code.
 The response body contains a JSON representation of the mail, including a id property (256 in this sample request) that you can use as the mail ID for subsequent requests.  
 
-**Example Request**
+**Example Request**  
+
 To view the **Example Request** code, click on the **cURL** tab on the right panel.   
 
 ```shell
@@ -754,7 +758,8 @@ To view the **Example Request** code, click on the **cURL** tab on the right pan
    -d '{"to": ["user1@email.com", "user2@email.com"], "files": [1240], "subject": "Test mail subject", "body": "Test mail body", "draft": 0}'
 ```  
 
-**Example Response**
+**Example Response**  
+
 To view the **Example Response** code, click on the **json** tab on the right panel.   
 
 ```json
@@ -832,7 +837,8 @@ To view the **Example Response** code, click on the **json** tab on the right pa
 }
 ```  
 
-**Example Python Code**
+**Example Python Code**  
+
 To view the **Example Python Code** code, click on the **Python** tab on the right panel.    
 
 ```python

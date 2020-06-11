@@ -6,6 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python: Python
   - shell: cURL
   - json
+  - javascript
 
 toc_footers:
   - <a href='https://info.accellion.com/demo-request?ref=api-guide-nav'>GET A DEMO</a>
